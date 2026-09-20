@@ -145,6 +145,42 @@
           "data": "data/lactancia/2023/data.csv"
         }
       }
+    },
+    "alimentos": {
+      "title": "Nutrición",
+      "status": "mvp",
+      "years": {
+        "2018": {
+          "meta": "data/alimentos/2018/meta.json",
+          "summary": "data/alimentos/2018/summary.json",
+          "texto": "data/alimentos/2018/texto.txt",
+          "data": "data/alimentos/2018/data.csv"
+        },
+        "2020": {
+          "meta": "data/alimentos/2020/meta.json",
+          "summary": "data/alimentos/2020/summary.json",
+          "texto": "data/alimentos/2020/texto.txt",
+          "data": "data/alimentos/2020/data.csv"
+        },
+        "2021": {
+          "meta": "data/alimentos/2021/meta.json",
+          "summary": "data/alimentos/2021/summary.json",
+          "texto": "data/alimentos/2021/texto.txt",
+          "data": "data/alimentos/2021/data.csv"
+        },
+        "2022": {
+          "meta": "data/alimentos/2022/meta.json",
+          "summary": "data/alimentos/2022/summary.json",
+          "texto": "data/alimentos/2022/texto.txt",
+          "data": "data/alimentos/2022/data.csv"
+        },
+        "2023": {
+          "meta": "data/alimentos/2023/meta.json",
+          "summary": "data/alimentos/2023/summary.json",
+          "texto": "data/alimentos/2023/texto.txt",
+          "data": "data/alimentos/2023/data.csv"
+        }
+      }
     }
   }
 }

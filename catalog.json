@@ -5,7 +5,7 @@
   "source_url": "https://ensanut.insp.mx/",
   "zenodo_doi": "10.5281/zenodo.14460946",
   "zenodo_url": "https://doi.org/10.5281/zenodo.14460946",
-  "mvp_modules": ["salud", "antropometria", "bio", "actfis", "lactancia"],
+  "mvp_modules": ["salud", "antropometria", "bio", "actfis", "lactancia", "alimentos"],
   "demographic_columns": ["Sexo", "Edad", "Entidad", "Region", "Estrato", "ESTRATO"],
   "modules": {
     "salud": {
@@ -122,11 +122,11 @@
       "subtitle": "Porciones semanales por grupo alimenticio",
       "icon": "utensils",
       "color": "#f39c12",
-      "status": "planned",
+      "status": "mvp",
       "source_dir": "ENSANUT_ALIMENTOS",
       "data_file": "Nutricion.csv",
       "years": [2018, 2020, 2021, 2022, 2023],
-      "population": "Todas las edades",
+      "population": "Todas las edades (porciones semanales por grupo alimenticio)",
       "variables": {
         "continuous": [
           "Edad", "bebidas", "carnes", "cereales", "com_rapida", "dulces",

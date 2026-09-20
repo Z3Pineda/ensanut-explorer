@@ -1,0 +1,5 @@
+En la siguiente tabla encontrarás una descripción general y estructurada de algunos de los datos correspondientes a NUTRICIÓN, recopilados en la Encuesta Nacional de Salud y Nutrición (ENSANUT) 2021.
+
+Se incluye información sobre las variables en acuerdo con las bases de datos oficiales alojadas en https://ensanut.insp.mx/. 
+
+En la siguiente sección, utiliza las opciones disponibles para seleccionar las categorías de tu interés y generar gráficos que facilitarán la interpretación. 

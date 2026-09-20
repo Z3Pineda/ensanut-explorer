@@ -95,6 +95,24 @@ BIO_LABELS: dict[str, str] = {
     "Trigliceridos": "Triglicéridos",
 }
 
+# Nutrición — sin catálogo JSON oficial del INSP en ZENODO_JSON
+ALIMENTOS_LABELS: dict[str, str] = {
+    "bebidas": "Porciones semanales de bebidas",
+    "carnes": "Porciones semanales de carnes",
+    "cereales": "Porciones semanales de cereales",
+    "com_rapida": "Porciones semanales de comida rápida",
+    "dulces": "Porciones semanales de dulces y postres",
+    "frutas": "Porciones semanales de frutas",
+    "lacteos": "Porciones semanales de lácteos",
+    "leguminosas": "Porciones semanales de leguminosas",
+    "miscelaneos": "Porciones semanales de alimentos misceláneos",
+    "pescado": "Porciones semanales de pescado y mariscos",
+    "prod_maiz": "Porciones semanales de productos de maíz",
+    "sopas": "Porciones semanales de sopas",
+    "verduras": "Porciones semanales de verduras",
+    "Edad": "Edad en años cumplidos",
+}
+
 # Parámetro JSON correcto cuando description.csv / Nombre_corto INSP asigna mal
 COLUMN_JSON_PARAM: dict[str, str] = {
     "TR_medicamento": "p6_7_1",
@@ -114,6 +132,9 @@ def clean_label(raw: str | None, fallback: str) -> str:
 
 
 def normalize_dataframe(df: pd.DataFrame) -> pd.DataFrame:
+    drop = [c for c in df.columns if str(c).startswith("Unnamed")]
+    if drop:
+        df = df.drop(columns=drop)
     rename: dict[str, str] = {}
     if "estrato" in df.columns and "Estrato" not in df.columns:
         rename["estrato"] = "Estrato"
@@ -237,9 +258,18 @@ def parse_description_json(path: Path) -> tuple[dict[str, dict], dict[str, dict]
 
 
 def find_description_json(source_dir: str, year: int) -> Path | None:
-    for base in (ROOT / source_dir, ZENODO_JSON / source_dir):
+    bases = (
+        ROOT / source_dir,
+        ZENODO_JSON / source_dir,
+        ROOT / "ZENODO_RELEASE" / source_dir,
+    )
+    for base in bases:
         path = base / str(year) / "description.json"
         if path.exists():
+            return path
+    release = ROOT / "ZENODO_RELEASE" / source_dir
+    if release.is_dir():
+        for path in sorted(release.glob("*/description.json")):
             return path
     return None
 
@@ -273,6 +303,8 @@ def merge_desc_meta(
 
         if col in BIO_LABELS:
             entry["label"] = BIO_LABELS[col]
+        elif col in ALIMENTOS_LABELS:
+            entry["label"] = ALIMENTOS_LABELS[col]
 
         if col == "Entidad":
             entry["values"] = dict(ENTIDAD_VALUES)
@@ -327,6 +359,8 @@ def build_meta(
             entry["values"] = info["values"]
         if entry["type"] == "categorical" and "values" not in entry and col in STANDARD_VALUES:
             entry["values"] = STANDARD_VALUES[col]
+        if module_cfg["id"] == "alimentos" and col in ALIMENTOS_LABELS and col != "Edad":
+            entry["unit"] = "porciones/semana"
         columns[col] = entry
     return {
         "module": module_cfg["id"],

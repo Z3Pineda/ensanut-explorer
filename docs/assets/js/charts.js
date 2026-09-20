@@ -99,6 +99,10 @@ function renderHistogram(el, variable, metaCol, block) {
   }
   const centers = hist.bin_edges.slice(0, -1).map((e, i) => (e + hist.bin_edges[i + 1]) / 2);
 
+  const xTitle = metaCol?.unit
+    ? `${metaCol.label || variable} (${metaCol.unit})`
+    : metaCol?.label || variable;
+
   Plotly.newPlot(
     el,
     [{
@@ -109,7 +113,7 @@ function renderHistogram(el, variable, metaCol, block) {
     }],
     {
       margin: { t: 24, r: 16, b: 48, l: 48 },
-      xaxis: { title: metaCol?.label || variable },
+      xaxis: { title: xTitle },
       yaxis: { title: "Frecuencia" },
     },
     { responsive: true, displayModeBar: false }

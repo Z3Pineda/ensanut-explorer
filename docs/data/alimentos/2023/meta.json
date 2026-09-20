@@ -1,0 +1,140 @@
+{
+  "module": "alimentos",
+  "year": 2023,
+  "source": "ENSANUT 2023 — Nutricion.csv",
+  "population": "Todas las edades (porciones semanales por grupo alimenticio)",
+  "rows": 3356,
+  "columns": {
+    "bebidas": {
+      "label": "Porciones semanales de bebidas",
+      "type": "continuous",
+      "ensanut_param": "bebidas",
+      "unit": "porciones/semana"
+    },
+    "carnes": {
+      "label": "Porciones semanales de carnes",
+      "type": "continuous",
+      "ensanut_param": "carnes",
+      "unit": "porciones/semana"
+    },
+    "cereales": {
+      "label": "Porciones semanales de cereales",
+      "type": "continuous",
+      "ensanut_param": "cereales",
+      "unit": "porciones/semana"
+    },
+    "com_rapida": {
+      "label": "Porciones semanales de comida rápida",
+      "type": "continuous",
+      "ensanut_param": "com_rapida",
+      "unit": "porciones/semana"
+    },
+    "dulces": {
+      "label": "Porciones semanales de dulces y postres",
+      "type": "continuous",
+      "ensanut_param": "dulces",
+      "unit": "porciones/semana"
+    },
+    "frutas": {
+      "label": "Porciones semanales de frutas",
+      "type": "continuous",
+      "ensanut_param": "frutas",
+      "unit": "porciones/semana"
+    },
+    "lacteos": {
+      "label": "Porciones semanales de lácteos",
+      "type": "continuous",
+      "ensanut_param": "lacteos",
+      "unit": "porciones/semana"
+    },
+    "leguminosas": {
+      "label": "Porciones semanales de leguminosas",
+      "type": "continuous",
+      "ensanut_param": "leguminosas",
+      "unit": "porciones/semana"
+    },
+    "miscelaneos": {
+      "label": "Porciones semanales de alimentos misceláneos",
+      "type": "continuous",
+      "ensanut_param": "miscelaneos",
+      "unit": "porciones/semana"
+    },
+    "pescado": {
+      "label": "Porciones semanales de pescado y mariscos",
+      "type": "continuous",
+      "ensanut_param": "pescado",
+      "unit": "porciones/semana"
+    },
+    "prod_maiz": {
+      "label": "Porciones semanales de productos de maíz",
+      "type": "continuous",
+      "ensanut_param": "prod_maiz",
+      "unit": "porciones/semana"
+    },
+    "sopas": {
+      "label": "Porciones semanales de sopas",
+      "type": "continuous",
+      "ensanut_param": "sopas",
+      "unit": "porciones/semana"
+    },
+    "verduras": {
+      "label": "Porciones semanales de verduras",
+      "type": "continuous",
+      "ensanut_param": "verduras",
+      "unit": "porciones/semana"
+    },
+    "Edad": {
+      "label": "Edad en años cumplidos",
+      "type": "continuous",
+      "ensanut_param": "Edad"
+    },
+    "Sexo": {
+      "label": "Sexo",
+      "type": "categorical",
+      "ensanut_param": "Sexo",
+      "values": {
+        "1": "Hombre",
+        "2": "Mujer"
+      }
+    },
+    "Entidad": {
+      "label": "Entidad federativa",
+      "type": "categorical",
+      "ensanut_param": "Entidad",
+      "values": {
+        "1": "Aguascalientes",
+        "2": "Baja California",
+        "3": "Baja California Sur",
+        "4": "Campeche",
+        "5": "Chiapas",
+        "6": "Chihuahua",
+        "7": "Ciudad de México",
+        "8": "Coahuila",
+        "9": "Colima",
+        "10": "Durango",
+        "11": "Guanajuato",
+        "12": "Guerrero",
+        "13": "Hidalgo",
+        "14": "Jalisco",
+        "15": "Estado de México",
+        "16": "Michoacán",
+        "17": "Morelos",
+        "18": "Nayarit",
+        "19": "Nuevo León",
+        "20": "Oaxaca",
+        "21": "Puebla",
+        "22": "Querétaro",
+        "23": "Quintana Roo",
+        "24": "San Luis Potosí",
+        "25": "Sinaloa",
+        "26": "Sonora",
+        "27": "Tabasco",
+        "28": "Tamaulipas",
+        "29": "Tlaxcala",
+        "30": "Veracruz",
+        "31": "Yucatán",
+        "32": "Zacatecas"
+      }
+    }
+  }
+}
