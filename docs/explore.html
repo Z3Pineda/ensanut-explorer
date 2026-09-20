@@ -23,7 +23,7 @@
         <label for="sel-module">Módulo</label>
         <select id="sel-module"></select>
       </div>
-      <div class="field" id="field-year">
+      <div class="field">
         <label for="sel-year">Año</label>
         <select id="sel-year"></select>
       </div>
@@ -38,20 +38,11 @@
           <option value="Sexo">Barras por sexo</option>
           <option value="Region">Barras por región</option>
           <option value="Entidad">Mapa por entidad</option>
-          <option value="timeseries">Serie temporal</option>
         </select>
       </div>
       <div class="field" id="field-map-code" hidden>
-        <label for="sel-map-code">Categoría a graficar</label>
+        <label for="sel-map-code">Categoría en mapa</label>
         <select id="sel-map-code"></select>
-      </div>
-      <div class="field" id="field-series-group" hidden>
-        <label for="sel-series-group">Líneas por</label>
-        <select id="sel-series-group">
-          <option value="">Total nacional</option>
-          <option value="Sexo">Sexo</option>
-          <option value="Region">Región</option>
-        </select>
       </div>
     </aside>
 
@@ -80,6 +71,15 @@
       </dl>
     </aside>
   </div>
+
+  <footer class="site-footer">
+    <p>
+      Datos procesados:
+      <a href="https://doi.org/10.5281/zenodo.14460946" target="_blank" rel="noopener">10.5281/zenodo.14460946</a>
+      · Fuente:
+      <a href="https://ensanut.insp.mx/" target="_blank" rel="noopener">ensanut.insp.mx</a>
+    </p>
+  </footer>
 
   <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
   <script type="module" src="assets/js/app.js"></script>

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Acerca de — ENSANUT Explorer</title>
   <link rel="stylesheet" href="assets/css/main.css">
+  <meta name="citation_doi" content="10.5281/zenodo.14460946">
 </head>
 <body>
   <header class="site-header">
@@ -31,12 +32,18 @@
       Este sitio no sustituye las bases oficiales.
     </p>
 
+    <h3>Conjunto de datos procesado (Zenodo)</h3>
+    <p>
+      Los CSV y metadatos que alimentan este explorador están archivados en Zenodo:
+      <a href="https://doi.org/10.5281/zenodo.14460946" target="_blank" rel="noopener">doi.org/10.5281/zenodo.14460946</a>
+    </p>
+
     <h3>Procesamiento</h3>
     <ul>
       <li>Selección de variables por módulo temático</li>
       <li>Renombrado de columnas a nombres cortos legibles</li>
       <li>Generación de identificadores únicos (<code>ID</code>)</li>
-      <li>Metadatos derivados de los catálogos ENSANUT (<code>*.Catlogo.xlsx</code>)</li>
+      <li>Metadatos derivados de los catálogos ENSANUT (<code>description.json</code>)</li>
       <li>Agregados precomputados para visualización en el navegador</li>
     </ul>
 
@@ -46,10 +53,26 @@
     </p>
 
     <h3>Citación sugerida</h3>
-    <blockquote>
+    <p><strong>Datos procesados (este explorador):</strong></p>
+    <blockquote class="citation">
+      Pineda Rico, Z. (2024). Health, anthropometry, blood, physical activity, breastfeeding and nutrition datasets from ENSANUT (2018–2023) [Dataset]. Zenodo.
+      <a href="https://doi.org/10.5281/zenodo.14460946" target="_blank" rel="noopener">https://doi.org/10.5281/zenodo.14460946</a>
+    </blockquote>
+    <p><strong>Fuente original ENSANUT:</strong></p>
+    <blockquote class="citation">
       Instituto Nacional de Salud Pública. Encuesta Nacional de Salud y Nutrición (ENSANUT).
-      México. Consultado en ensanut.insp.mx.
+      México. Consultado en
+      <a href="https://ensanut.insp.mx/" target="_blank" rel="noopener">ensanut.insp.mx</a>.
     </blockquote>
   </main>
+
+  <footer class="site-footer">
+    <p>
+      Datos procesados:
+      <a href="https://doi.org/10.5281/zenodo.14460946" target="_blank" rel="noopener">10.5281/zenodo.14460946</a>
+      · Fuente:
+      <a href="https://ensanut.insp.mx/" target="_blank" rel="noopener">ensanut.insp.mx</a>
+    </p>
+  </footer>
 </body>
 </html>

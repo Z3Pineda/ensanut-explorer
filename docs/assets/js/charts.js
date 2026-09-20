@@ -1,54 +1,17 @@
 import { labelForValue, sortCodes } from "./utils.js";
 import { renderEntidadMap } from "./maps.js";
-import { buildTimeSeries, renderTimeSeriesChart, ensurePlotly } from "./timeseries.js";
 
-export async function renderChart(
-  containerId,
-  variable,
-  metaCol,
-  summaryBlock,
-  splitBy,
-  meta,
-  mapCode,
-  seriesOpts = {}
-) {
+export async function renderChart(containerId, variable, metaCol, summaryBlock, splitBy, meta, mapCode) {
   const el = document.getElementById(containerId);
-  if (!el) return;
-
-  await ensurePlotly();
-
-  if (splitBy === "timeseries") {
-    const { module, years, seriesGroup } = seriesOpts;
-    if (!module || !years?.length) {
-      el.innerHTML = "<p style='padding:1rem'>Serie temporal no disponible.</p>";
-      return;
-    }
-    try {
-      const seriesData = await buildTimeSeries(
-        module,
-        years,
-        variable,
-        metaCol,
-        mapCode,
-        seriesGroup || "",
-        meta
-      );
-      await renderTimeSeriesChart(containerId, seriesData, metaCol, mapCode);
-    } catch (err) {
-      el.innerHTML = `<p style='padding:1rem;color:#b91c1c'>Error serie temporal: ${err.message}</p>`;
-    }
-    return;
-  }
-
-  if (!window.Plotly) return;
+  if (!el || !window.Plotly) return;
 
   if (splitBy === "Entidad" && summaryBlock.by_Entidad) {
-    const isContinuous = metaCol.type === "continuous";
+    const isContinuous = metaCol?.type === "continuous";
     await renderEntidadMap(containerId, metaCol, summaryBlock, mapCode, isContinuous);
     return;
   }
 
-  if (metaCol.type === "continuous") {
+  if (metaCol?.type === "continuous") {
     renderHistogram(el, variable, metaCol, summaryBlock);
     return;
   }
@@ -57,7 +20,7 @@ export async function renderChart(
   if (key && summaryBlock[key]) {
     renderGroupedBars(el, variable, summaryBlock[key], splitBy, meta);
   } else {
-    renderSimpleBars(el, variable, summaryBlock.overall, metaCol);
+    renderSimpleBars(el, variable, summaryBlock.overall ?? {}, metaCol);
   }
 }
 
@@ -118,7 +81,7 @@ function renderGroupedBars(el, variable, byGroup, splitCol, meta) {
 function renderHistogram(el, variable, metaCol, block) {
   const hist = block.histogram;
   if (!hist) {
-    el.innerHTML = "<p>Sin datos de distribución.</p>";
+    el.innerHTML = "<p style='padding:1rem'>Sin datos de distribución para esta variable.</p>";
     return;
   }
   const centers = hist.bin_edges.slice(0, -1).map((e, i) => (e + hist.bin_edges[i + 1]) / 2);
@@ -133,7 +96,7 @@ function renderHistogram(el, variable, metaCol, block) {
     }],
     {
       margin: { t: 24, r: 16, b: 48, l: 48 },
-      xaxis: { title: metaCol.label || variable },
+      xaxis: { title: metaCol?.label || variable },
       yaxis: { title: "Frecuencia" },
     },
     { responsive: true, displayModeBar: false }

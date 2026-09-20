@@ -67,6 +67,60 @@
           "data": "data/antropometria/2023/data.csv"
         }
       }
+    },
+    "bio": {
+      "title": "Biomarcadores",
+      "status": "mvp",
+      "years": {
+        "2018": {
+          "meta": "data/bio/2018/meta.json",
+          "summary": "data/bio/2018/summary.json",
+          "texto": "data/bio/2018/texto.txt",
+          "data": "data/bio/2018/data.csv"
+        },
+        "2020": {
+          "meta": "data/bio/2020/meta.json",
+          "summary": "data/bio/2020/summary.json",
+          "texto": "data/bio/2020/texto.txt",
+          "data": "data/bio/2020/data.csv"
+        },
+        "2023": {
+          "meta": "data/bio/2023/meta.json",
+          "summary": "data/bio/2023/summary.json",
+          "texto": "data/bio/2023/texto.txt",
+          "data": "data/bio/2023/data.csv"
+        }
+      }
+    },
+    "lactancia": {
+      "title": "Lactancia materna",
+      "status": "mvp",
+      "years": {
+        "2018": {
+          "meta": "data/lactancia/2018/meta.json",
+          "summary": "data/lactancia/2018/summary.json",
+          "texto": "data/lactancia/2018/texto.txt",
+          "data": "data/lactancia/2018/data.csv"
+        },
+        "2021": {
+          "meta": "data/lactancia/2021/meta.json",
+          "summary": "data/lactancia/2021/summary.json",
+          "texto": "data/lactancia/2021/texto.txt",
+          "data": "data/lactancia/2021/data.csv"
+        },
+        "2022": {
+          "meta": "data/lactancia/2022/meta.json",
+          "summary": "data/lactancia/2022/summary.json",
+          "texto": "data/lactancia/2022/texto.txt",
+          "data": "data/lactancia/2022/data.csv"
+        },
+        "2023": {
+          "meta": "data/lactancia/2023/meta.json",
+          "summary": "data/lactancia/2023/summary.json",
+          "texto": "data/lactancia/2023/texto.txt",
+          "data": "data/lactancia/2023/data.csv"
+        }
+      }
     }
   }
 }

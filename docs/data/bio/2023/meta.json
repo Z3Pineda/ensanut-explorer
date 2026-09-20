@@ -1,0 +1,103 @@
+{
+  "module": "bio",
+  "year": 2023,
+  "source": "ENSANUT 2023 — CS_ADULTOS.csv",
+  "population": "Adultos con muestra de sangre",
+  "rows": 4821,
+  "columns": {
+    "Edad": {
+      "label": "Sexo",
+      "type": "continuous",
+      "ensanut_param": "h0302"
+    },
+    "Sexo": {
+      "label": "Edad",
+      "type": "categorical",
+      "ensanut_param": "h0303",
+      "values": {
+        "1": "Hombre",
+        "2": "Mujer"
+      }
+    },
+    "entidad": {
+      "label": "entidad",
+      "type": "continuous",
+      "ensanut_param": null
+    },
+    "Estrato": {
+      "label": "Estrato urbanidad/ruralidad",
+      "type": "categorical",
+      "ensanut_param": "estrato",
+      "values": {
+        "1": "Rural  ( <2500 Hab )",
+        "2": "Urbano ( 2500-99,999 Hab)",
+        "3": "Metropolitano (100mil y + Hab)"
+      }
+    },
+    "Glucosa": {
+      "label": "Glucosa mg/dl",
+      "type": "continuous",
+      "ensanut_param": "GLU_SUERO"
+    },
+    "HB1AC": {
+      "label": "Hemoglobina glucosilada. %",
+      "type": "continuous",
+      "ensanut_param": "HB1AC"
+    },
+    "Albumina": {
+      "label": "Albúmina g/dl",
+      "type": "continuous",
+      "ensanut_param": "ALBU"
+    },
+    "C_HDL": {
+      "label": "Colesterol HDL mg/dl",
+      "type": "continuous",
+      "ensanut_param": "COL_HDL"
+    },
+    "C_LDL": {
+      "label": "Colesterol LDL mg/dl",
+      "type": "continuous",
+      "ensanut_param": "COL_LDL"
+    },
+    "Colesterol": {
+      "label": "Colesterol total mg/dl",
+      "type": "continuous",
+      "ensanut_param": "COLEST"
+    },
+    "Creatinina": {
+      "label": "Creatinina mg/dl",
+      "type": "continuous",
+      "ensanut_param": "CREAT"
+    },
+    "Insulina": {
+      "label": "Insulina microUI/ml",
+      "type": "continuous",
+      "ensanut_param": "INSULINA"
+    },
+    "Trigliceridos": {
+      "label": "Triglicéridos mg/dl",
+      "type": "continuous",
+      "ensanut_param": "TRIG"
+    },
+    "GGT": {
+      "label": "Transaminasa GGT U/L",
+      "type": "categorical",
+      "ensanut_param": "GGT"
+    },
+    "AST": {
+      "label": "Transaminasa AST U/L",
+      "type": "categorical",
+      "ensanut_param": "AST"
+    },
+    "Ac_Urico": {
+      "label": "Ácido úrico mg/dl",
+      "type": "categorical",
+      "ensanut_param": "AC_URICO"
+    },
+    "ALT": {
+      "label": "Transaminasa ALT U/L",
+      "type": "categorical",
+      "ensanut_param": "ALT"
+    }
+  }
+}

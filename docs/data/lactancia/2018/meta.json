@@ -1,0 +1,1380 @@
+{
+  "module": "lactancia",
+  "year": 2018,
+  "source": "ENSANUT 2018 — Lactancia.csv",
+  "population": "Madres e infantes (<2 años)",
+  "rows": 2596,
+  "columns": {
+    "amamantar": {
+      "label": "¿ Le dio pecho alguna vez a (NOMBRE)?",
+      "type": "categorical",
+      "ensanut_param": "P2",
+      "values": {
+        "1": "Si",
+        "2": "No"
+      }
+    },
+    "no_Formula": {
+      "label": "¿Por qué no amamantó a (NOMBRE)?La fórmula es mejor",
+      "type": "categorical",
+      "ensanut_param": "P3_1",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "no_inconveniente": {
+      "label": "¿Por qué no amamantó a (NOMBRE)? Cree que amamantar es demasiado inconveniente",
+      "type": "categorical",
+      "ensanut_param": "P3_2",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "no_nogusto": {
+      "label": "¿Por qué no amamantó a (NOMBRE)? No le gustó",
+      "type": "categorical",
+      "ensanut_param": "P3_3",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "no_noleche": {
+      "label": "¿Por qué no amamantó a (NOMBRE)? No tuvo leche",
+      "type": "categorical",
+      "ensanut_param": "P3_4",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "no_bajarpeso": {
+      "label": "¿Por qué no amamantó a (NOMBRE)? Quiso ponerse a dieta o quiso perder peso",
+      "type": "categorical",
+      "ensanut_param": "P3_5",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "no_dietahabitual": {
+      "label": "¿Por qué no amamantó a (NOMBRE)? Quiso regresar a su dieta habitual",
+      "type": "categorical",
+      "ensanut_param": "P3_6",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "no_fumar": {
+      "label": "¿Por qué no amamantó a (NOMBRE)? Quiso fumar igual o más de lo que debería si amamantaba",
+      "type": "categorical",
+      "ensanut_param": "P3_7",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "no_ocupada": {
+      "label": "¿Por qué no amamantó a (NOMBRE)? Tenía muchas cosas que hacer",
+      "type": "categorical",
+      "ensanut_param": "P3_8",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "no_escuela": {
+      "label": "¿Por qué no amamantó a (NOMBRE)? Tenía planeado regresar a la escuela",
+      "type": "categorical",
+      "ensanut_param": "P3_9",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "no_alguienmas": {
+      "label": "¿Por qué no amamantó a (NOMBRE)?  Alguien más lo amamantó",
+      "type": "categorical",
+      "ensanut_param": "P3_10",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "no_figura": {
+      "label": "¿Por qué no amamantó a (NOMBRE)?  Quiso conservar su figura",
+      "type": "categorical",
+      "ensanut_param": "P3_11",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "no_papanoquiso": {
+      "label": "¿Por qué no amamantó a (NOMBRE)?  Porque el papá de su hijo no quiso",
+      "type": "categorical",
+      "ensanut_param": "P3_12",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "no_abuelanoquiso": {
+      "label": "¿Por qué no amamantó a (NOMBRE)?  Porque la abuela de su hijo no quiso",
+      "type": "categorical",
+      "ensanut_param": "P3_13",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "no_anticonceptivos": {
+      "label": "¿Por qué no amamantó a (NOMBRE)?  Quiso usar anticonceptivos",
+      "type": "categorical",
+      "ensanut_param": "P3_14",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "no_otro": {
+      "label": "¿Por qué no amamantó a (NOMBRE)?  Otro (especifique)",
+      "type": "categorical",
+      "ensanut_param": "P3_15",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "no_nosabe": {
+      "label": "¿Por qué no amamantó a (NOMBRE)?  No sabe/No responde",
+      "type": "categorical",
+      "ensanut_param": "P3_16",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "despnacio_pechoHrs": {
+      "label": "¿Cuánto tiempo después de que nació (NOMBRE) empezó a darle el pecho? Horas",
+      "type": "categorical",
+      "ensanut_param": "P4_1_1",
+      "values": {
+        "0": "Inmediatamente o menos de una hora ( en días y horas)",
+        "1": "Horas",
+        "2": "Días",
+        "99": "No sabe / no recuerda"
+      }
+    },
+    "despnacio_pechoDias": {
+      "label": "¿Cuánto tiempo después de que nació (NOMBRE) empezó a darle el pecho? Días",
+      "type": "categorical",
+      "ensanut_param": "P4_1_2",
+      "values": {
+        "99": "No sabe / no recuerda"
+      }
+    },
+    "P5": {
+      "label": "P5",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "despnacio_agua": {
+      "label": "¿Cuáles? Agua simple / sola",
+      "type": "categorical",
+      "ensanut_param": "P5_1",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "despnacio_glucosa": {
+      "label": "¿Cuáles? Agua con azúcar, con glucosa, con miel o con piloncillo",
+      "type": "categorical",
+      "ensanut_param": "P5_2",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "despnacio_suero": {
+      "label": "¿Cuáles? Suero casero (agua con sal y azúcar)",
+      "type": "categorical",
+      "ensanut_param": "P5_3",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "despnacio_te": {
+      "label": "¿Cuáles? Té u otra infusión",
+      "type": "categorical",
+      "ensanut_param": "P5_4",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "despnacio_miel": {
+      "label": "¿Cuáles? Miel sola",
+      "type": "categorical",
+      "ensanut_param": "P5_5",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "despnacio_aguamiel": {
+      "label": "¿Cuáles? Aguamiel",
+      "type": "categorical",
+      "ensanut_param": "P5_6",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "despnacio_aceite": {
+      "label": "¿Cuáles? Aceite",
+      "type": "categorical",
+      "ensanut_param": "P5_7",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "despnacio_leche": {
+      "label": "¿Cuáles? Leche (que no fuera de pecho ni fórmula)",
+      "type": "categorical",
+      "ensanut_param": "P5_8",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "despnacio_formula": {
+      "label": "¿Cuáles? Fórmula",
+      "type": "categorical",
+      "ensanut_param": "P5_9",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "despnacio_jugo": {
+      "label": "¿Cuáles? Jugo de fruta",
+      "type": "categorical",
+      "ensanut_param": "P5_10",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "despnacio_saleshidra": {
+      "label": "¿Cuáles? Sales de rehidratación oral",
+      "type": "categorical",
+      "ensanut_param": "P5_11",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "despnacio_otro": {
+      "label": "¿Cuáles? Otro (especifica)",
+      "type": "categorical",
+      "ensanut_param": "P5_12",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "aun_amamanta": {
+      "label": "¿Aún  le da pecho a (NOMBRE)?",
+      "type": "categorical",
+      "ensanut_param": "P6",
+      "values": {
+        "1": "Si",
+        "2": "No"
+      }
+    },
+    "ayer_amamanto": {
+      "label": "¿Ayer le dio pecho a (NOMBRE) durante el día o la noche?",
+      "type": "categorical",
+      "ensanut_param": "P7",
+      "values": {
+        "1": "Si",
+        "2": "No",
+        "9": "No sabe/No responde"
+      }
+    },
+    "ayer_amamanto_vecesdia": {
+      "label": "¿Cuántas veces le dio pecho ayer en el día (desde que usted se levantó hasta que usted se fue a dormir)?",
+      "type": "categorical",
+      "ensanut_param": "P8",
+      "values": {
+        "99": "No sabe / no recuerda"
+      }
+    },
+    "ayer_amamanto_vecesnoche": {
+      "label": "¿Cuántas veces le dio pecho anoche (desde que usted se fue a dormir hasta que usted se levantó en la mañana)?",
+      "type": "categorical",
+      "ensanut_param": "P9",
+      "values": {
+        "99": "No sabe / no recuerda"
+      }
+    },
+    "amamanta_libre": {
+      "label": "¿Le da pecho a su bebé cada vez que lo pide?, es decir, ¿a libre demanda?",
+      "type": "categorical",
+      "ensanut_param": "P10",
+      "values": {
+        "1": "Si",
+        "2": "No",
+        "9": "No sabe/No recuerda"
+      }
+    },
+    "amamanta_biberon": {
+      "label": "¿Le da leche de su pecho en biberón (mamila)?",
+      "type": "categorical",
+      "ensanut_param": "P11",
+      "values": {
+        "1": "Sí, siempre",
+        "2": "Sí, muchas veces ó frecuentemente",
+        "3": "Sí le ha dado alguna vez, pero casi nunca le da",
+        "4": "Intentó pero no siguió",
+        "5": "No, nunca",
+        "9": "No sabe / No recuerda"
+      }
+    },
+    "amamanto_dias": {
+      "label": "¿Cuántos meses amamantó a (NOMBRE)? Días",
+      "type": "categorical",
+      "ensanut_param": "P12_1",
+      "values": {
+        "1": "Días",
+        "2": "Meses",
+        "99": "No sabe / No recuerda"
+      }
+    },
+    "amamanto_meses": {
+      "label": "¿Cuántos meses amamantó a (NOMBRE)? Meses",
+      "type": "categorical",
+      "ensanut_param": "P12_2"
+    },
+    "clinica_regalo": {
+      "label": "Cuando nació (NOMBRE), ¿en el hospital o clínica le obsequiaron alguna cosa relacionada con la alimentación de (NOMBRE)?",
+      "type": "categorical",
+      "ensanut_param": "P13",
+      "values": {
+        "1": "Si",
+        "2": "No",
+        "9": "No sabe/No recuerda"
+      }
+    },
+    "clinica_formula": {
+      "label": "¿Cuál? Fórmula infantil",
+      "type": "categorical",
+      "ensanut_param": "P13_1",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "clinica_biberones": {
+      "label": "¿Cuál? Biberones",
+      "type": "categorical",
+      "ensanut_param": "P13_2",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "clinica_chupones": {
+      "label": "¿Cuál? Chupones",
+      "type": "categorical",
+      "ensanut_param": "P13_3",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "clinica_pezoneras": {
+      "label": "¿Cuál? Pezoneras u otro utensilio que le ayudaran a amamantar",
+      "type": "categorical",
+      "ensanut_param": "P13_4",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "clinica_nosabe": {
+      "label": "¿Cuál? No sabe / No recuerda",
+      "type": "categorical",
+      "ensanut_param": "P13_5",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "alimento_formula": {
+      "label": "¿Alguna vez alimentó a (NOMBRE) con fórmula infantil?",
+      "type": "categorical",
+      "ensanut_param": "P14",
+      "values": {
+        "1": "Si",
+        "2": "No",
+        "9": "No sabe/No recuerda"
+      }
+    },
+    "formula_sinleche": {
+      "label": "¿Por qué decidió alimentar a (NOMBRE) con fórmula infantil? Se quedó sin leche",
+      "type": "categorical",
+      "ensanut_param": "P15_1",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "formula_enfermo": {
+      "label": "¿Por qué decidió alimentar a (NOMBRE) con fórmula infantil? Se enfermó y no pudo amamantar",
+      "type": "categorical",
+      "ensanut_param": "P15_2",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "formula_decision": {
+      "label": "¿Por qué decidió alimentar a (NOMBRE) con fórmula infantil? Decidió alimentarlo solo con fórmula",
+      "type": "categorical",
+      "ensanut_param": "P15_3",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "formula_ambas": {
+      "label": "¿Por qué decidió alimentar a (NOMBRE) con fórmula infantil? Decidió amamantarlo y también darle fórmula",
+      "type": "categorical",
+      "ensanut_param": "P15_4",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "formula_mismahospital": {
+      "label": "¿Por qué decidió alimentar a (NOMBRE) con fórmula infantil? Eligió la misma fórmula con la que alimentaron a su hijo en el hospital",
+      "type": "categorical",
+      "ensanut_param": "P15_5",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "formula_esmejor": {
+      "label": "¿Por qué decidió alimentar a (NOMBRE) con fórmula infantil? Escuchó que la fórmula es mejor para su hijo",
+      "type": "categorical",
+      "ensanut_param": "P15_6",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "formula_prueba": {
+      "label": "¿Por qué decidió alimentar a (NOMBRE) con fórmula infantil? Vio anunciada la fórmula y quiso probarla",
+      "type": "categorical",
+      "ensanut_param": "P15_7",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "formula_salud": {
+      "label": "¿Por qué decidió alimentar a (NOMBRE) con fórmula infantil? Su hijo tenía un problema de salud y encontró una fórmula que parecía ser el alimento adecuado",
+      "type": "categorical",
+      "ensanut_param": "P15_8",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "formula_hijomayor": {
+      "label": "¿Por qué decidió alimentar a (NOMBRE) con fórmula infantil? Eligió la misma fórmula con la que alimentó a su hijo(a) mayor",
+      "type": "categorical",
+      "ensanut_param": "P15_9",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "formula_doctor": {
+      "label": "¿Por qué decidió alimentar a (NOMBRE) con fórmula infantil? El doctor u otro profesional de la salud le recomendó la fórmula",
+      "type": "categorical",
+      "ensanut_param": "P15_10",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "formula_amigosfam": {
+      "label": "¿Por qué decidió alimentar a (NOMBRE) con fórmula infantil? Porque se la recomendaron amigos o familiares",
+      "type": "categorical",
+      "ensanut_param": "P15_11",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "formula_regalo": {
+      "label": "¿Por qué decidió alimentar a (NOMBRE) con fórmula infantil? Usa la fórmula que le dan en el programa (Nombre del programa social o municipal)",
+      "type": "categorical",
+      "ensanut_param": "P15_12",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "formula_otros": {
+      "label": "¿Por qué decidió alimentar a (NOMBRE) con fórmula infantil? Otros (especifica)",
+      "type": "categorical",
+      "ensanut_param": "P15_13",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "formula_nosabe": {
+      "label": "¿Por qué decidió alimentar a (NOMBRE) con fórmula infantil? No sabe / No responde",
+      "type": "categorical",
+      "ensanut_param": "P15_14",
+      "values": {
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
+      }
+    },
+    "ayer_agua": {
+      "label": "¿En cualquier momento de ayer o de anoche le dio a (NOMBRE)… 1. Agua simple",
+      "type": "categorical",
+      "ensanut_param": "P16_1",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "ayer_suerojarabes": {
+      "label": "¿En cualquier momento de ayer o de anoche le dio a (NOMBRE)… 1. Suero Oral 2. Gotas, jarabes medicinales (vitaminas, minerales, medicinas)?",
+      "type": "categorical",
+      "ensanut_param": "P17_1",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "ayer__formula": {
+      "label": "¿En cualquier momento de ayer o de anoche le dio a (NOMBRE)… 1. Fórmula Infantil?",
+      "type": "categorical",
+      "ensanut_param": "P18_1_1",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "ayer__lechepolvo": {
+      "label": "¿En cualquier momento de ayer o de anoche le dio a (NOMBRE)… 2. Leche en polvo?",
+      "type": "categorical",
+      "ensanut_param": "P18_1_2",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "P18_1_3": {
+      "label": "P18 1 3",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "ayer_liconsa": {
+      "label": "¿En cualquier momento de ayer o de anoche le dio a (NOMBRE)… 1. Leche LICONSA en polvo, 2. Leche LICONSA líquida?",
+      "type": "categorical",
+      "ensanut_param": "P19_1",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "ayer_bebidas": {
+      "label": "¿En cualquier momento de ayer o de anoche le dio a (NOMBRE) 1. Agua endulzada 2. Té 3. Café con agua 4. Refresco 5. Caldo de frijol 6. Caldo de pollo o res 7. Aguamiel 8. Jugo de frutas?",
+      "type": "categorical",
+      "ensanut_param": "P20_1",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "ayer_atoles": {
+      "label": "¿En cualquier momento de ayer o de anoche le dio a (NOMBRE) 1. Atole con agua 2. Atole con leche 3. Otro cereal (como avena, tapioca, etc) con agua o con leche?",
+      "type": "categorical",
+      "ensanut_param": "P21_1",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "ayer_sopas": {
+      "label": "¿En cualquier momento de ayer o de anoche le dio a (NOMBRE) 1. Sopa de pasta 2. Arroz 3. Tortillas 4. Cereales industrializados para bebes en caja 5. Pan de panedería 6. Pan industrializado 7. Avena 8. Frijoles 9.Lentejas 10. Habas?",
+      "type": "categorical",
+      "ensanut_param": "P22_1",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "ayer_frutverd": {
+      "label": "¿En cualquier momento de ayer o de anoche le dio a (NOMBRE) 1. Frutas 2. Verduras (Incluye envasados o en frasco. No mencionar marcas)?",
+      "type": "categorical",
+      "ensanut_param": "P23_1",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "ayer_respuerco": {
+      "label": "¿En cualquier momento de ayer o de anoche le dio a (NOMBRE) 1. Carne de res, derdo 2. Corazón, hígado, menundencias (riñón, mollejas)?",
+      "type": "categorical",
+      "ensanut_param": "P24_1",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "ayer_pollopescado": {
+      "label": "¿En cualquier momento de ayer o de anoche le dio a (NOMBRE) 1. Carne de pollo 2. Pescado (fresco o en lata) 3. Pancita?",
+      "type": "categorical",
+      "ensanut_param": "P25_1",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "ayer_embutidos": {
+      "label": "¿En cualquier momento de ayer o de anoche le dio a (NOMBRE) 1. Jamón o salchichas 2. Otros embutidos?",
+      "type": "categorical",
+      "ensanut_param": "P26_1",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "ayer_huevo": {
+      "label": "¿En cualquier momento de ayer o de anoche le dio a (NOMBRE) 1. Entero 2. Solo la clara?",
+      "type": "categorical",
+      "ensanut_param": "P27_1",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "ayer_clara": {
+      "label": "¿En cualquier momento de ayer o de anoche le dio a (NOMBRE) 1. Huevo, solo la clara?",
+      "type": "categorical",
+      "ensanut_param": "P28_1",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "ayer_lacteos": {
+      "label": "¿En cualquier momento de ayer o de anoche le dio a (NOMBRE) 1. Queso (cualquiera) 2. Yakult o similares 3. Yogur 4. Tipo danoninos?",
+      "type": "categorical",
+      "ensanut_param": "P29_1",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "ayer_papilla": {
+      "label": "¿En cualquier momento de ayer o de anoche le dio a (NOMBRE) 1. La papilla del programa PROSPERA 2. Los polvitos (micronutrimentos en polvo) PROSPERA 3. Bebida Lactea Nutrisano?",
+      "type": "categorical",
+      "ensanut_param": "P30_1",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "ayer_fritgalletas": {
+      "label": "¿En cualquier momento de ayer o de anoche le dio a (NOMBRE) 1. Frituras 2. Galletas, dulces o pastelitos?",
+      "type": "categorical",
+      "ensanut_param": "P31_1",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "regular_agua": {
+      "label": "¿El (la) (ALIMENTO) lo(a) toma regularmente?  1.Agua simple",
+      "type": "categorical",
+      "ensanut_param": "P16_2",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "agua_dias": {
+      "label": "El (ALIMENTO) ¿a qué edad comenzó (NOMBRE) a tomarlo(a) regularmente?  Días",
+      "type": "categorical",
+      "ensanut_param": "P16_3D",
+      "values": {
+        "99": "Inició ya de manera regular, pero no se acuerda cuándo"
+      }
+    },
+    "agua_meses": {
+      "label": "El (ALIMENTO) ¿a qué edad comenzó (NOMBRE) a tomarlo(a) regularmente?  Meses cumplidos",
+      "type": "categorical",
+      "ensanut_param": "P16_3M",
+      "values": {
+        "99": "Inició ya de manera regular, pero no se acuerda cuándo"
+      }
+    },
+    "regular_alimento": {
+      "label": "De (ALIMENTOS), ¿cuál fue el primero que (NOMBRE) tomó regularmente?",
+      "type": "categorical",
+      "ensanut_param": "P17_2",
+      "values": {
+        "1": "Suero",
+        "2": "Gotas, jarabes",
+        "3": "Ninguno"
+      }
+    },
+    "regalim_dias": {
+      "label": "El (ALIMENTO) ¿a qué edad comenzó (NOMBRE) a tomarlo(a) regularmente?  Días",
+      "type": "categorical",
+      "ensanut_param": "P17_3D",
+      "values": {
+        "99": "Inició ya de manera regular, pero no se acuerda cuándo"
+      }
+    },
+    "regalim_meses": {
+      "label": "El (ALIMENTO) ¿a qué edad comenzó (NOMBRE) a tomarlo(a) regularmente?  Meses cumplidos",
+      "type": "categorical",
+      "ensanut_param": "P17_3M",
+      "values": {
+        "99": "Inició ya de manera regular, pero no se acuerda cuándo"
+      }
+    },
+    "regular_formula": {
+      "label": "¿El (la) (ALIMENTO) lo(a) toma regularmente? 1.Fórmula infantil",
+      "type": "categorical",
+      "ensanut_param": "P18_2_1",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "regform_dias": {
+      "label": "El (ALIMENTO) ¿a qué edad comenzó (NOMBRE) a tomarlo(a) regularmente?  Días",
+      "type": "categorical",
+      "ensanut_param": "P18_3D_1",
+      "values": {
+        "99": "Inició ya de manera regular, pero no se acuerda cuándo"
+      }
+    },
+    "regform_meses": {
+      "label": "El (ALIMENTO) ¿a qué edad comenzó (NOMBRE) a tomarlo(a) regularmente?  Meses cumplidos",
+      "type": "categorical",
+      "ensanut_param": "P18_3M_1",
+      "values": {
+        "99": "Inició ya de manera regular, pero no se acuerda cuándo"
+      }
+    },
+    "regular_lechepolvo": {
+      "label": "¿El (la) (ALIMENTO) lo(a) toma regularmente? 2.Leche en polvo",
+      "type": "categorical",
+      "ensanut_param": "P18_2_2",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "reglepol_dias": {
+      "label": "El (ALIMENTO) ¿a qué edad comenzó (NOMBRE) a tomarlo(a) regularmente?  Días",
+      "type": "categorical",
+      "ensanut_param": "P18_3D_2",
+      "values": {
+        "99": "Inició ya de manera regular, pero no se acuerda cuándo"
+      }
+    },
+    "reglepol_meses": {
+      "label": "El (ALIMENTO) ¿a qué edad comenzó (NOMBRE) a tomarlo(a) regularmente?  Meses cumplidos",
+      "type": "categorical",
+      "ensanut_param": "P18_3M_2",
+      "values": {
+        "99": "Inició ya de manera regular, pero no se acuerda cuándo"
+      }
+    },
+    "regular_otraleche": {
+      "label": "¿El (la) (ALIMENTO) lo(a) toma regularmente? 3. Otra leche",
+      "type": "categorical",
+      "ensanut_param": "P18_2_3",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "regolech_dias": {
+      "label": "El (ALIMENTO) ¿a qué edad comenzó (NOMBRE) a tomarlo(a) regularmente?  Días",
+      "type": "categorical",
+      "ensanut_param": "P18_3D_3",
+      "values": {
+        "99": "Inició ya de manera regular, pero no se acuerda cuándo"
+      }
+    },
+    "regolech_meses": {
+      "label": "El (ALIMENTO) ¿a qué edad comenzó (NOMBRE) a tomarlo(a) regularmente?  Meses cumplidos",
+      "type": "categorical",
+      "ensanut_param": "P18_3M_3",
+      "values": {
+        "99": "Inició ya de manera regular, pero no se acuerda cuándo"
+      }
+    },
+    "regular_liconsa": {
+      "label": "De (ALIMENTOS), ¿cuál fue el primero que (NOMBRE) tomó regularmente?",
+      "type": "categorical",
+      "ensanut_param": "P19_2",
+      "values": {
+        "1": "Leche (polvo)",
+        "2": "Leche (líquida)",
+        "3": "Ninguno"
+      }
+    },
+    "reglicon_dias": {
+      "label": "El (ALIMENTO) ¿a qué edad comenzó (NOMBRE) a tomarlo(a) regularmente?  Días",
+      "type": "categorical",
+      "ensanut_param": "P19_3D",
+      "values": {
+        "99": "Inició ya de manera regular, pero no se acuerda cuándo"
+      }
+    },
+    "reglicon_meses": {
+      "label": "El (ALIMENTO) ¿a qué edad comenzó (NOMBRE) a tomarlo(a) regularmente?  Meses cumplidos",
+      "type": "categorical",
+      "ensanut_param": "P19_3M",
+      "values": {
+        "99": "Inició ya de manera regular, pero no se acuerda cuándo"
+      }
+    },
+    "regular_liqnonutri": {
+      "label": "De (ALIMENTOS), ¿cuál fue el primero que (NOMBRE) tomó regularmente?",
+      "type": "categorical",
+      "ensanut_param": "P20_2",
+      "values": {
+        "1": "Agua endulzada",
+        "2": "Té",
+        "3": "Café con agua",
+        "4": "Refresco",
+        "5": "Caldo de frijol",
+        "6": "Caldo de pollo o res",
+        "7": "Aguamiel",
+        "8": "Jugos de frutas",
+        "9": "Ninguno"
+      }
+    },
+    "regliqnn_dias": {
+      "label": "El (ALIMENTO) ¿a qué edad comenzó (NOMBRE) a tomarlo(a) regularmente?  Días",
+      "type": "categorical",
+      "ensanut_param": "P20_3D",
+      "values": {
+        "99": "Inició ya de manera regular, pero no se acuerda cuándo"
+      }
+    },
+    "regliqnn_meses": {
+      "label": "El (ALIMENTO) ¿a qué edad comenzó (NOMBRE) a tomarlo(a) regularmente?  Meses cumplidos",
+      "type": "categorical",
+      "ensanut_param": "P20_3M",
+      "values": {
+        "99": "Inició ya de manera regular, pero no se acuerda cuándo"
+      }
+    },
+    "regular_liqnutri": {
+      "label": "De (ALIMENTOS), ¿cuál fue el primero que (NOMBRE) tomó regularmente?",
+      "type": "categorical",
+      "ensanut_param": "P21_2",
+      "values": {
+        "1": "Atole con agua",
+        "2": "Atole con leche",
+        "3": "Otro cereal",
+        "4": "Ninguno"
+      }
+    },
+    "regliqnutri_dias": {
+      "label": "El (ALIMENTO) ¿a qué edad comenzó (NOMBRE) a tomarlo(a) regularmente?  Días",
+      "type": "categorical",
+      "ensanut_param": "P21_3D",
+      "values": {
+        "99": "Inició ya de manera regular, pero no se acuerda cuándo"
+      }
+    },
+    "regliqnutri_meses": {
+      "label": "El (ALIMENTO) ¿a qué edad comenzó (NOMBRE) a tomarlo(a) regularmente?  Meses cumplidos",
+      "type": "categorical",
+      "ensanut_param": "P21_3M",
+      "values": {
+        "99": "Inició ya de manera regular, pero no se acuerda cuándo"
+      }
+    },
+    "regular_cereal": {
+      "label": "De (ALIMENTOS), ¿cuál fue el primero que (NOMBRE) tomó regularmente?",
+      "type": "categorical",
+      "ensanut_param": "P22_2",
+      "values": {
+        "1": "Sopa de pasta",
+        "2": "Arroz",
+        "3": "Tortillas",
+        "4": "Cereales en caja",
+        "5": "Pan de panadería",
+        "6": "Pan industrializado",
+        "7": "Avena",
+        "8": "Frijoles",
+        "9": "Lentejas",
+        "10": "Habas",
+        "11": "Ninguno"
+      }
+    },
+    "regcereal_dias": {
+      "label": "El (ALIMENTO) ¿a qué edad comenzó (NOMBRE) a tomarlo(a) regularmente?  Días",
+      "type": "categorical",
+      "ensanut_param": "P22_3D",
+      "values": {
+        "99": "Inició ya de manera regular, pero no se acuerda cuándo"
+      }
+    },
+    "regcereal_meses": {
+      "label": "El (ALIMENTO) ¿a qué edad comenzó (NOMBRE) a tomarlo(a) regularmente?  Meses cumplidos",
+      "type": "categorical",
+      "ensanut_param": "P22_3M",
+      "values": {
+        "99": "Inició ya de manera regular, pero no se acuerda cuándo"
+      }
+    },
+    "regular_frutver": {
+      "label": "De (ALIMENTOS), ¿cuál fue el primero que (NOMBRE) tomó regularmente?",
+      "type": "categorical",
+      "ensanut_param": "P23_2",
+      "values": {
+        "1": "Frutas",
+        "2": "Verduras",
+        "3": "Ninguno"
+      }
+    },
+    "regfrutver_dias": {
+      "label": "El (ALIMENTO) ¿a qué edad comenzó (NOMBRE) a tomarlo(a) regularmente?  Días",
+      "type": "categorical",
+      "ensanut_param": "P23_3D",
+      "values": {
+        "99": "Inició ya de manera regular, pero no se acuerda cuándo"
+      }
+    },
+    "regfrutver_mese": {
+      "label": "El (ALIMENTO) ¿a qué edad comenzó (NOMBRE) a tomarlo(a) regularmente?  Meses cumplidos",
+      "type": "categorical",
+      "ensanut_param": "P23_3M",
+      "values": {
+        "99": "Inició ya de manera regular, pero no se acuerda cuándo"
+      }
+    },
+    "regular_carneroja": {
+      "label": "De (ALIMENTOS), ¿cuál fue el primero que (NOMBRE) tomó regularmente?",
+      "type": "categorical",
+      "ensanut_param": "P24_2",
+      "values": {
+        "1": "Carne res, cerdo",
+        "2": "Corazón, hígado, menudencias",
+        "3": "Ninguno"
+      }
+    },
+    "regcarnroj_dias": {
+      "label": "El (ALIMENTO) ¿a qué edad comenzó (NOMBRE) a tomarlo(a) regularmente?  Días",
+      "type": "categorical",
+      "ensanut_param": "P24_3D",
+      "values": {
+        "99": "Inició ya de manera regular, pero no se acuerda cuándo"
+      }
+    },
+    "regcarnroj_meses": {
+      "label": "El (ALIMENTO) ¿a qué edad comenzó (NOMBRE) a tomarlo(a) regularmente?  Meses cumplidos",
+      "type": "categorical",
+      "ensanut_param": "P24_3M",
+      "values": {
+        "99": "Inició ya de manera regular, pero no se acuerda cuándo"
+      }
+    },
+    "regular_carnes": {
+      "label": "De (ALIMENTOS), ¿cuál fue el primero que (NOMBRE) tomó regularmente?",
+      "type": "categorical",
+      "ensanut_param": "P25_2",
+      "values": {
+        "1": "Carne de pollo",
+        "2": "Pescado",
+        "3": "Pancita",
+        "4": "Ninguno"
+      }
+    },
+    "regcarne_dias": {
+      "label": "El (ALIMENTO) ¿a qué edad comenzó (NOMBRE) a tomarlo(a) regularmente?  Días",
+      "type": "categorical",
+      "ensanut_param": "P25_3D",
+      "values": {
+        "99": "Inició ya de manera regular, pero no se acuerda cuándo"
+      }
+    },
+    "regcarne_meses": {
+      "label": "El (ALIMENTO) ¿a qué edad comenzó (NOMBRE) a tomarlo(a) regularmente?  Meses cumplidos",
+      "type": "categorical",
+      "ensanut_param": "P25_3M",
+      "values": {
+        "99": "Inició ya de manera regular, pero no se acuerda cuándo"
+      }
+    },
+    "regular_embutido": {
+      "label": "De (ALIMENTOS), ¿cuál fue el primero que (NOMBRE) tomó regularmente?",
+      "type": "categorical",
+      "ensanut_param": "P26_2",
+      "values": {
+        "1": "Jamón o salchichas",
+        "2": "Otros embutidos",
+        "3": "Ninguno"
+      }
+    },
+    "regembut_dias": {
+      "label": "El (ALIMENTO) ¿a qué edad comenzó (NOMBRE) a tomarlo(a) regularmente?  Días",
+      "type": "categorical",
+      "ensanut_param": "P26_3D",
+      "values": {
+        "99": "Inició ya de manera regular, pero no se acuerda cuándo"
+      }
+    },
+    "regembut_meses": {
+      "label": "El (ALIMENTO) ¿a qué edad comenzó (NOMBRE) a tomarlo(a) regularmente?  Meses cumplidos",
+      "type": "categorical",
+      "ensanut_param": "P26_3M",
+      "values": {
+        "99": "Inició ya de manera regular, pero no se acuerda cuándo"
+      }
+    },
+    "regular_huevo": {
+      "label": "De (ALIMENTOS), ¿cuál fue el primero que (NOMBRE) tomó regularmente?",
+      "type": "categorical",
+      "ensanut_param": "P27_2",
+      "values": {
+        "1": "Huevo entero",
+        "2": "Solo la yema",
+        "3": "Ninguno"
+      }
+    },
+    "reghuevo_dias": {
+      "label": "El (ALIMENTO) ¿a qué edad comenzó (NOMBRE) a tomarlo(a) regularmente?  Días",
+      "type": "categorical",
+      "ensanut_param": "P27_3D",
+      "values": {
+        "99": "Inició ya de manera regular, pero no se acuerda cuándo"
+      }
+    },
+    "reg_huevo_meses": {
+      "label": "El (ALIMENTO) ¿a qué edad comenzó (NOMBRE) a tomarlo(a) regularmente?  Meses cumplidos",
+      "type": "categorical",
+      "ensanut_param": "P27_3M",
+      "values": {
+        "99": "Inició ya de manera regular, pero no se acuerda cuándo"
+      }
+    },
+    "regular_clara": {
+      "label": "El (la) (ALIMENTO) lo(la) toma regularmente? 1. Huevo, solo la clara",
+      "type": "categorical",
+      "ensanut_param": "P28_2",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "regclara_dias": {
+      "label": "El (ALIMENTO) ¿a qué edad comenzó (NOMBRE) a tomarlo(a) regularmente?  Días",
+      "type": "categorical",
+      "ensanut_param": "P28_3D",
+      "values": {
+        "99": "Inició ya de manera regular, pero no se acuerda cuándo"
+      }
+    },
+    "regclara_meses": {
+      "label": "El (ALIMENTO) ¿a qué edad comenzó (NOMBRE) a tomarlo(a) regularmente?  Meses cumplidos",
+      "type": "categorical",
+      "ensanut_param": "P28_3M",
+      "values": {
+        "99": "Inició ya de manera regular, pero no se acuerda cuándo"
+      }
+    },
+    "regular_lacteos": {
+      "label": "De (ALIMENTOS), ¿cuál fue el primero que (NOMBRE) tomó regularmente?",
+      "type": "categorical",
+      "ensanut_param": "P29_2",
+      "values": {
+        "1": "Queso",
+        "2": "Yakult",
+        "3": "Yogur",
+        "4": "Danoninos",
+        "5": "Ninguno"
+      }
+    },
+    "reglacteos_dias": {
+      "label": "El (ALIMENTO) ¿a qué edad comenzó (NOMBRE) a tomarlo(a) regularmente?  Días",
+      "type": "categorical",
+      "ensanut_param": "P29_3D",
+      "values": {
+        "99": "Inició ya de manera regular, pero no se acuerda cuándo"
+      }
+    },
+    "reglacteos_meses": {
+      "label": "El (ALIMENTO) ¿a qué edad comenzó (NOMBRE) a tomarlo(a) regularmente?  Meses cumplidos",
+      "type": "categorical",
+      "ensanut_param": "P29_3M",
+      "values": {
+        "99": "Inició ya de manera regular, pero no se acuerda cuándo"
+      }
+    },
+    "regular_nutrisano": {
+      "label": "De (ALIMENTOS), ¿cuál fue el primero que (NOMBRE) tomó regularmente?",
+      "type": "categorical",
+      "ensanut_param": "P30_2",
+      "values": {
+        "1": "Papilla",
+        "2": "Polvitos",
+        "3": "Bebida láctea",
+        "4": "Ninguno"
+      }
+    },
+    "regnutrisano_dias": {
+      "label": "El (ALIMENTO) ¿a qué edad comenzó (NOMBRE) a tomarlo(a) regularmente?  Días",
+      "type": "categorical",
+      "ensanut_param": "P30_3D",
+      "values": {
+        "99": "Inició ya de manera regular, pero no se acuerda cuándo"
+      }
+    },
+    "regnutrisano_meses": {
+      "label": "El (ALIMENTO) ¿a qué edad comenzó (NOMBRE) a tomarlo(a) regularmente?  Meses cumplidos",
+      "type": "categorical",
+      "ensanut_param": "P30_3M",
+      "values": {
+        "99": "Inició ya de manera regular, pero no se acuerda cuándo"
+      }
+    },
+    "regular_miscelaneos": {
+      "label": "De (ALIMENTOS), ¿cuál fue el primero que (NOMBRE) tomó regularmente?",
+      "type": "categorical",
+      "ensanut_param": "P31_2",
+      "values": {
+        "1": "Frituras",
+        "2": "Ninguno",
+        "3": "Galletas, dulces o pastelitos"
+      }
+    },
+    "regmisc_dias": {
+      "label": "El (ALIMENTO) ¿a qué edad comenzó (NOMBRE) a tomarlo(a) regularmente?  Días",
+      "type": "categorical",
+      "ensanut_param": "P31_3D",
+      "values": {
+        "99": "Inició ya de manera regular, pero no se acuerda cuándo"
+      }
+    },
+    "regmisc_meses": {
+      "label": "El (ALIMENTO) ¿a qué edad comenzó (NOMBRE) a tomarlo(a) regularmente?  Meses cumplidos",
+      "type": "categorical",
+      "ensanut_param": "P31_3M",
+      "values": {
+        "99": "Inició ya de manera regular, pero no se acuerda cuándo"
+      }
+    },
+    "ayer_alimbiberon": {
+      "label": "¿En el día de ayer o anoche, (NOMBRE) tomó algún alimento en biberón como: jugos, cereales, té o infusiones u otros, sin contar leche materna?",
+      "type": "categorical",
+      "ensanut_param": "P32",
+      "values": {
+        "1": "Si",
+        "2": "No",
+        "9": "No sabe/No recuerda"
+      }
+    },
+    "ayer_alimpapilla": {
+      "label": "En el día de ayer, ¿cuántas veces le dio a (NOMBRE) algún alimento o preparación en forma de papilla, pedacitos / machacado o entero, sin contar probaditas? (No considerar líquidos)",
+      "type": "categorical",
+      "ensanut_param": "P33",
+      "values": {
+        "99": "No sabe/No recuerda"
+      }
+    },
+    "ayer_alimazucar": {
+      "label": "En el día de ayer, ¿le agregó AZÚCAR a algunos de los alimentos o bebidas que (NOMBRE) comió o bebió? Además de la que le puso al agua, al té o al café.",
+      "type": "categorical",
+      "ensanut_param": "P34",
+      "values": {
+        "1": "Si",
+        "2": "No",
+        "9": "No sabe/No recuerda"
+      }
+    },
+    "ayer_alimsal": {
+      "label": "¿Le agregó SAL a algunos de los alimentos o bebidas que (NOMBRE) comió o bebió ayer?",
+      "type": "categorical",
+      "ensanut_param": "P35",
+      "values": {
+        "1": "Si",
+        "2": "No",
+        "9": "No sabe/No recuerda"
+      }
+    },
+    "estatura": {
+      "label": "¿Cuál es su estatura (talla)?",
+      "type": "continuous",
+      "ensanut_param": "P36",
+      "values": {
+        "9.99": "No sabe/No recuerda"
+      }
+    },
+    "peso_prenatal": {
+      "label": "¿Cuál era su peso antes de que naciera (NOMBRE)?",
+      "type": "continuous",
+      "ensanut_param": "P37",
+      "values": {
+        "999.9": "No sabe / No recuerda"
+      }
+    },
+    "peso_embarazo": {
+      "label": "¿Cuánto peso ganó en el embarazo de (NOMBRE)?",
+      "type": "continuous",
+      "ensanut_param": "P38",
+      "values": {
+        "0": "No ganó",
+        "88.8": "Perdió peso",
+        "99.9": "No sabe / No recuerda"
+      }
+    },
+    "peso_actual": {
+      "label": "¿Cuál es su peso actual?",
+      "type": "continuous",
+      "ensanut_param": "P39",
+      "values": {
+        "999.9": "No sabe / No recuerda"
+      }
+    },
+    "Edad": {
+      "label": "¿Cuántos  años cumplidos tiene (NOMBRE)?",
+      "type": "continuous",
+      "ensanut_param": "EDAD",
+      "values": {
+        "0": "Menores de un año"
+      }
+    },
+    "Edad_meses": {
+      "label": "EDAD EN MESES",
+      "type": "continuous",
+      "ensanut_param": "EDAD_MESES"
+    },
+    "Sexo": {
+      "label": "(NOMBRE) es hombre/es mujer.",
+      "type": "categorical",
+      "ensanut_param": "SEXO",
+      "values": {
+        "1": "Hombre",
+        "2": "Mujer"
+      }
+    },
+    "Entidad": {
+      "label": "Clave de Entidad Federativa",
+      "type": "categorical",
+      "ensanut_param": "ENT",
+      "values": {
+        "1": "Aguascalientes",
+        "2": "Baja California",
+        "3": "Baja California Sur",
+        "4": "Campeche",
+        "5": "Chiapas",
+        "6": "Chihuahua",
+        "7": "Ciudad de México",
+        "8": "Coahuila",
+        "9": "Colima",
+        "10": "Durango",
+        "11": "Guanajuato",
+        "12": "Guerrero",
+        "13": "Hidalgo",
+        "14": "Jalisco",
+        "15": "Estado de México",
+        "16": "Michoacán",
+        "17": "Morelos",
+        "18": "Nayarit",
+        "19": "Nuevo León",
+        "20": "Oaxaca",
+        "21": "Puebla",
+        "22": "Querétaro",
+        "23": "Quintana Roo",
+        "24": "San Luis Potosí",
+        "25": "Sinaloa",
+        "26": "Sonora",
+        "27": "Tabasco",
+        "28": "Tamaulipas",
+        "29": "Tlaxcala",
+        "30": "Veracruz",
+        "31": "Yucatán",
+        "32": "Zacatecas"
+      }
+    },
+    "Region": {
+      "label": "Región",
+      "type": "categorical",
+      "ensanut_param": "REGION",
+      "values": {
+        "1": "Norte",
+        "2": "Centro",
+        "3": "Ciudad de México",
+        "4": "Sur",
+        "5": "Chiapas",
+        "6": "Chihuahua",
+        "7": "Ciudad de México",
+        "8": "Coahuila",
+        "9": "Colima",
+        "10": "Durango",
+        "11": "Guanajuato",
+        "12": "Guerrero",
+        "13": "Hidalgo",
+        "14": "Jalisco",
+        "15": "Estado de México",
+        "16": "Michoacán",
+        "17": "Morelos",
+        "18": "Nayarit",
+        "19": "Nuevo León",
+        "20": "Oaxaca",
+        "21": "Puebla",
+        "22": "Querétaro",
+        "23": "Quintana Roo",
+        "24": "San Luis Potosí",
+        "25": "Sinaloa",
+        "26": "Sonora",
+        "27": "Tabasco",
+        "28": "Tamaulipas",
+        "29": "Tlaxcala",
+        "30": "Veracruz",
+        "31": "Yucatán",
+        "32": "Zacatecas"
+      }
+    },
+    "ESTRATO": {
+      "label": "ESTRATO",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "EDAD_MADRE": {
+      "label": "EDAD MADRE",
+      "type": "categorical",
+      "ensanut_param": null
+    }
+  }
+}

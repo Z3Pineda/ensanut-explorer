@@ -1,0 +1,127 @@
+{
+  "module": "bio",
+  "year": 2020,
+  "source": "ENSANUT 2020 — CS_ADULTOS.csv",
+  "population": "Adultos con muestra de sangre",
+  "rows": 2373,
+  "columns": {
+    "Edad": {
+      "label": "EDAD DE LA PERSONA A LA QUE SE LE TOMÁ LA MUESTRA",
+      "type": "continuous",
+      "ensanut_param": "Edad"
+    },
+    "Sexo": {
+      "label": "SEXO DE LA PERSONA A LA QUE SE LE TOMÁ LA MUESTRA",
+      "type": "categorical",
+      "ensanut_param": "Sexo",
+      "values": {
+        "1": "HOMBRE",
+        "2": "MUJER"
+      }
+    },
+    "Entidad": {
+      "label": "Entidad",
+      "type": "categorical",
+      "ensanut_param": "ENTIDAD",
+      "values": {
+        "1": "Aguascalientes",
+        "2": "Baja California",
+        "3": "Baja California Sur",
+        "4": "Campeche",
+        "5": "Chiapas",
+        "6": "Chihuahua",
+        "7": "Ciudad de México",
+        "8": "Coahuila",
+        "9": "Colima",
+        "10": "Durango",
+        "11": "Guanajuato",
+        "12": "Guerrero",
+        "13": "Hidalgo",
+        "14": "Jalisco",
+        "15": "Estado de México",
+        "16": "Michoacán",
+        "17": "Morelos",
+        "18": "Nayarit",
+        "19": "Nuevo León",
+        "20": "Oaxaca",
+        "21": "Puebla",
+        "22": "Querétaro",
+        "23": "Quintana Roo",
+        "24": "San Luis Potosí",
+        "25": "Sinaloa",
+        "26": "Sonora",
+        "27": "Tabasco",
+        "28": "Tamaulipas",
+        "29": "Tlaxcala",
+        "30": "Veracruz",
+        "31": "Yucatán",
+        "32": "Zacatecas"
+      }
+    },
+    "Glucosa": {
+      "label": "Resultado  Glucosa (mg/dl)",
+      "type": "continuous",
+      "ensanut_param": "valor.GLU_SUERO"
+    },
+    "HB1AC.Valor": {
+      "label": "HB1AC.Valor",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "Albumina": {
+      "label": "Resultado  Albúmina (g/dL)",
+      "type": "continuous",
+      "ensanut_param": "valor.ALBUM"
+    },
+    "C_HDL": {
+      "label": "Resultado  Colesterol HDL (mg/dl)",
+      "type": "continuous",
+      "ensanut_param": "valor.COL_HDL"
+    },
+    "C_LDL": {
+      "label": "Resultado  Colesterol LDL (mg/dl)",
+      "type": "continuous",
+      "ensanut_param": "valor.COL_LDL"
+    },
+    "Colesterol": {
+      "label": "Resultado  Colesterol total (mg/dl)",
+      "type": "continuous",
+      "ensanut_param": "valor.COLEST"
+    },
+    "Creatinina": {
+      "label": "Resultado  Creatinina (mg/dl)",
+      "type": "continuous",
+      "ensanut_param": "valor.CREAT"
+    },
+    "Insulina": {
+      "label": "Resultado  Insulina (MicroUI/ml)",
+      "type": "continuous",
+      "ensanut_param": "valor.INSULINA"
+    },
+    "Trigliceridos": {
+      "label": "Resultado  Triglicéridos (mg/dl)",
+      "type": "continuous",
+      "ensanut_param": "valor.TRIG"
+    },
+    "GGT": {
+      "label": "Resultado  Gamma-glutamil transpeptidasa (GGT) (U/L)",
+      "type": "continuous",
+      "ensanut_param": "valor.GGT"
+    },
+    "AAT": {
+      "label": "Resultado  Aspartato Aminotransferasa (U/L)",
+      "type": "continuous",
+      "ensanut_param": "valor.AAT"
+    },
+    "Ac_Urico": {
+      "label": "Resultado  Ácido Úrico (mg/dl)",
+      "type": "categorical",
+      "ensanut_param": "valor.AC_URICO"
+    },
+    "ALT": {
+      "label": "Resultado  Transaminasa ALT (U/L)",
+      "type": "continuous",
+      "ensanut_param": "valor.ALT"
+    }
+  }
+}

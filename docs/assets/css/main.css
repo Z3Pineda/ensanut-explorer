@@ -204,6 +204,28 @@ a:hover { text-decoration: underline; }
 
 .actions { margin-top: 1.25rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
 
+.site-footer {
+  margin-top: 3rem;
+  padding: 1.25rem 2rem;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.site-footer p { margin: 0; }
+
+blockquote.citation {
+  margin: 0.75rem 0 1.5rem;
+  padding: 1rem 1.25rem;
+  background: var(--surface);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
 @media (max-width: 960px) {
   .explorer-layout {
     grid-template-columns: 1fr;

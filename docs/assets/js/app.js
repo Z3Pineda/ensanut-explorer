@@ -11,18 +11,12 @@ const state = {
   variable: qs("var") || "DM_Diabetes",
   split: qs("split") || "",
   mapCode: qs("mapCode") || "",
-  seriesGroup: qs("seriesGroup") || "",
 };
-
-function syncControlsFromState() {
-  document.getElementById("sel-split").value = state.split;
-  document.getElementById("sel-series-group").value = state.seriesGroup;
-}
 
 async function init() {
   state.catalog = await loadCatalog();
   populateModuleSelect();
-  syncControlsFromState();
+  document.getElementById("sel-split").value = state.split;
   bindEvents();
   updateViewFields();
   await refresh();
@@ -76,28 +70,17 @@ function refreshVariableSelect() {
   sel.value = state.variable;
 }
 
-function moduleYears() {
-  return state.catalog.modules[state.module].years;
-}
-
 function updateViewFields() {
-  const isTimeseries = state.split === "timeseries";
-  const isMap = state.split === "Entidad";
   const metaCol = state.dataset?.meta?.columns?.[state.variable];
-  const isCategorical = metaCol?.type === "categorical";
-
-  document.getElementById("field-year").hidden = isTimeseries;
-  document.getElementById("field-series-group").hidden = !isTimeseries;
-  document.getElementById("field-map-code").hidden = !(isMap || isTimeseries) || !isCategorical;
+  const showMapCode =
+    state.split === "Entidad" && metaCol?.type === "categorical";
+  document.getElementById("field-map-code").hidden = !showMapCode;
 }
 
 function refreshMapCodeSelect() {
   const sel = document.getElementById("sel-map-code");
   const metaCol = state.dataset?.meta?.columns?.[state.variable];
-  const show =
-    (state.split === "Entidad" || state.split === "timeseries") &&
-    metaCol?.type === "categorical";
-
+  const show = state.split === "Entidad" && metaCol?.type === "categorical";
   if (!show) return;
 
   const options = mapValueOptions(metaCol);
@@ -118,6 +101,7 @@ function refreshMapCodeSelect() {
 function bindEvents() {
   document.getElementById("sel-module").addEventListener("change", async (e) => {
     state.module = e.target.value;
+    state.mapCode = "";
     refreshYearSelect();
     refreshVariableSelect();
     await refresh();
@@ -135,12 +119,6 @@ function bindEvents() {
   });
   document.getElementById("sel-split").addEventListener("change", async (e) => {
     state.split = e.target.value;
-    if (state.split === "timeseries" && !state.mapCode) {
-      const metaCol = state.dataset?.meta?.columns?.[state.variable];
-      if (metaCol?.type === "categorical") {
-        state.mapCode = defaultMapCode(metaCol);
-      }
-    }
     updateViewFields();
     refreshMapCodeSelect();
     await render();
@@ -149,11 +127,6 @@ function bindEvents() {
     state.mapCode = e.target.value;
     await render();
   });
-  document.getElementById("sel-series-group").addEventListener("change", async (e) => {
-    state.seriesGroup = e.target.value;
-    await render();
-  });
-  document.getElementById("sel-series-group").value = state.seriesGroup;
 }
 
 async function refresh() {
@@ -177,15 +150,11 @@ async function render() {
     year: state.year,
     var: state.variable,
     split: state.split || undefined,
-    mapCode:
-      state.split === "Entidad" || state.split === "timeseries"
-        ? state.mapCode || undefined
-        : undefined,
-    seriesGroup: state.split === "timeseries" ? state.seriesGroup || undefined : undefined,
+    mapCode: state.split === "Entidad" ? state.mapCode || undefined : undefined,
   });
 
   const { meta, summary } = state.dataset;
-  const metaCol = meta.columns[state.variable];
+  const metaCol = meta.columns[state.variable] ?? { label: state.variable, type: "unknown" };
   const prev = summary.prevalence?.[state.variable];
   const dist = summary.distribution?.[state.variable];
   const block = prev ?? dist ?? {};
@@ -194,52 +163,27 @@ async function render() {
   document.getElementById("chart-title").textContent =
     metaCol?.label && metaCol.label !== shortName ? metaCol.label : shortName;
 
-  const years = moduleYears();
-  const yearLabel = state.split === "timeseries"
-    ? `${Math.min(...years)}–${Math.max(...years)}`
-    : state.year;
-
   let hint = "";
   if (state.split === "Entidad" && metaCol?.type === "categorical") {
     hint = ` · Mapa: categoría ${state.mapCode}`;
   } else if (state.split === "Entidad" && metaCol?.type === "continuous") {
     hint = " · Mapa: media por entidad";
-  } else if (state.split === "timeseries") {
-    hint = metaCol?.type === "continuous"
-      ? " · Evolución de la media nacional"
-      : ` · Evolución % categoría ${state.mapCode}`;
-    if (state.seriesGroup) hint += ` · por ${state.seriesGroup}`;
   }
 
-  const nLabel =
-    state.split === "timeseries"
-      ? "oleadas comparables"
-      : `n=${meta.rows.toLocaleString("es-MX")}`;
   document.getElementById("chart-subtitle").textContent =
-    `${state.catalog.modules[state.module].title} · ENSANUT ${yearLabel} · ${nLabel}${hint}`;
+    `${state.catalog.modules[state.module].title} · ENSANUT ${state.year} · n=${meta.rows.toLocaleString("es-MX")}${hint}`;
 
   updateViewFields();
   refreshMapCodeSelect();
-
-  try {
-    await renderChart(
-      "chart-main",
-      state.variable,
-      metaCol,
-      block,
-      state.split,
-      meta,
-      state.mapCode,
-      {
-        module: state.module,
-        years,
-        seriesGroup: state.seriesGroup,
-      }
-    );
-  } catch (err) {
-    document.getElementById("chart-main").innerHTML =
-      `<p style="padding:1rem;color:#b91c1c">${err.message}</p>`;
-  }
+  await renderChart(
+    "chart-main",
+    state.variable,
+    metaCol,
+    block,
+    state.split,
+    meta,
+    state.mapCode
+  );
   updateMetaPanel(metaCol, block);
 }
 

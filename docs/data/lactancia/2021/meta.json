@@ -1,0 +1,454 @@
+{
+  "module": "lactancia",
+  "year": 2021,
+  "source": "ENSANUT 2021 — Lactancia.csv",
+  "population": "Madres e infantes (<2 años)",
+  "rows": 998,
+  "columns": {
+    "FOLIO_INT": {
+      "label": "FOLIO INT",
+      "type": "continuous",
+      "ensanut_param": null
+    },
+    "lac02": {
+      "label": "lac02",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC03A": {
+      "label": "LAC03A",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC03B": {
+      "label": "LAC03B",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC03C": {
+      "label": "LAC03C",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC03D": {
+      "label": "LAC03D",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC03E": {
+      "label": "LAC03E",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC03F": {
+      "label": "LAC03F",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC03G": {
+      "label": "LAC03G",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC03H": {
+      "label": "LAC03H",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC03I": {
+      "label": "LAC03I",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC03J": {
+      "label": "LAC03J",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC03K": {
+      "label": "LAC03K",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC03L": {
+      "label": "LAC03L",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC03M": {
+      "label": "LAC03M",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC03N": {
+      "label": "LAC03N",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC03O": {
+      "label": "LAC03O",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC03P": {
+      "label": "LAC03P",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC03Q": {
+      "label": "LAC03Q",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "lac04h": {
+      "label": "lac04h",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "lac04d": {
+      "label": "lac04d",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC05BL": {
+      "label": "LAC05BL",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC05BA": {
+      "label": "LAC05BA",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC05BB": {
+      "label": "LAC05BB",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC05BC": {
+      "label": "LAC05BC",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC05BD": {
+      "label": "LAC05BD",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC05BE": {
+      "label": "LAC05BE",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC05BF": {
+      "label": "LAC05BF",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC05BG": {
+      "label": "LAC05BG",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC05BH": {
+      "label": "LAC05BH",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC05BI": {
+      "label": "LAC05BI",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC05BJ": {
+      "label": "LAC05BJ",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC05BK": {
+      "label": "LAC05BK",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "lac06": {
+      "label": "lac06",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "lac07": {
+      "label": "lac07",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "lac08": {
+      "label": "lac08",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "lac09": {
+      "label": "lac09",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "lac10d": {
+      "label": "lac10d",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "lac10m": {
+      "label": "lac10m",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "lac11a": {
+      "label": "lac11a",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC11BA": {
+      "label": "LAC11BA",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC11BB": {
+      "label": "LAC11BB",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC11BC": {
+      "label": "LAC11BC",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC11BD": {
+      "label": "LAC11BD",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC11BE": {
+      "label": "LAC11BE",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "lac12": {
+      "label": "lac12",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC13A": {
+      "label": "LAC13A",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC13B": {
+      "label": "LAC13B",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC13C": {
+      "label": "LAC13C",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC13D": {
+      "label": "LAC13D",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC13E": {
+      "label": "LAC13E",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC13F": {
+      "label": "LAC13F",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC13G": {
+      "label": "LAC13G",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC13H": {
+      "label": "LAC13H",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC13I": {
+      "label": "LAC13I",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC13J": {
+      "label": "LAC13J",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC13K": {
+      "label": "LAC13K",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC13L": {
+      "label": "LAC13L",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC13M": {
+      "label": "LAC13M",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC13N": {
+      "label": "LAC13N",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "lac14b": {
+      "label": "lac14b",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "lac15b": {
+      "label": "lac15b",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "lac16b1": {
+      "label": "lac16b1",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "lac16b2": {
+      "label": "lac16b2",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "lac16b3": {
+      "label": "lac16b3",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "lac17b": {
+      "label": "lac17b",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "lac18ba": {
+      "label": "lac18ba",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "lac18bb": {
+      "label": "lac18bb",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "lac19b": {
+      "label": "lac19b",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "lac20b": {
+      "label": "lac20b",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "lac21b": {
+      "label": "lac21b",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "lac22b": {
+      "label": "lac22b",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "lac23b": {
+      "label": "lac23b",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "lac24b": {
+      "label": "lac24b",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "lac25b": {
+      "label": "lac25b",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "lac26b": {
+      "label": "lac26b",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "lac27b": {
+      "label": "lac27b",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "LAC28BA": {
+      "label": "LAC28BA",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "lac29b": {
+      "label": "lac29b",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "lac30a": {
+      "label": "lac30a",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "lac31": {
+      "label": "lac31",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "lac32": {
+      "label": "lac32",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "lac33": {
+      "label": "lac33",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "lac34": {
+      "label": "lac34",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "h0303": {
+      "label": "h0303",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "meses": {
+      "label": "meses",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "h0302": {
+      "label": "h0302",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "entidad": {
+      "label": "entidad",
+      "type": "continuous",
+      "ensanut_param": null
+    },
+    "region": {
+      "label": "region",
+      "type": "categorical",
+      "ensanut_param": null
+    }
+  }
+}

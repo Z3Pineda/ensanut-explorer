@@ -1,10 +1,8 @@
-const MODULES = {
-  salud: { status: "mvp", href: "explore.html?module=salud&year=2018&var=DM_Diabetes" },
-  antropometria: { status: "mvp", href: "explore.html?module=antropometria&year=2018&var=Peso" },
-  bio: { status: "planned", href: null },
-  actfis: { status: "planned", href: null },
-  lactancia: { status: "planned", href: null },
-  alimentos: { status: "planned", href: null },
+const DEFAULT_LINKS = {
+  salud: "explore.html?module=salud&year=2018&var=DM_Diabetes",
+  antropometria: "explore.html?module=antropometria&year=2018&var=Peso",
+  bio: "explore.html?module=bio&year=2018&var=Glucosa",
+  lactancia: "explore.html?module=lactancia&year=2018&var=amamantar",
 };
 
 const SITE_ROOT = new URL("../../", import.meta.url);
@@ -15,20 +13,21 @@ async function init() {
   const grid = document.getElementById("module-grid");
 
   Object.values(catalog.modules).forEach((m) => {
-    const info = MODULES[m.id] ?? { status: "planned", href: null };
+    const available = m.status === "mvp";
     const card = document.createElement("article");
-    card.className = `module-card${info.status === "planned" ? " disabled" : ""}`;
+    card.className = `module-card${available ? "" : " disabled"}`;
     card.style.borderTop = `4px solid ${m.color}`;
 
-    const badge = info.status === "mvp" ? "badge-mvp" : "badge-planned";
-    const badgeText = info.status === "mvp" ? "Disponible" : "Próximamente";
+    const badge = available ? "badge-mvp" : "badge-planned";
+    const badgeText = available ? "Disponible" : "Próximamente";
+    const href = DEFAULT_LINKS[m.id];
 
     card.innerHTML = `
       <span class="badge ${badge}">${badgeText}</span>
       <h3>${m.title}</h3>
       <p>${m.subtitle}</p>
-      ${info.href
-        ? `<a class="btn btn-primary" href="${info.href}">Explorar</a>`
+      ${href
+        ? `<a class="btn btn-primary" href="${href}">Explorar</a>`
         : `<span class="btn btn-secondary">En desarrollo</span>`}
     `;
     grid.appendChild(card);
