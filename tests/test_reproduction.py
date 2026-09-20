@@ -18,6 +18,16 @@ from tests.helpers import (
 
 SITE = Path(__file__).resolve().parents[1]
 
+ZENODO_AVAILABLE = prepare_data.ZENODO.is_dir() and any(
+    (prepare_data.ZENODO / cfg["source_dir"]).exists()
+    for cfg in json.loads((SITE / "catalog.json").read_text(encoding="utf-8"))["modules"].values()
+)
+
+pytestmark = pytest.mark.skipif(
+    not ZENODO_AVAILABLE,
+    reason="ZENODO/ source tree not available (expected on CI; run locally from PROY_ENSANUT)",
+)
+
 
 def pytest_generate_tests(metafunc):
     if {"module_id", "year"} <= set(metafunc.fixturenames):
