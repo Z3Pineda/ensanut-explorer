@@ -183,7 +183,7 @@ a:hover { text-decoration: underline; }
 }
 
 #chart-main {
-  min-height: 420px;
+  min-height: 480px;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);

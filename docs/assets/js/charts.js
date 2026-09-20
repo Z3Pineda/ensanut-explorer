@@ -1,8 +1,15 @@
 import { labelForValue, sortCodes } from "./utils.js";
+import { renderEntidadMap } from "./maps.js";
 
-export function renderChart(containerId, variable, metaCol, summaryBlock, splitBy, meta) {
+export async function renderChart(containerId, variable, metaCol, summaryBlock, splitBy, meta, mapCode) {
   const el = document.getElementById(containerId);
   if (!el || !window.Plotly) return;
+
+  if (splitBy === "Entidad" && summaryBlock.by_Entidad) {
+    const isContinuous = metaCol.type === "continuous";
+    await renderEntidadMap(containerId, metaCol, summaryBlock, mapCode, isContinuous);
+    return;
+  }
 
   if (metaCol.type === "continuous") {
     renderHistogram(el, variable, metaCol, summaryBlock);
