@@ -1,0 +1,72 @@
+{
+  "version": "1.0.0",
+  "title": "ENSANUT Explorer",
+  "modules": {
+    "salud": {
+      "title": "Salud",
+      "status": "mvp",
+      "years": {
+        "2018": {
+          "meta": "data/salud/2018/meta.json",
+          "summary": "data/salud/2018/summary.json",
+          "texto": "data/salud/2018/texto.txt",
+          "data": "data/salud/2018/data.csv"
+        },
+        "2021": {
+          "meta": "data/salud/2021/meta.json",
+          "summary": "data/salud/2021/summary.json",
+          "texto": "data/salud/2021/texto.txt",
+          "data": "data/salud/2021/data.csv"
+        },
+        "2022": {
+          "meta": "data/salud/2022/meta.json",
+          "summary": "data/salud/2022/summary.json",
+          "texto": "data/salud/2022/texto.txt",
+          "data": "data/salud/2022/data.csv"
+        },
+        "2023": {
+          "meta": "data/salud/2023/meta.json",
+          "summary": "data/salud/2023/summary.json",
+          "texto": "data/salud/2023/texto.txt",
+          "data": "data/salud/2023/data.csv"
+        }
+      }
+    },
+    "antropometria": {
+      "title": "Antropometría",
+      "status": "mvp",
+      "years": {
+        "2018": {
+          "meta": "data/antropometria/2018/meta.json",
+          "summary": "data/antropometria/2018/summary.json",
+          "texto": "data/antropometria/2018/texto.txt",
+          "data": "data/antropometria/2018/data.csv"
+        },
+        "2020": {
+          "meta": "data/antropometria/2020/meta.json",
+          "summary": "data/antropometria/2020/summary.json",
+          "texto": "data/antropometria/2020/texto.txt",
+          "data": "data/antropometria/2020/data.csv"
+        },
+        "2021": {
+          "meta": "data/antropometria/2021/meta.json",
+          "summary": "data/antropometria/2021/summary.json",
+          "texto": "data/antropometria/2021/texto.txt",
+          "data": "data/antropometria/2021/data.csv"
+        },
+        "2022": {
+          "meta": "data/antropometria/2022/meta.json",
+          "summary": "data/antropometria/2022/summary.json",
+          "texto": "data/antropometria/2022/texto.txt",
+          "data": "data/antropometria/2022/data.csv"
+        },
+        "2023": {
+          "meta": "data/antropometria/2023/meta.json",
+          "summary": "data/antropometria/2023/summary.json",
+          "texto": "data/antropometria/2023/texto.txt",
+          "data": "data/antropometria/2023/data.csv"
+        }
+      }
+    }
+  }
+}

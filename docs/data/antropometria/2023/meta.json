@@ -1,0 +1,127 @@
+{
+  "module": "antropometria",
+  "year": 2023,
+  "source": "ENSANUT 2023 — CN_ANTROPOMETRIA.csv",
+  "population": "Todas las edades",
+  "rows": 3509,
+  "columns": {
+    "Entidad": {
+      "label": "Entidad",
+      "type": "categorical",
+      "ensanut_param": "entidad",
+      "values": {
+        "1": "Durango",
+        "2": "Oaxaca",
+        "3": "Veracruz",
+        "4": "Campeche",
+        "5": "Chiapas",
+        "6": "Chihuahua",
+        "7": "Ciudad de México",
+        "8": "Coahuila",
+        "9": "Colima",
+        "11": "Guanajuato",
+        "12": "Guerrero",
+        "13": "Hidalgo",
+        "14": "Jalisco",
+        "15": "Estado de México",
+        "16": "Michoacán",
+        "17": "Morelos",
+        "18": "Nayarit",
+        "19": "Nuevo León",
+        "21": "Puebla",
+        "22": "Querétaro",
+        "23": "Quintana Roo",
+        "24": "San Luis Potosí",
+        "25": "Sinaloa",
+        "26": "Sonora",
+        "27": "Tabasco",
+        "28": "Tamaulipas",
+        "29": "Tlaxcala",
+        "31": "Yucatán",
+        "32": "Zacatecas"
+      }
+    },
+    "Municipio": {
+      "label": "Municipio",
+      "type": "continuous",
+      "ensanut_param": null
+    },
+    "Region": {
+      "label": "Region",
+      "type": "categorical",
+      "ensanut_param": "x_region",
+      "values": {
+        "1": "Pacifico-Norte",
+        "2": "Frontera",
+        "3": "Pacífico-Centro",
+        "4": "Centro-Norte",
+        "6": "Cd. Mexico",
+        "7": "Edo Mexico",
+        "8": "Pacífico-Sur",
+        "9": "Península"
+      }
+    },
+    "Sexo": {
+      "label": "Sexo",
+      "type": "categorical",
+      "ensanut_param": "h0302",
+      "values": {
+        "1": "Hombre",
+        "2": "Mujer"
+      }
+    },
+    "Edad": {
+      "label": "Edad",
+      "type": "continuous",
+      "ensanut_param": "h0303"
+    },
+    "Embarazada": {
+      "label": "Embarazada",
+      "type": "categorical",
+      "ensanut_param": "an06",
+      "values": {
+        "1": "Está embarazada?"
+      }
+    },
+    "Estrato": {
+      "label": "Estrato",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "Peso": {
+      "label": "Peso",
+      "type": "continuous",
+      "ensanut_param": "an01_1"
+    },
+    "Talla": {
+      "label": "Talla",
+      "type": "continuous",
+      "ensanut_param": "an04_1"
+    },
+    "Cintura": {
+      "label": "Cintura",
+      "type": "continuous",
+      "ensanut_param": "an08_1"
+    },
+    "Peso_mas60": {
+      "label": "Peso mas60",
+      "type": "continuous",
+      "ensanut_param": "an12_1"
+    },
+    "Talla_mas60": {
+      "label": "Talla mas60",
+      "type": "continuous",
+      "ensanut_param": "an15_1"
+    },
+    "TA_sistole": {
+      "label": "TA sistole",
+      "type": "continuous",
+      "ensanut_param": "an27_01_1"
+    },
+    "TA_diastole": {
+      "label": "TA diastole",
+      "type": "continuous",
+      "ensanut_param": "an27_02_1"
+    }
+  }
+}

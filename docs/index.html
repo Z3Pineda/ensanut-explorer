@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ENSANUT Explorer</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>ENSANUT Explorer</h1>
+    <nav class="site-nav">
+      <a href="index.html" class="active">Inicio</a>
+      <a href="explore.html?module=salud&year=2018&var=DM_Diabetes">Explorar</a>
+      <a href="about.html">Acerca de</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h2>Datos de salud y nutrición en México</h2>
+      <p>
+        Explorador interactivo de subconjuntos procesados de la
+        Encuesta Nacional de Salud y Nutrición (ENSANUT), 2018–2023.
+        Fuente oficial: <a href="https://ensanut.insp.mx/" target="_blank" rel="noopener">ensanut.insp.mx</a>.
+      </p>
+    </section>
+
+    <section id="module-grid" class="module-grid" aria-label="Módulos de datos"></section>
+  </main>
+
+  <script type="module" src="assets/js/home.js"></script>
+</body>
+</html>

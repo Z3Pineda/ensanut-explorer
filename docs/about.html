@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acerca de — ENSANUT Explorer</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>ENSANUT Explorer</h1>
+    <nav class="site-nav">
+      <a href="index.html">Inicio</a>
+      <a href="explore.html?module=salud&year=2018&var=DM_Diabetes">Explorar</a>
+      <a href="about.html" class="active">Acerca de</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2>Acerca de este sitio</h2>
+    <p>
+      ENSANUT Explorer es un visor estático de subconjuntos procesados de la
+      <strong>Encuesta Nacional de Salud y Nutrición</strong> (ENSANUT),
+      publicada por el Instituto Nacional de Salud Pública (INSP).
+    </p>
+
+    <h3>Fuente oficial</h3>
+    <p>
+      Los microdatos originales están en
+      <a href="https://ensanut.insp.mx/" target="_blank" rel="noopener">ensanut.insp.mx</a>.
+      Este sitio no sustituye las bases oficiales.
+    </p>
+
+    <h3>Procesamiento</h3>
+    <ul>
+      <li>Selección de variables por módulo temático</li>
+      <li>Renombrado de columnas a nombres cortos legibles</li>
+      <li>Generación de identificadores únicos (<code>ID</code>)</li>
+      <li>Metadatos derivados de los catálogos ENSANUT (<code>*.Catlogo.xlsx</code>)</li>
+      <li>Agregados precomputados para visualización en el navegador</li>
+    </ul>
+
+    <h3>Tecnología</h3>
+    <p>
+      Sitio estático en GitHub Pages · Plotly.js · datos en CSV/JSON en el repositorio.
+    </p>
+
+    <h3>Citación sugerida</h3>
+    <blockquote>
+      Instituto Nacional de Salud Pública. Encuesta Nacional de Salud y Nutrición (ENSANUT).
+      México. Consultado en ensanut.insp.mx.
+    </blockquote>
+  </main>
+</body>
+</html>

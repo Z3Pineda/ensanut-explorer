@@ -1,0 +1,123 @@
+{
+  "version": "1.0.0",
+  "title": "ENSANUT Explorer",
+  "description": "Explorador de subconjuntos procesados de la Encuesta Nacional de Salud y Nutrición (México)",
+  "source_url": "https://ensanut.insp.mx/",
+  "mvp_modules": ["salud", "antropometria"],
+  "demographic_columns": ["Sexo", "Edad", "Entidad", "Region", "Estrato"],
+  "modules": {
+    "salud": {
+      "id": "salud",
+      "title": "Salud",
+      "subtitle": "Condiciones crónicas, salud mental, factores de riesgo",
+      "icon": "heart-pulse",
+      "color": "#c0392b",
+      "status": "mvp",
+      "source_dir": "ENSANUT_SALUD",
+      "data_file": "CS_ADULTOS.csv",
+      "years": [2018, 2021, 2022, 2023],
+      "population": "Adultos",
+      "variables": {
+        "continuous": ["Edad", "Peso"],
+        "categorical": [
+          "Sexo", "Entidad", "Region", "Estrato",
+          "De_Agobio", "De_Concentracion", "De_Depresion", "De_Esfuerzo",
+          "De_Dormir", "De_Disfrutar", "De_Tristeza", "De_Fatiga",
+          "DM_Diabetes", "DM_Insulina", "HT_Hipertension", "HT_Medicamento",
+          "CVC_infarto", "CVC_angina", "CVC_insufcardiaca",
+          "Infeccion_viasurinarias", "CC_Colesterol", "CC_medicamento",
+          "TR_rigliceridos", "TR_medicamento", "FR_Fumar", "FR_Tomar"
+        ]
+      }
+    },
+    "antropometria": {
+      "id": "antropometria",
+      "title": "Antropometría",
+      "subtitle": "Peso, talla, circunferencias y presión arterial",
+      "icon": "ruler",
+      "color": "#2980b9",
+      "status": "mvp",
+      "source_dir": "ENSANUT_ANTROPOMETRIA",
+      "data_file": "CN_ANTROPOMETRIA.csv",
+      "years": [2018, 2020, 2021, 2022, 2023],
+      "population": "Todas las edades",
+      "variables": {
+        "continuous": [
+          "Edad", "Peso", "Talla", "Cintura", "Talla_mas60",
+          "TA_sistole", "TA_diastole"
+        ],
+        "categorical": [
+          "Sexo", "Entidad", "Region", "Estrato", "Embarazada"
+        ]
+      }
+    },
+    "bio": {
+      "id": "bio",
+      "title": "Biomarcadores",
+      "subtitle": "Muestras de sangre — glucosa, lípidos, hemoglobina",
+      "icon": "droplet",
+      "color": "#8e44ad",
+      "status": "planned",
+      "source_dir": "ENSANUT_BIO",
+      "data_file": "CS_ADULTOS.csv",
+      "years": [2018, 2020, 2023],
+      "population": "Adultos",
+      "variables": {
+        "continuous": ["Edad", "Glucosa", "HB1AC", "Albumina", "C_HDL", "C_LDL", "Trigliceridos"],
+        "categorical": ["Sexo", "Entidad", "Region", "Estrato"]
+      }
+    },
+    "actfis": {
+      "id": "actfis",
+      "title": "Actividad física",
+      "subtitle": "Sedentarismo, ejercicio, tiempo en pantalla",
+      "icon": "activity",
+      "color": "#27ae60",
+      "status": "planned",
+      "source_dir": "ENSANUT_ACTFIS",
+      "data_file": "CS_ADULTOS.csv",
+      "years": [2018, 2022, 2023],
+      "population": "Adultos, adolescentes, niños (varía por año)",
+      "variables": {
+        "continuous": ["Edad"],
+        "categorical": ["Sexo", "Entidad", "Region"]
+      }
+    },
+    "lactancia": {
+      "id": "lactancia",
+      "title": "Lactancia materna",
+      "subtitle": "Prácticas de lactancia y alimentación del lactante",
+      "icon": "baby",
+      "color": "#e67e22",
+      "status": "planned",
+      "source_dir": "ENSANUT_LACTANCIA",
+      "data_file": "Lactancia.csv",
+      "years": [2018, 2021, 2022, 2023],
+      "population": "Madres e infantes",
+      "variables": {
+        "continuous": ["Edad", "Edad_meses", "peso_actual", "estatura"],
+        "categorical": ["Sexo", "Entidad", "Region", "amamantar", "aun_amamanta"]
+      }
+    },
+    "alimentos": {
+      "id": "alimentos",
+      "title": "Nutrición",
+      "subtitle": "Porciones semanales por grupo alimenticio",
+      "icon": "utensils",
+      "color": "#f39c12",
+      "status": "planned",
+      "source_dir": "ENSANUT_ALIMENTOS",
+      "data_file": "Nutricion.csv",
+      "years": [2018, 2020, 2021, 2022, 2023],
+      "population": "Todas las edades",
+      "variables": {
+        "continuous": [
+          "Edad", "bebidas", "carnes", "cereales", "com_rapida", "dulces",
+          "frutas", "lacteos", "leguminosas", "miscelaneos", "pescado",
+          "prod_maiz", "sopas", "verduras"
+        ],
+        "categorical": ["Sexo", "Entidad"]
+      }
+    }
+  }
+}

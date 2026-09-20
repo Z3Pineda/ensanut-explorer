@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explorar — ENSANUT Explorer</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <h1>ENSANUT Explorer</h1>
+    <nav class="site-nav">
+      <a href="index.html">Inicio</a>
+      <a href="explore.html" class="active">Explorar</a>
+      <a href="about.html">Acerca de</a>
+    </nav>
+  </header>
+
+  <div class="explorer-layout">
+    <aside class="panel" id="filters-panel">
+      <h2>Filtros</h2>
+      <div class="field">
+        <label for="sel-module">Módulo</label>
+        <select id="sel-module"></select>
+      </div>
+      <div class="field">
+        <label for="sel-year">Año</label>
+        <select id="sel-year"></select>
+      </div>
+      <div class="field">
+        <label for="sel-variable">Variable</label>
+        <select id="sel-variable"></select>
+      </div>
+      <div class="field">
+        <label for="sel-split">Desagregar por</label>
+        <select id="sel-split">
+          <option value="">Ninguno (total)</option>
+          <option value="Sexo">Sexo</option>
+          <option value="Region">Región</option>
+          <option value="Entidad">Entidad</option>
+        </select>
+      </div>
+    </aside>
+
+    <section class="chart-area">
+      <h2 id="chart-title">—</h2>
+      <p class="subtitle" id="chart-subtitle"></p>
+      <div id="chart-main"></div>
+      <div class="actions">
+        <a id="btn-download" class="btn btn-secondary" href="#" download>Descargar CSV</a>
+      </div>
+    </section>
+
+    <aside class="panel" id="meta-panel">
+      <h2>Variable</h2>
+      <dl class="meta-dl">
+        <dt>Nombre</dt>
+        <dd id="meta-label">—</dd>
+        <dt>Tipo</dt>
+        <dd id="meta-type">—</dd>
+        <dt>Parámetro ENSANUT</dt>
+        <dd id="meta-param">—</dd>
+        <dt>Valores</dt>
+        <dd id="meta-values">—</dd>
+        <dt>Registros válidos</dt>
+        <dd id="meta-n">—</dd>
+      </dl>
+    </aside>
+  </div>
+
+  <script type="module" src="assets/js/app.js"></script>
+</body>
+</html>

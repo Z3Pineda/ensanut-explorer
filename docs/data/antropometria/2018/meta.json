@@ -1,0 +1,113 @@
+{
+  "module": "antropometria",
+  "year": 2018,
+  "source": "ENSANUT 2018 — CN_ANTROPOMETRIA.csv",
+  "population": "Todas las edades",
+  "rows": 33818,
+  "columns": {
+    "Embarazada": {
+      "label": "Embarazada",
+      "type": "categorical",
+      "ensanut_param": "P6",
+      "values": {
+        "1": "está embarazada?"
+      }
+    },
+    "Edad": {
+      "label": "Edad",
+      "type": "continuous",
+      "ensanut_param": "EDAD"
+    },
+    "Sexo": {
+      "label": "Sexo",
+      "type": "categorical",
+      "ensanut_param": "SEXO",
+      "values": {
+        "1": "Hombre",
+        "2": "Mujer"
+      }
+    },
+    "Entidad": {
+      "label": "Entidad",
+      "type": "categorical",
+      "ensanut_param": "ENT",
+      "values": {
+        "1": "Durango",
+        "2": "Oaxaca",
+        "3": "Veracruz",
+        "4": "Campeche",
+        "5": "Chiapas",
+        "6": "Chihuahua",
+        "7": "Ciudad de México",
+        "8": "Coahuila",
+        "9": "Colima",
+        "11": "Guanajuato",
+        "12": "Guerrero",
+        "13": "Hidalgo",
+        "14": "Jalisco",
+        "15": "Estado de México",
+        "16": "Michoacán",
+        "17": "Morelos",
+        "18": "Nayarit",
+        "19": "Nuevo León",
+        "21": "Puebla",
+        "22": "Querétaro",
+        "23": "Quintana Roo",
+        "24": "San Luis Potosí",
+        "25": "Sinaloa",
+        "26": "Sonora",
+        "27": "Tabasco",
+        "28": "Tamaulipas",
+        "29": "Tlaxcala",
+        "31": "Yucatán",
+        "32": "Zacatecas"
+      }
+    },
+    "Region": {
+      "label": "Region",
+      "type": "categorical",
+      "ensanut_param": "REGION",
+      "values": {
+        "1": "Norte",
+        "2": "Centro",
+        "3": "Ciudad de México",
+        "4": "Sur"
+      }
+    },
+    "Estrato": {
+      "label": "Estrato",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "Peso": {
+      "label": "Peso",
+      "type": "continuous",
+      "ensanut_param": "PESO1_1"
+    },
+    "Talla": {
+      "label": "Talla",
+      "type": "continuous",
+      "ensanut_param": "TALLA4_1"
+    },
+    "Cintura": {
+      "label": "Cintura",
+      "type": "continuous",
+      "ensanut_param": "CIRCUNFERENCIA8_1"
+    },
+    "Talla_mas60": {
+      "label": "Talla mas60",
+      "type": "continuous",
+      "ensanut_param": "TALLA15_1"
+    },
+    "TA_sistole": {
+      "label": "TA sistole",
+      "type": "continuous",
+      "ensanut_param": "P27_1_1"
+    },
+    "TA_diastole": {
+      "label": "TA diastole",
+      "type": "continuous",
+      "ensanut_param": "P27_2_1"
+    }
+  }
+}

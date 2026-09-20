@@ -1,0 +1,269 @@
+{
+  "module": "salud",
+  "year": 2021,
+  "source": "ENSANUT 2021 — CS_ADULTOS.csv",
+  "population": "Adultos",
+  "rows": 13402,
+  "columns": {
+    "Entidad": {
+      "label": "Entidad",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "Region": {
+      "label": "Region",
+      "type": "categorical",
+      "ensanut_param": "region",
+      "values": {
+        "1": "Pacifico_Norte"
+      }
+    },
+    "estrato": {
+      "label": "estrato",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "Edad": {
+      "label": "Edad",
+      "type": "continuous",
+      "ensanut_param": null
+    },
+    "Sexo": {
+      "label": "Sexo",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "Obesidad": {
+      "label": "Obesidad",
+      "type": "categorical",
+      "ensanut_param": "a0101",
+      "values": {
+        "1": "Sí",
+        "2": "No."
+      }
+    },
+    "Peso": {
+      "label": "Peso",
+      "type": "continuous",
+      "ensanut_param": null
+    },
+    "Obesidad.1": {
+      "label": "Obesidad.1",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "De_Agobio": {
+      "label": "De Agobio",
+      "type": "categorical",
+      "ensanut_param": "a0211",
+      "values": {
+        "1": "Rara vez o nunca (menos de un dí­a)."
+      }
+    },
+    "De_Concentracion": {
+      "label": "De Concentracion",
+      "type": "categorical",
+      "ensanut_param": "a0212",
+      "values": {
+        "1": "Rara vez o nunca (menos de un dí­a)."
+      }
+    },
+    "De_Depresion": {
+      "label": "De Depresion",
+      "type": "categorical",
+      "ensanut_param": "a0213",
+      "values": {
+        "1": "Rara vez o nunca (menos de un dí­a)."
+      }
+    },
+    "De_Esfuerzo": {
+      "label": "De Esfuerzo",
+      "type": "categorical",
+      "ensanut_param": "a0214",
+      "values": {
+        "1": "Rara vez o nunca (menos de un dí­a)."
+      }
+    },
+    "De_Dormir": {
+      "label": "De Dormir",
+      "type": "categorical",
+      "ensanut_param": "a0215",
+      "values": {
+        "1": "Rara vez o nunca (menos de un dí­a)."
+      }
+    },
+    "De_Disfrutar": {
+      "label": "De Disfrutar",
+      "type": "categorical",
+      "ensanut_param": "a0216",
+      "values": {
+        "1": "Rara vez o nunca (menos de un dí­a)."
+      }
+    },
+    "De_Tristeza": {
+      "label": "De Tristeza",
+      "type": "categorical",
+      "ensanut_param": "a0217",
+      "values": {
+        "1": "Rara vez o nunca (menos de un dí­a)."
+      }
+    },
+    "De_Diagnostico": {
+      "label": "De Diagnostico",
+      "type": "categorical",
+      "ensanut_param": "a0202",
+      "values": {
+        "1": "Sí",
+        "2": "No."
+      }
+    },
+    "De_Medicamento": {
+      "label": "De Medicamento",
+      "type": "categorical",
+      "ensanut_param": "a0203",
+      "values": {
+        "1": "Sí",
+        "2": "No."
+      }
+    },
+    "DM_Diabetes": {
+      "label": "DM Diabetes",
+      "type": "categorical",
+      "ensanut_param": "a0301",
+      "values": {
+        "1": "Sí",
+        "2": "No."
+      }
+    },
+    "DM_Insulina": {
+      "label": "DM Insulina",
+      "type": "categorical",
+      "ensanut_param": "a0307",
+      "values": {
+        "1": "Sí"
+      }
+    },
+    "HT_Hipertension": {
+      "label": "HT Hipertension",
+      "type": "categorical",
+      "ensanut_param": "a0401",
+      "values": {
+        "1": "Sí",
+        "2": "No."
+      }
+    },
+    "HT_Medicamento": {
+      "label": "HT Medicamento",
+      "type": "categorical",
+      "ensanut_param": "a0404",
+      "values": {
+        "1": "Sí",
+        "2": "No."
+      }
+    },
+    "CVC_infarto": {
+      "label": "CVC infarto",
+      "type": "categorical",
+      "ensanut_param": "a0502a",
+      "values": {
+        "1": "Sí",
+        "2": "No."
+      }
+    },
+    "CVC_angina": {
+      "label": "CVC angina",
+      "type": "categorical",
+      "ensanut_param": "a0502b",
+      "values": {
+        "1": "Sí",
+        "2": "No."
+      }
+    },
+    "CVC_insufcardiaca": {
+      "label": "CVC insufcardiaca",
+      "type": "categorical",
+      "ensanut_param": "a0502c",
+      "values": {
+        "1": "Sí",
+        "2": "No."
+      }
+    },
+    "RE_Infeccion": {
+      "label": "RE Infeccion",
+      "type": "categorical",
+      "ensanut_param": "a0601a",
+      "values": {
+        "1": "Sí",
+        "2": "No."
+      }
+    },
+    "RE_Calculos": {
+      "label": "RE Calculos",
+      "type": "categorical",
+      "ensanut_param": "a0601b",
+      "values": {
+        "1": "Sí",
+        "2": "No."
+      }
+    },
+    "RE_Insufrenal": {
+      "label": "RE Insufrenal",
+      "type": "categorical",
+      "ensanut_param": "a0601c",
+      "values": {
+        "1": "Sí",
+        "2": "No."
+      }
+    },
+    "CC_Colesterol": {
+      "label": "CC Colesterol",
+      "type": "categorical",
+      "ensanut_param": "a0604",
+      "values": {
+        "1": "Sí",
+        "2": "No."
+      }
+    },
+    "CC_medicamento": {
+      "label": "CC medicamento",
+      "type": "categorical",
+      "ensanut_param": "A0605A",
+      "values": {
+        "1": "Medicamento."
+      }
+    },
+    "TR_rigliceridos": {
+      "label": "TR rigliceridos",
+      "type": "categorical",
+      "ensanut_param": "a0606",
+      "values": {
+        "1": "Sí",
+        "2": "No."
+      }
+    },
+    "TR_medicamento": {
+      "label": "TR medicamento",
+      "type": "categorical",
+      "ensanut_param": "A0607A",
+      "values": {
+        "1": "Medicamento."
+      }
+    },
+    "FR_Fumar": {
+      "label": "FR Fumar",
+      "type": "categorical",
+      "ensanut_param": "a1301",
+      "values": {
+        "1": "todos los días?"
+      }
+    },
+    "FR_Tomar": {
+      "label": "FR Tomar",
+      "type": "categorical",
+      "ensanut_param": "a1308",
+      "values": {
+        "1": "Diaria"
+      }
+    }
+  }
+}
