@@ -13,6 +13,7 @@ jobs:
     env:
       PYTHONUTF8: "1"
       LC_ALL: C.UTF-8
+      PYTHONPATH: scripts
     steps:
       - uses: actions/checkout@v4
 
@@ -34,4 +35,5 @@ jobs:
 
       - name: Run pytest
         run: |
+          python -c "import prepare_data; import tests.helpers"
           python -m pytest tests/ -q --tb=short --ignore=tests/test_reproduction.py
