@@ -80,7 +80,7 @@ def test_aggregates_match_csv(module_id, year, catalog):
     if df is None:
         pytest.skip("data.csv not present")
 
-    cat_col, cont_col = pick_check_columns(catalog, module_id)
+    cat_col, cont_col = pick_check_columns(catalog, module_id, year)
 
     if cat_col and cat_col in summary["prevalence"]:
         expected = summary["prevalence"][cat_col]["overall"]
