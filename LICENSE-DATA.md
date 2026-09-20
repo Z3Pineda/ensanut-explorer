@@ -11,9 +11,9 @@ https://creativecommons.org/licenses/by/4.0/
 
 Al usar estos datos, cita:
 
-> Pineda Rico, Z. (2024). Health, anthropometry, blood, physical activity,
-> breastfeeding and nutrition datasets from ENSANUT (2018–2023) (Version 1)
-> [Dataset]. Zenodo. https://doi.org/10.5281/zenodo.14460946
+> Pineda Rico, Z. (2026). Processed health, anthropometry, biomarkers, physical activity,
+> breastfeeding and nutrition datasets from ENSANUT (Mexico, 2018–2023) (Version 1)
+> [Data set]. Zenodo. https://doi.org/10.5281/zenodo.14460946
 
 ## Fuente original
 
