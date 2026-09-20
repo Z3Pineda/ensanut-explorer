@@ -24,7 +24,7 @@
         <label for="sel-module">Módulo</label>
         <select id="sel-module"></select>
       </div>
-      <div class="field">
+      <div class="field" id="field-year">
         <label for="sel-year">Año</label>
         <select id="sel-year"></select>
       </div>
@@ -39,11 +39,20 @@
           <option value="Sexo">Barras por sexo</option>
           <option value="Region">Barras por región</option>
           <option value="Entidad">Mapa por entidad</option>
+          <option value="timeseries">Serie temporal</option>
         </select>
       </div>
       <div class="field" id="field-map-code" hidden>
-        <label for="sel-map-code">Mostrar en mapa</label>
+        <label for="sel-map-code">Categoría a graficar</label>
         <select id="sel-map-code"></select>
+      </div>
+      <div class="field" id="field-series-group" hidden>
+        <label for="sel-series-group">Líneas por</label>
+        <select id="sel-series-group">
+          <option value="">Total nacional</option>
+          <option value="Sexo">Sexo</option>
+          <option value="Region">Región</option>
+        </select>
       </div>
     </aside>
 

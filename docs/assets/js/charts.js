@@ -1,9 +1,34 @@
 import { labelForValue, sortCodes } from "./utils.js";
 import { renderEntidadMap } from "./maps.js";
+import { buildTimeSeries, renderTimeSeriesChart } from "./timeseries.js";
 
-export async function renderChart(containerId, variable, metaCol, summaryBlock, splitBy, meta, mapCode) {
+export async function renderChart(
+  containerId,
+  variable,
+  metaCol,
+  summaryBlock,
+  splitBy,
+  meta,
+  mapCode,
+  seriesOpts = {}
+) {
   const el = document.getElementById(containerId);
   if (!el || !window.Plotly) return;
+
+  if (splitBy === "timeseries") {
+    const { module, years, seriesGroup } = seriesOpts;
+    const seriesData = await buildTimeSeries(
+      module,
+      years,
+      variable,
+      metaCol,
+      mapCode,
+      seriesGroup || "",
+      meta
+    );
+    renderTimeSeriesChart(containerId, seriesData, metaCol, mapCode);
+    return;
+  }
 
   if (splitBy === "Entidad" && summaryBlock.by_Entidad) {
     const isContinuous = metaCol.type === "continuous";
