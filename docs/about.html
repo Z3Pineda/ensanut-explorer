@@ -29,33 +29,46 @@
     <p>
       Los microdatos originales están en
       <a href="https://ensanut.insp.mx/" target="_blank" rel="noopener">ensanut.insp.mx</a>.
-      Este sitio no sustituye las bases oficiales.
+      Este sitio no sustituye las bases oficiales del INSP.
     </p>
 
-    <h3>Conjunto de datos procesado (Zenodo)</h3>
+    <h3>Conjunto de datos procesado (Zenodo v1)</h3>
     <p>
-      Los CSV y metadatos que alimentan este explorador están archivados en Zenodo:
+      Los CSV y metadatos están archivados en Zenodo (6 módulos, 2018–2023):
       <a href="https://doi.org/10.5281/zenodo.14460946" target="_blank" rel="noopener">doi.org/10.5281/zenodo.14460946</a>
     </p>
+    <p>
+      Explorador en vivo:
+      <a href="https://z3pineda.github.io/ensanut-explorer/">z3pineda.github.io/ensanut-explorer</a>
+      · Código:
+      <a href="https://github.com/Z3Pineda/ensanut-explorer">GitHub</a>
+    </p>
+
+    <h3>Módulos disponibles</h3>
+    <ul>
+      <li>Salud, Antropometría, Biomarcadores, Actividad física, Lactancia materna, Nutrición</li>
+    </ul>
+
+    <h3>Licencias</h3>
+    <ul>
+      <li><strong>Código del explorador</strong> (HTML, CSS, JavaScript, scripts): <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT License</a></li>
+      <li><strong>Datos procesados</strong> (CSV, metadatos en Zenodo y <code>docs/data/</code>): <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></li>
+      <li><strong>Microdatos ENSANUT originales</strong>: términos del INSP en <a href="https://ensanut.insp.mx/" target="_blank" rel="noopener">ensanut.insp.mx</a></li>
+    </ul>
 
     <h3>Procesamiento</h3>
     <ul>
       <li>Selección de variables por módulo temático</li>
       <li>Renombrado de columnas a nombres cortos legibles</li>
       <li>Generación de identificadores únicos (<code>ID</code>)</li>
-      <li>Metadatos derivados de los catálogos ENSANUT (<code>description.json</code>)</li>
+      <li>Metadatos derivados de catálogos ENSANUT (<code>description.json</code>)</li>
       <li>Agregados precomputados para visualización en el navegador</li>
     </ul>
 
-    <h3>Tecnología</h3>
-    <p>
-      Sitio estático en GitHub Pages · Plotly.js · datos en CSV/JSON en el repositorio.
-    </p>
-
     <h3>Citación sugerida</h3>
-    <p><strong>Datos procesados (este explorador):</strong></p>
+    <p><strong>Datos procesados:</strong></p>
     <blockquote class="citation">
-      Pineda Rico, Z. (2024). Health, anthropometry, blood, physical activity, breastfeeding and nutrition datasets from ENSANUT (2018–2023) [Dataset]. Zenodo.
+      Pineda Rico, Z. (2024). Health, anthropometry, blood, physical activity, breastfeeding and nutrition datasets from ENSANUT (2018–2023) (Version 1) [Dataset]. Zenodo.
       <a href="https://doi.org/10.5281/zenodo.14460946" target="_blank" rel="noopener">https://doi.org/10.5281/zenodo.14460946</a>
     </blockquote>
     <p><strong>Fuente original ENSANUT:</strong></p>
@@ -68,9 +81,11 @@
 
   <footer class="site-footer">
     <p>
-      Datos procesados:
+      Datos (CC BY 4.0):
       <a href="https://doi.org/10.5281/zenodo.14460946" target="_blank" rel="noopener">10.5281/zenodo.14460946</a>
-      · Fuente:
+      · Código (MIT):
+      <a href="https://github.com/Z3Pineda/ensanut-explorer">GitHub</a>
+      · Fuente INSP:
       <a href="https://ensanut.insp.mx/" target="_blank" rel="noopener">ensanut.insp.mx</a>
     </p>
   </footer>
