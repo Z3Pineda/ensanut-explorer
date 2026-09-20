@@ -14,6 +14,11 @@ const state = {
 };
 
 async function init() {
+  if (window.location.protocol === "file:") {
+    document.getElementById("chart-main").innerHTML =
+      "<p style='padding:1rem;color:#b91c1c'>Abre el sitio con un servidor local (<code>python -m http.server 8765</code> en <code>docs</code>), no como archivo en disco.</p>";
+    return;
+  }
   state.catalog = await loadCatalog();
   populateModuleSelect();
   document.getElementById("sel-split").value = state.split;
@@ -175,16 +180,22 @@ async function render() {
 
   updateViewFields();
   refreshMapCodeSelect();
-  await renderChart(
-    "chart-main",
-    state.variable,
-    metaCol,
-    block,
-    state.split,
-    meta,
-    state.mapCode
-  );
-  updateMetaPanel(metaCol, block);
+  try {
+    await renderChart(
+      "chart-main",
+      state.variable,
+      metaCol,
+      block,
+      state.split,
+      meta,
+      state.mapCode
+    );
+    updateMetaPanel(metaCol, block);
+  } catch (err) {
+    console.error(err);
+    document.getElementById("chart-main").innerHTML =
+      `<p style="padding:1rem;color:#b91c1c">Error al graficar: ${err.message}</p>`;
+  }
 }
 
 init().catch((err) => {

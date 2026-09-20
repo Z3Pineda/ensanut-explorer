@@ -1,9 +1,9 @@
-// Rutas relativas al módulo JS → siempre apuntan a docs/ sin depender de la página HTML
-const SITE_ROOT = new URL("../../", import.meta.url);
-const DATA_ROOT = new URL("../../data/", import.meta.url);
+import { resolveFromSite } from "./site-base.js";
+
+const DATA_ROOT = resolveFromSite("data/");
 
 export async function loadCatalog() {
-  const res = await fetch(new URL("catalog.json", SITE_ROOT));
+  const res = await fetch(resolveFromSite("catalog.json"));
   if (!res.ok) throw new Error("No se pudo cargar catalog.json");
   return res.json();
 }
@@ -16,15 +16,18 @@ export async function loadManifest() {
 
 export async function loadDataset(module, year) {
   const base = new URL(`${module}/${year}/`, DATA_ROOT);
-  const [meta, summary, textoRes] = await Promise.all([
-    fetch(new URL("meta.json", base)).then((r) => r.json()),
-    fetch(new URL("summary.json", base)).then((r) => r.json()),
-    fetch(new URL("texto.txt", base)).then((r) => (r.ok ? r.text() : "")),
+  const [metaRes, summaryRes, textoRes] = await Promise.all([
+    fetch(new URL("meta.json", base)),
+    fetch(new URL("summary.json", base)),
+    fetch(new URL("texto.txt", base)),
   ]);
+  if (!metaRes.ok) throw new Error(`No se encontró meta.json (${module}/${year})`);
+  if (!summaryRes.ok) throw new Error(`No se encontró summary.json (${module}/${year})`);
+  const [meta, summary] = await Promise.all([metaRes.json(), summaryRes.json()]);
   return {
     meta,
     summary,
-    texto: textoRes,
+    texto: textoRes.ok ? await textoRes.text() : "",
     csvUrl: new URL("data.csv", base).href,
   };
 }

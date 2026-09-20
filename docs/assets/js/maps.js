@@ -1,10 +1,11 @@
 import { labelForValue, sortCodes } from "./utils.js";
+import { resolveFromSite } from "./site-base.js";
 
 let geoCache = null;
 
 export async function loadMexicoGeoJSON() {
   if (geoCache) return geoCache;
-  const res = await fetch(new URL("../data/mexico-entidades.geojson", import.meta.url));
+  const res = await fetch(resolveFromSite("assets/data/mexico-entidades.geojson"));
   if (!res.ok) throw new Error("No se pudo cargar el mapa de México");
   geoCache = await res.json();
   return geoCache;

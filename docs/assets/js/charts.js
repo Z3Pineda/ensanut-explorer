@@ -1,9 +1,18 @@
 import { labelForValue, sortCodes } from "./utils.js";
 import { renderEntidadMap } from "./maps.js";
 
+function plotlyMissing(el) {
+  el.innerHTML =
+    "<p style='padding:1rem;color:#b91c1c'>No se cargó Plotly.js (CDN bloqueado o sin conexión). Recarga la página o revisa tu red.</p>";
+}
+
 export async function renderChart(containerId, variable, metaCol, summaryBlock, splitBy, meta, mapCode) {
   const el = document.getElementById(containerId);
-  if (!el || !window.Plotly) return;
+  if (!el) return;
+  if (!window.Plotly) {
+    plotlyMissing(el);
+    return;
+  }
 
   if (splitBy === "Entidad" && summaryBlock.by_Entidad) {
     const isContinuous = metaCol?.type === "continuous";
@@ -26,6 +35,10 @@ export async function renderChart(containerId, variable, metaCol, summaryBlock, 
 
 function renderSimpleBars(el, variable, overall, metaCol) {
   const codes = sortCodes(Object.keys(overall));
+  if (!codes.length) {
+    el.innerHTML = "<p style='padding:1rem'>Sin datos agregados para esta variable.</p>";
+    return;
+  }
   const labels = codes.map((c) => labelForValue(metaCol, c));
   const values = codes.map((c) => overall[c] * 100);
 
