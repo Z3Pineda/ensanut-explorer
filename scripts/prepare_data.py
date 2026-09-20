@@ -46,6 +46,42 @@ STANDARD_VALUES: dict[str, dict[str, str]] = {
     },
 }
 
+# Clave ENT — 32 entidades federativas (código ENSANUT → nombre)
+ENTIDAD_VALUES: dict[str, str] = {
+    "1": "Aguascalientes",
+    "2": "Baja California",
+    "3": "Baja California Sur",
+    "4": "Campeche",
+    "5": "Chiapas",
+    "6": "Chihuahua",
+    "7": "Ciudad de México",
+    "8": "Coahuila",
+    "9": "Colima",
+    "10": "Durango",
+    "11": "Guanajuato",
+    "12": "Guerrero",
+    "13": "Hidalgo",
+    "14": "Jalisco",
+    "15": "Estado de México",
+    "16": "Michoacán",
+    "17": "Morelos",
+    "18": "Nayarit",
+    "19": "Nuevo León",
+    "20": "Oaxaca",
+    "21": "Puebla",
+    "22": "Querétaro",
+    "23": "Quintana Roo",
+    "24": "San Luis Potosí",
+    "25": "Sinaloa",
+    "26": "Sonora",
+    "27": "Tabasco",
+    "28": "Tamaulipas",
+    "29": "Tlaxcala",
+    "30": "Veracruz",
+    "31": "Yucatán",
+    "32": "Zacatecas",
+}
+
 
 def load_catalog() -> dict:
     with open(CATALOG_PATH, encoding="utf-8") as f:
@@ -73,12 +109,7 @@ def parse_description_csv(path: Path) -> dict[str, dict]:
             continue
         desc = str(row.get("Descripción", "")).strip()
         param = str(row.get("Parámetro ENSANUT", "")).strip()
-        values = {}
-        if desc and desc not in ("", "nan"):
-            for part in re.split(r",\s*", desc):
-                m = re.match(r"([\d.]+)\s*:\s*(.+)", part.strip())
-                if m:
-                    values[m.group(1).rstrip(".0")] = m.group(2).strip()
+        values = parse_value_map(desc)
         meta[col] = {
             "label": col.replace("_", " "),
             "ensanut_param": param if param != "nan" else None,
@@ -90,37 +121,61 @@ def parse_description_csv(path: Path) -> dict[str, dict]:
 
 def normalize_code(val) -> str:
     s = str(val).strip()
+    if not s:
+        return s
     if re.fullmatch(r"\d+\.0+", s):
-        return s.split(".")[0]
+        return str(int(float(s)))
+    if re.fullmatch(r"\d+", s):
+        return str(int(s))
     return s
 
 
-def parse_description_json(path: Path) -> dict[str, dict]:
-    """Catálogo completo INSP keyed by Nombre corto (columna CSV)."""
+def parse_value_map(desc: str) -> dict[str, str]:
+    """Extrae mapa código→etiqueta de cadenas tipo '1.0: Norte, 2.0: Centro'."""
+    values: dict[str, str] = {}
+    if not desc or desc in ("", "nan"):
+        return values
+    for m in re.finditer(r"([\d.]+)\s*:\s*([^,]+?)(?=,\s*[\d.]+\s*:|$)", desc):
+        code = normalize_code(m.group(1))
+        label = m.group(2).strip()
+        if code and label:
+            values[code] = label
+    return values
+
+
+def _entry_from_json(param: str, info: dict) -> dict:
+    values: dict[str, str] = {}
+    for v in info.get("Valores") or []:
+        code = normalize_code(v.get("Valor_numerico", ""))
+        label = str(v.get("Etiqueta", "")).strip()
+        if code and label:
+            values[code] = label
+    short = info.get("Nombre_corto") or info.get("nombre_corto") or param
+    return {
+        "label": str(info.get("Etiqueta", short)).strip(),
+        "ensanut_param": param,
+        "values": values,
+    }
+
+
+def parse_description_json(path: Path) -> tuple[dict[str, dict], dict[str, dict]]:
+    """Catálogo INSP: por Nombre corto y por parámetro ENSANUT."""
     if not path.exists():
-        return {}
+        return {}, {}
     with open(path, encoding="utf-8") as f:
         raw = json.load(f)
 
-    meta: dict[str, dict] = {}
+    by_short: dict[str, dict] = {}
+    by_param: dict[str, dict] = {}
     for param, info in raw.items():
         if not isinstance(info, dict):
             continue
+        entry = _entry_from_json(param, info)
+        by_param[str(param).lower()] = entry
         short = info.get("Nombre_corto") or info.get("nombre_corto")
-        if not short:
-            continue
-        values: dict[str, str] = {}
-        for v in info.get("Valores") or []:
-            code = normalize_code(v.get("Valor_numerico", ""))
-            label = str(v.get("Etiqueta", "")).strip()
-            if code and label:
-                values[code] = label
-        meta[str(short)] = {
-            "label": str(info.get("Etiqueta", short)).strip(),
-            "ensanut_param": param,
-            "values": values,
-        }
-    return meta
+        if short:
+            by_short[str(short)] = entry
+    return by_short, by_param
 
 
 def find_description_json(source_dir: str, year: int) -> Path | None:
@@ -133,31 +188,42 @@ def find_description_json(source_dir: str, year: int) -> Path | None:
 
 def merge_desc_meta(
     csv_meta: dict[str, dict],
-    json_meta: dict[str, dict],
+    json_short: dict[str, dict],
+    json_param: dict[str, dict],
     df_columns: list[str],
 ) -> dict[str, dict]:
     """JSON (catálogo INSP) tiene prioridad sobre description.csv."""
-    by_param = {
-        str(v["ensanut_param"]).lower(): v
-        for v in json_meta.values()
-        if v.get("ensanut_param")
-    }
-
     merged: dict[str, dict] = {}
     for col in df_columns:
         entry: dict = dict(csv_meta.get(col, {}))
-        js = json_meta.get(col)
-        if not js:
-            param = entry.get("ensanut_param")
-            if param:
-                js = by_param.get(str(param).lower())
+        js = json_short.get(col)
+        param = entry.get("ensanut_param")
+        if not js and param:
+            js = json_param.get(str(param).lower())
         if js:
             entry["label"] = js.get("label") or entry.get("label") or col.replace("_", " ")
-            entry["ensanut_param"] = js.get("ensanut_param") or entry.get("ensanut_param")
+            entry["ensanut_param"] = js.get("ensanut_param") or param
             if js.get("values"):
-                entry["values"] = js["values"]
-        if col in STANDARD_VALUES:
-            entry.setdefault("values", {}).update(STANDARD_VALUES[col])
+                entry["values"] = dict(js["values"])
+
+        if col == "Entidad":
+            entry["values"] = {**ENTIDAD_VALUES, **entry.get("values", {})}
+            entry["label"] = entry.get("label") or "Entidad federativa"
+        elif col == "Region":
+            region = dict(STANDARD_VALUES["Region"])
+            for k, v in entry.get("values", {}).items():
+                if k:
+                    region[normalize_code(k)] = v
+            # ENSANUT 2023+: Region puede usar códigos de entidad (x_region)
+            for code, name in ENTIDAD_VALUES.items():
+                region.setdefault(code, name)
+            entry["values"] = region
+            entry["label"] = entry.get("label") or "Región"
+        elif col in STANDARD_VALUES:
+            base = dict(STANDARD_VALUES[col])
+            base.update(entry.get("values", {}))
+            entry["values"] = base
+
         if entry.get("values"):
             entry["type"] = "categorical"
         merged[col] = entry
@@ -336,8 +402,8 @@ def process_module_year(module_id: str, year: int, copy_csv: bool = True) -> Non
     df = pd.read_csv(csv_src, encoding="utf-8", low_memory=False)
     csv_meta = parse_description_csv(src_dir / "description.csv")
     json_path = find_description_json(cfg["source_dir"], year)
-    json_meta = parse_description_json(json_path) if json_path else {}
-    desc_meta = merge_desc_meta(csv_meta, json_meta, list(df.columns))
+    json_short, json_param = parse_description_json(json_path) if json_path else ({}, {})
+    desc_meta = merge_desc_meta(csv_meta, json_short, json_param, list(df.columns))
     meta = build_meta(df, cfg, year, desc_meta)
     group_cols = [c for c in catalog["demographic_columns"] if c in df.columns]
 

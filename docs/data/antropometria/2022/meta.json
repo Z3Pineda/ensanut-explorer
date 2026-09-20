@@ -10,15 +10,16 @@
       "type": "categorical",
       "ensanut_param": "entidad",
       "values": {
-        "1": "Durango",
-        "2": "Oaxaca",
-        "3": "Veracruz",
+        "1": "Aguascalientes",
+        "2": "Baja California",
+        "3": "Baja California Sur",
         "4": "Campeche",
         "5": "Chiapas",
         "6": "Chihuahua",
         "7": "Ciudad de México",
         "8": "Coahuila",
         "9": "Colima",
+        "10": "Durango",
         "11": "Guanajuato",
         "12": "Guerrero",
         "13": "Hidalgo",
@@ -28,6 +29,7 @@
         "17": "Morelos",
         "18": "Nayarit",
         "19": "Nuevo León",
+        "20": "Oaxaca",
         "21": "Puebla",
         "22": "Querétaro",
         "23": "Quintana Roo",
@@ -37,6 +39,7 @@
         "27": "Tabasco",
         "28": "Tamaulipas",
         "29": "Tlaxcala",
+        "30": "Veracruz",
         "31": "Yucatán",
         "32": "Zacatecas"
       }
@@ -51,17 +54,38 @@
       "type": "categorical",
       "ensanut_param": "region",
       "values": {
-        "1": "Norte",
-        "2": "Centro",
-        "3": "Ciudad de México",
-        "4": "Sur",
+        "1": "Pacifico-Norte",
+        "2": "Frontera",
+        "3": "Pacífico-Centro",
+        "4": "Centro Norte",
         "5": "Centro",
         "6": "Cd./Edo México",
         "7": "Pacífico Sur",
         "8": "Península",
         "11": "Guanajuato",
         "15": "Edo México",
-        "19": "Nuevo León"
+        "19": "Nuevo León",
+        "9": "Colima",
+        "10": "Durango",
+        "12": "Guerrero",
+        "13": "Hidalgo",
+        "14": "Jalisco",
+        "16": "Michoacán",
+        "17": "Morelos",
+        "18": "Nayarit",
+        "20": "Oaxaca",
+        "21": "Puebla",
+        "22": "Querétaro",
+        "23": "Quintana Roo",
+        "24": "San Luis Potosí",
+        "25": "Sinaloa",
+        "26": "Sonora",
+        "27": "Tabasco",
+        "28": "Tamaulipas",
+        "29": "Tlaxcala",
+        "30": "Veracruz",
+        "31": "Yucatán",
+        "32": "Zacatecas"
       }
     },
     "Sexo": {
@@ -78,7 +102,7 @@
       "type": "continuous",
       "ensanut_param": "h0303",
       "values": {
-        "": "Menores de un año"
+        "0": "Menores de un año"
       }
     },
     "Embarazada": {
