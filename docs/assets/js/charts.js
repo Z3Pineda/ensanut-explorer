@@ -1,6 +1,6 @@
 import { labelForValue, sortCodes } from "./utils.js";
 import { renderEntidadMap } from "./maps.js";
-import { buildTimeSeries, renderTimeSeriesChart } from "./timeseries.js";
+import { buildTimeSeries, renderTimeSeriesChart, ensurePlotly } from "./timeseries.js";
 
 export async function renderChart(
   containerId,
@@ -13,22 +13,34 @@ export async function renderChart(
   seriesOpts = {}
 ) {
   const el = document.getElementById(containerId);
-  if (!el || !window.Plotly) return;
+  if (!el) return;
+
+  await ensurePlotly();
 
   if (splitBy === "timeseries") {
     const { module, years, seriesGroup } = seriesOpts;
-    const seriesData = await buildTimeSeries(
-      module,
-      years,
-      variable,
-      metaCol,
-      mapCode,
-      seriesGroup || "",
-      meta
-    );
-    renderTimeSeriesChart(containerId, seriesData, metaCol, mapCode);
+    if (!module || !years?.length) {
+      el.innerHTML = "<p style='padding:1rem'>Serie temporal no disponible.</p>";
+      return;
+    }
+    try {
+      const seriesData = await buildTimeSeries(
+        module,
+        years,
+        variable,
+        metaCol,
+        mapCode,
+        seriesGroup || "",
+        meta
+      );
+      await renderTimeSeriesChart(containerId, seriesData, metaCol, mapCode);
+    } catch (err) {
+      el.innerHTML = `<p style='padding:1rem;color:#b91c1c'>Error serie temporal: ${err.message}</p>`;
+    }
     return;
   }
+
+  if (!window.Plotly) return;
 
   if (splitBy === "Entidad" && summaryBlock.by_Entidad) {
     const isContinuous = metaCol.type === "continuous";

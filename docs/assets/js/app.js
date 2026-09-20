@@ -14,9 +14,15 @@ const state = {
   seriesGroup: qs("seriesGroup") || "",
 };
 
+function syncControlsFromState() {
+  document.getElementById("sel-split").value = state.split;
+  document.getElementById("sel-series-group").value = state.seriesGroup;
+}
+
 async function init() {
   state.catalog = await loadCatalog();
   populateModuleSelect();
+  syncControlsFromState();
   bindEvents();
   updateViewFields();
   await refresh();
@@ -129,6 +135,12 @@ function bindEvents() {
   });
   document.getElementById("sel-split").addEventListener("change", async (e) => {
     state.split = e.target.value;
+    if (state.split === "timeseries" && !state.mapCode) {
+      const metaCol = state.dataset?.meta?.columns?.[state.variable];
+      if (metaCol?.type === "categorical") {
+        state.mapCode = defaultMapCode(metaCol);
+      }
+    }
     updateViewFields();
     refreshMapCodeSelect();
     await render();
@@ -209,20 +221,25 @@ async function render() {
   updateViewFields();
   refreshMapCodeSelect();
 
-  await renderChart(
-    "chart-main",
-    state.variable,
-    metaCol,
-    block,
-    state.split,
-    meta,
-    state.mapCode,
-    {
-      module: state.module,
-      years,
-      seriesGroup: state.seriesGroup,
-    }
-  );
+  try {
+    await renderChart(
+      "chart-main",
+      state.variable,
+      metaCol,
+      block,
+      state.split,
+      meta,
+      state.mapCode,
+      {
+        module: state.module,
+        years,
+        seriesGroup: state.seriesGroup,
+      }
+    );
+  } catch (err) {
+    document.getElementById("chart-main").innerHTML =
+      `<p style="padding:1rem;color:#b91c1c">${err.message}</p>`;
+  }
   updateMetaPanel(metaCol, block);
 }
 

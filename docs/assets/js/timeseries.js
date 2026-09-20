@@ -1,6 +1,22 @@
 import { labelForValue, sortCodes } from "./utils.js";
+import { defaultMapCode } from "./maps.js";
 
 const summaryCache = new Map();
+
+export function ensurePlotly(timeoutMs = 8000) {
+  if (window.Plotly) return Promise.resolve();
+  return new Promise((resolve, reject) => {
+    const start = Date.now();
+    const tick = () => {
+      if (window.Plotly) return resolve();
+      if (Date.now() - start > timeoutMs) {
+        return reject(new Error("Plotly no terminó de cargar"));
+      }
+      requestAnimationFrame(tick);
+    };
+    tick();
+  });
+}
 
 export async function loadSummary(module, year) {
   const key = `${module}/${year}`;
@@ -36,6 +52,8 @@ function metricFromBlock(block, metaCol, mapCode, groupKey, groupCode) {
 export async function buildTimeSeries(module, years, variable, metaCol, mapCode, groupBy, meta) {
   const sortedYears = [...years].map(Number).sort((a, b) => a - b);
   const isContinuous = metaCol?.type === "continuous";
+  const code =
+    isContinuous ? null : (mapCode || defaultMapCode(metaCol || {}));
 
   if (!groupBy) {
     const yVals = [];
@@ -44,20 +62,22 @@ export async function buildTimeSeries(module, years, variable, metaCol, mapCode,
     for (const year of sortedYears) {
       const summary = await loadSummary(module, year);
       const block = getBlock(summary, variable);
-      const val = metricFromBlock(block, metaCol, mapCode, null, null);
+      const val = metricFromBlock(block, metaCol, code, null, null);
       if (val == null) continue;
       xYears.push(year);
-      yVals.push(isContinuous ? val : val);
+      yVals.push(val);
       nVals.push(block?.n_valid ?? summary.n_rows);
     }
+    if (xYears.length === 0) return { traces: [], isContinuous };
     return {
       traces: [{
-        name: isContinuous ? "Media nacional" : labelForValue(metaCol, mapCode),
+        name: isContinuous ? "Media nacional" : labelForValue(metaCol, code),
         x: xYears,
         y: yVals,
         customdata: nVals,
       }],
       isContinuous,
+      mapCode: code,
     };
   }
 
@@ -74,7 +94,7 @@ export async function buildTimeSeries(module, years, variable, metaCol, mapCode,
     for (const year of sortedYears) {
       const summary = await loadSummary(module, year);
       const block = getBlock(summary, variable);
-      const val = metricFromBlock(block, metaCol, mapCode, groupBy, gCode);
+      const val = metricFromBlock(block, metaCol, code, groupBy, gCode);
       if (val == null) continue;
       xYears.push(year);
       yVals.push(val);
@@ -89,14 +109,18 @@ export async function buildTimeSeries(module, years, variable, metaCol, mapCode,
       customdata: nVals,
     });
   }
-  return { traces, isContinuous };
+  const valid = traces.filter((t) => t.x.length > 0);
+  return { traces: valid, isContinuous, mapCode: code };
 }
 
-export function renderTimeSeriesChart(containerId, seriesData, metaCol, mapCode) {
+export async function renderTimeSeriesChart(containerId, seriesData, metaCol, mapCode) {
   const el = document.getElementById(containerId);
-  if (!el || !window.Plotly) return;
+  if (!el) return;
 
-  const { traces, isContinuous } = seriesData;
+  await ensurePlotly();
+
+  const { traces, isContinuous, mapCode: resolvedCode } = seriesData;
+  const code = mapCode || resolvedCode;
   if (!traces.length) {
     el.innerHTML = "<p style='padding:1rem'>No hay datos temporales para esta variable.</p>";
     return;
@@ -104,9 +128,9 @@ export function renderTimeSeriesChart(containerId, seriesData, metaCol, mapCode)
 
   const yTitle = isContinuous
     ? metaCol?.label || "Media"
-    : `% ${labelForValue(metaCol, mapCode)}`;
+    : `% ${labelForValue(metaCol, code)}`;
 
-  Plotly.newPlot(
+  await Plotly.newPlot(
     el,
     traces.map((t) => ({
       type: "scatter",
