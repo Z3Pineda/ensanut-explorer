@@ -62,10 +62,13 @@ function refreshVariableSelect() {
   const metaCols = state.dataset?.meta?.columns ?? {};
   const sel = document.getElementById("sel-variable");
   sel.innerHTML = "";
-  const catalogVars = [
-    ...(cfg.variables?.categorical ?? []),
-    ...(cfg.variables?.continuous ?? []),
-  ];
+  const yearVars = cfg.variables_by_year?.[String(state.year)];
+  const catalogVars = yearVars
+    ? [...(yearVars.categorical ?? []), ...(yearVars.continuous ?? [])]
+    : [
+        ...(cfg.variables?.categorical ?? []),
+        ...(cfg.variables?.continuous ?? []),
+      ];
   let vars = catalogVars;
   if (Object.keys(metaCols).length) {
     vars = catalogVars.filter((v) => v in metaCols);

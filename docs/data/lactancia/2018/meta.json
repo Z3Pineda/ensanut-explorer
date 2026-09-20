@@ -1267,7 +1267,7 @@
       }
     },
     "Edad": {
-      "label": "¿Cuántos  años cumplidos tiene (NOMBRE)?",
+      "label": "Edad en años cumplidos",
       "type": "continuous",
       "ensanut_param": "EDAD",
       "values": {

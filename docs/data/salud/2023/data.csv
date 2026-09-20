@@ -1,4 +1,4 @@
-ID,Entidad,Region,estrato,Edad,Sexo,De_Agobio,De_Concentracion,De_Depresion,De_Esfuerzo,De_Dormir,De_Disfrutar,De_Tristeza,De_Diagnostico,DM_Diabetes,DM_Insulina,HT_Hipertension,HT_Medicamento,CVC_infarto,CVC_angina,CVC_insufcardiaca,CVC_embolia,RE_Infeccion,RE_Calculos,RE_Insufrenal,CC_Colesterol,CC_medicamento,TR_rigliceridos,TR_medicamento,FR_Fumar,FR_Tomar
+ID,Entidad,Region,Estrato,Edad,Sexo,De_Agobio,De_Concentracion,De_Depresion,De_Esfuerzo,De_Dormir,De_Disfrutar,De_Tristeza,De_Diagnostico,DM_Diabetes,DM_Insulina,HT_Hipertension,HT_Medicamento,CVC_infarto,CVC_angina,CVC_insufcardiaca,CVC_embolia,RE_Infeccion,RE_Calculos,RE_Insufrenal,CC_Colesterol,CC_medicamento,TR_rigliceridos,TR_medicamento,FR_Fumar,FR_Tomar
 20230100100102,1,1,3,41,2,3,2,2,1,3,3,2, ,3, ,1,2,2,2,2,2,2,2,2,2, ,2, ,3,5
 20230100100201,1,1,3,43,2,1,2,1,2,3,4,1, ,3, ,3, ,2,2,2,2,1,2,2,2, ,2, ,2,2
 20230100100301,1,1,3,49,1,2,1,2,1,3,2,2, ,3, ,1,1,1,2,2,2,2,2,2,1,1,1,1,3,2

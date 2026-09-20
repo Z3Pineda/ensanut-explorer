@@ -5,450 +5,1439 @@
   "population": "Madres e infantes (<2 años)",
   "rows": 986,
   "columns": {
-    "FOLIO_INT": {
-      "label": "FOLIO INT",
+    "amamantar": {
+      "label": "LAC02 ¿Le dio pecho alguna vez a (NOMBRE)?",
+      "type": "categorical",
+      "ensanut_param": "lac02",
+      "source_column": "lac02",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "no_Formula": {
+      "label": "LAC03 ¿Por qué no amamantó a (NOMBRE)?",
+      "type": "categorical",
+      "ensanut_param": "lac03A",
+      "source_column": "lac03A",
+      "values": {
+        "1": "La fórmula es mejor",
+        "2": "Cree que amamantar es demasiado inconveniente",
+        "3": "No le gustó",
+        "4": "No tuvo leche",
+        "5": "Quiso ponerse a dieta o quiso perder peso",
+        "6": "Quiso regresar a su dieta habitual",
+        "7": "Quiso fumar igual o más de lo que debería si amamantaba",
+        "8": "Tenía muchas cosas que hacer",
+        "9": "Tenía planeado regresar a la escuela",
+        "10": "Alguien más lo amamantó",
+        "11": "Quiso conservar su figura",
+        "12": "Porque el papá de su hijo no quiso",
+        "13": "Porque la abuela de su hijo no quiso",
+        "14": "Quiso usar anticonceptivos",
+        "15": "Por trabajar",
+        "16": "Otro (especifica)",
+        "99": "No sabe/No responde"
+      }
+    },
+    "no_inconveniente": {
+      "label": "LAC03 ¿Por qué no amamantó a (NOMBRE)?",
+      "type": "categorical",
+      "ensanut_param": "lac03B",
+      "source_column": "lac03B",
+      "values": {
+        "1": "La fórmula es mejor",
+        "2": "Cree que amamantar es demasiado inconveniente",
+        "3": "No le gustó",
+        "4": "No tuvo leche",
+        "5": "Quiso ponerse a dieta o quiso perder peso",
+        "6": "Quiso regresar a su dieta habitual",
+        "7": "Quiso fumar igual o más de lo que debería si amamantaba",
+        "8": "Tenía muchas cosas que hacer",
+        "9": "Tenía planeado regresar a la escuela",
+        "10": "Alguien más lo amamantó",
+        "11": "Quiso conservar su figura",
+        "12": "Porque el papá de su hijo no quiso",
+        "13": "Porque la abuela de su hijo no quiso",
+        "14": "Quiso usar anticonceptivos",
+        "15": "Por trabajar",
+        "16": "Otro (especifica)",
+        "99": "No sabe/No responde"
+      }
+    },
+    "no_nogusto": {
+      "label": "LAC03 ¿Por qué no amamantó a (NOMBRE)?",
+      "type": "categorical",
+      "ensanut_param": "lac03C",
+      "source_column": "lac03C",
+      "values": {
+        "1": "La fórmula es mejor",
+        "2": "Cree que amamantar es demasiado inconveniente",
+        "3": "No le gustó",
+        "4": "No tuvo leche",
+        "5": "Quiso ponerse a dieta o quiso perder peso",
+        "6": "Quiso regresar a su dieta habitual",
+        "7": "Quiso fumar igual o más de lo que debería si amamantaba",
+        "8": "Tenía muchas cosas que hacer",
+        "9": "Tenía planeado regresar a la escuela",
+        "10": "Alguien más lo amamantó",
+        "11": "Quiso conservar su figura",
+        "12": "Porque el papá de su hijo no quiso",
+        "13": "Porque la abuela de su hijo no quiso",
+        "14": "Quiso usar anticonceptivos",
+        "15": "Por trabajar",
+        "16": "Otro (especifica)",
+        "99": "No sabe/No responde"
+      }
+    },
+    "no_noleche": {
+      "label": "LAC03 ¿Por qué no amamantó a (NOMBRE)?",
+      "type": "categorical",
+      "ensanut_param": "lac03D",
+      "source_column": "lac03D",
+      "values": {
+        "1": "La fórmula es mejor",
+        "2": "Cree que amamantar es demasiado inconveniente",
+        "3": "No le gustó",
+        "4": "No tuvo leche",
+        "5": "Quiso ponerse a dieta o quiso perder peso",
+        "6": "Quiso regresar a su dieta habitual",
+        "7": "Quiso fumar igual o más de lo que debería si amamantaba",
+        "8": "Tenía muchas cosas que hacer",
+        "9": "Tenía planeado regresar a la escuela",
+        "10": "Alguien más lo amamantó",
+        "11": "Quiso conservar su figura",
+        "12": "Porque el papá de su hijo no quiso",
+        "13": "Porque la abuela de su hijo no quiso",
+        "14": "Quiso usar anticonceptivos",
+        "15": "Por trabajar",
+        "16": "Otro (especifica)",
+        "99": "No sabe/No responde"
+      }
+    },
+    "no_bajarpeso": {
+      "label": "LAC03 ¿Por qué no amamantó a (NOMBRE)?",
+      "type": "categorical",
+      "ensanut_param": "lac03E1",
+      "source_column": "lac03E1",
+      "values": {
+        "1": "La fórmula es mejor",
+        "2": "Cree que amamantar es demasiado inconveniente",
+        "3": "No le gustó",
+        "4": "No tuvo leche",
+        "5": "Quiso ponerse a dieta o quiso perder peso",
+        "6": "Quiso regresar a su dieta habitual",
+        "7": "Quiso fumar igual o más de lo que debería si amamantaba",
+        "8": "Tenía muchas cosas que hacer",
+        "9": "Tenía planeado regresar a la escuela",
+        "10": "Alguien más lo amamantó",
+        "11": "Quiso conservar su figura",
+        "12": "Porque el papá de su hijo no quiso",
+        "13": "Porque la abuela de su hijo no quiso",
+        "14": "Quiso usar anticonceptivos",
+        "15": "Por trabajar",
+        "16": "Otro (especifica)",
+        "99": "No sabe/No responde"
+      }
+    },
+    "no_dietahabitual": {
+      "label": "LAC03 ¿Por qué no amamantó a (NOMBRE)?",
+      "type": "categorical",
+      "ensanut_param": "lac03F",
+      "source_column": "lac03F",
+      "values": {
+        "1": "La fórmula es mejor",
+        "2": "Cree que amamantar es demasiado inconveniente",
+        "3": "No le gustó",
+        "4": "No tuvo leche",
+        "5": "Quiso ponerse a dieta o quiso perder peso",
+        "6": "Quiso regresar a su dieta habitual",
+        "7": "Quiso fumar igual o más de lo que debería si amamantaba",
+        "8": "Tenía muchas cosas que hacer",
+        "9": "Tenía planeado regresar a la escuela",
+        "10": "Alguien más lo amamantó",
+        "11": "Quiso conservar su figura",
+        "12": "Porque el papá de su hijo no quiso",
+        "13": "Porque la abuela de su hijo no quiso",
+        "14": "Quiso usar anticonceptivos",
+        "15": "Por trabajar",
+        "16": "Otro (especifica)",
+        "99": "No sabe/No responde"
+      }
+    },
+    "no_fumar": {
+      "label": "LAC03 ¿Por qué no amamantó a (NOMBRE)?",
+      "type": "categorical",
+      "ensanut_param": "lac03G",
+      "source_column": "lac03G",
+      "values": {
+        "1": "La fórmula es mejor",
+        "2": "Cree que amamantar es demasiado inconveniente",
+        "3": "No le gustó",
+        "4": "No tuvo leche",
+        "5": "Quiso ponerse a dieta o quiso perder peso",
+        "6": "Quiso regresar a su dieta habitual",
+        "7": "Quiso fumar igual o más de lo que debería si amamantaba",
+        "8": "Tenía muchas cosas que hacer",
+        "9": "Tenía planeado regresar a la escuela",
+        "10": "Alguien más lo amamantó",
+        "11": "Quiso conservar su figura",
+        "12": "Porque el papá de su hijo no quiso",
+        "13": "Porque la abuela de su hijo no quiso",
+        "14": "Quiso usar anticonceptivos",
+        "15": "Por trabajar",
+        "16": "Otro (especifica)",
+        "99": "No sabe/No responde"
+      }
+    },
+    "no_ocupada": {
+      "label": "LAC03 ¿Por qué no amamantó a (NOMBRE)?",
+      "type": "categorical",
+      "ensanut_param": "lac03H",
+      "source_column": "lac03H",
+      "values": {
+        "1": "La fórmula es mejor",
+        "2": "Cree que amamantar es demasiado inconveniente",
+        "3": "No le gustó",
+        "4": "No tuvo leche",
+        "5": "Quiso ponerse a dieta o quiso perder peso",
+        "6": "Quiso regresar a su dieta habitual",
+        "7": "Quiso fumar igual o más de lo que debería si amamantaba",
+        "8": "Tenía muchas cosas que hacer",
+        "9": "Tenía planeado regresar a la escuela",
+        "10": "Alguien más lo amamantó",
+        "11": "Quiso conservar su figura",
+        "12": "Porque el papá de su hijo no quiso",
+        "13": "Porque la abuela de su hijo no quiso",
+        "14": "Quiso usar anticonceptivos",
+        "15": "Por trabajar",
+        "16": "Otro (especifica)",
+        "99": "No sabe/No responde"
+      }
+    },
+    "no_escuela": {
+      "label": "LAC03 ¿Por qué no amamantó a (NOMBRE)?",
+      "type": "categorical",
+      "ensanut_param": "lac03I",
+      "source_column": "lac03I",
+      "values": {
+        "1": "La fórmula es mejor",
+        "2": "Cree que amamantar es demasiado inconveniente",
+        "3": "No le gustó",
+        "4": "No tuvo leche",
+        "5": "Quiso ponerse a dieta o quiso perder peso",
+        "6": "Quiso regresar a su dieta habitual",
+        "7": "Quiso fumar igual o más de lo que debería si amamantaba",
+        "8": "Tenía muchas cosas que hacer",
+        "9": "Tenía planeado regresar a la escuela",
+        "10": "Alguien más lo amamantó",
+        "11": "Quiso conservar su figura",
+        "12": "Porque el papá de su hijo no quiso",
+        "13": "Porque la abuela de su hijo no quiso",
+        "14": "Quiso usar anticonceptivos",
+        "15": "Por trabajar",
+        "16": "Otro (especifica)",
+        "99": "No sabe/No responde"
+      }
+    },
+    "no_alguienmas": {
+      "label": "LAC03 ¿Por qué no amamantó a (NOMBRE)?",
+      "type": "categorical",
+      "ensanut_param": "lac03J",
+      "source_column": "lac03J",
+      "values": {
+        "1": "La fórmula es mejor",
+        "2": "Cree que amamantar es demasiado inconveniente",
+        "3": "No le gustó",
+        "4": "No tuvo leche",
+        "5": "Quiso ponerse a dieta o quiso perder peso",
+        "6": "Quiso regresar a su dieta habitual",
+        "7": "Quiso fumar igual o más de lo que debería si amamantaba",
+        "8": "Tenía muchas cosas que hacer",
+        "9": "Tenía planeado regresar a la escuela",
+        "10": "Alguien más lo amamantó",
+        "11": "Quiso conservar su figura",
+        "12": "Porque el papá de su hijo no quiso",
+        "13": "Porque la abuela de su hijo no quiso",
+        "14": "Quiso usar anticonceptivos",
+        "15": "Por trabajar",
+        "16": "Otro (especifica)",
+        "99": "No sabe/No responde"
+      }
+    },
+    "no_figura": {
+      "label": "LAC03 ¿Por qué no amamantó a (NOMBRE)?",
+      "type": "categorical",
+      "ensanut_param": "lac03K",
+      "source_column": "lac03K",
+      "values": {
+        "1": "La fórmula es mejor",
+        "2": "Cree que amamantar es demasiado inconveniente",
+        "3": "No le gustó",
+        "4": "No tuvo leche",
+        "5": "Quiso ponerse a dieta o quiso perder peso",
+        "6": "Quiso regresar a su dieta habitual",
+        "7": "Quiso fumar igual o más de lo que debería si amamantaba",
+        "8": "Tenía muchas cosas que hacer",
+        "9": "Tenía planeado regresar a la escuela",
+        "10": "Alguien más lo amamantó",
+        "11": "Quiso conservar su figura",
+        "12": "Porque el papá de su hijo no quiso",
+        "13": "Porque la abuela de su hijo no quiso",
+        "14": "Quiso usar anticonceptivos",
+        "15": "Por trabajar",
+        "16": "Otro (especifica)",
+        "99": "No sabe/No responde"
+      }
+    },
+    "no_papanoquiso": {
+      "label": "LAC03 ¿Por qué no amamantó a (NOMBRE)?",
+      "type": "categorical",
+      "ensanut_param": "lac03L",
+      "source_column": "lac03L",
+      "values": {
+        "1": "La fórmula es mejor",
+        "2": "Cree que amamantar es demasiado inconveniente",
+        "3": "No le gustó",
+        "4": "No tuvo leche",
+        "5": "Quiso ponerse a dieta o quiso perder peso",
+        "6": "Quiso regresar a su dieta habitual",
+        "7": "Quiso fumar igual o más de lo que debería si amamantaba",
+        "8": "Tenía muchas cosas que hacer",
+        "9": "Tenía planeado regresar a la escuela",
+        "10": "Alguien más lo amamantó",
+        "11": "Quiso conservar su figura",
+        "12": "Porque el papá de su hijo no quiso",
+        "13": "Porque la abuela de su hijo no quiso",
+        "14": "Quiso usar anticonceptivos",
+        "15": "Por trabajar",
+        "16": "Otro (especifica)",
+        "99": "No sabe/No responde"
+      }
+    },
+    "no_abuelanoquiso": {
+      "label": "LAC03 ¿Por qué no amamantó a (NOMBRE)?",
+      "type": "categorical",
+      "ensanut_param": "lac03M",
+      "source_column": "lac03M",
+      "values": {
+        "1": "La fórmula es mejor",
+        "2": "Cree que amamantar es demasiado inconveniente",
+        "3": "No le gustó",
+        "4": "No tuvo leche",
+        "5": "Quiso ponerse a dieta o quiso perder peso",
+        "6": "Quiso regresar a su dieta habitual",
+        "7": "Quiso fumar igual o más de lo que debería si amamantaba",
+        "8": "Tenía muchas cosas que hacer",
+        "9": "Tenía planeado regresar a la escuela",
+        "10": "Alguien más lo amamantó",
+        "11": "Quiso conservar su figura",
+        "12": "Porque el papá de su hijo no quiso",
+        "13": "Porque la abuela de su hijo no quiso",
+        "14": "Quiso usar anticonceptivos",
+        "15": "Por trabajar",
+        "16": "Otro (especifica)",
+        "99": "No sabe/No responde"
+      }
+    },
+    "no_anticonceptivos": {
+      "label": "LAC03 ¿Por qué no amamantó a (NOMBRE)?",
+      "type": "categorical",
+      "ensanut_param": "lac03N",
+      "source_column": "lac03N",
+      "values": {
+        "1": "La fórmula es mejor",
+        "2": "Cree que amamantar es demasiado inconveniente",
+        "3": "No le gustó",
+        "4": "No tuvo leche",
+        "5": "Quiso ponerse a dieta o quiso perder peso",
+        "6": "Quiso regresar a su dieta habitual",
+        "7": "Quiso fumar igual o más de lo que debería si amamantaba",
+        "8": "Tenía muchas cosas que hacer",
+        "9": "Tenía planeado regresar a la escuela",
+        "10": "Alguien más lo amamantó",
+        "11": "Quiso conservar su figura",
+        "12": "Porque el papá de su hijo no quiso",
+        "13": "Porque la abuela de su hijo no quiso",
+        "14": "Quiso usar anticonceptivos",
+        "15": "Por trabajar",
+        "16": "Otro (especifica)",
+        "99": "No sabe/No responde"
+      }
+    },
+    "no_trabajar": {
+      "label": "LAC03 ¿Por qué no amamantó a (NOMBRE)?",
+      "type": "categorical",
+      "ensanut_param": "lac03O",
+      "source_column": "lac03O",
+      "values": {
+        "1": "La fórmula es mejor",
+        "2": "Cree que amamantar es demasiado inconveniente",
+        "3": "No le gustó",
+        "4": "No tuvo leche",
+        "5": "Quiso ponerse a dieta o quiso perder peso",
+        "6": "Quiso regresar a su dieta habitual",
+        "7": "Quiso fumar igual o más de lo que debería si amamantaba",
+        "8": "Tenía muchas cosas que hacer",
+        "9": "Tenía planeado regresar a la escuela",
+        "10": "Alguien más lo amamantó",
+        "11": "Quiso conservar su figura",
+        "12": "Porque el papá de su hijo no quiso",
+        "13": "Porque la abuela de su hijo no quiso",
+        "14": "Quiso usar anticonceptivos",
+        "15": "Por trabajar",
+        "16": "Otro (especifica)",
+        "99": "No sabe/No responde"
+      }
+    },
+    "no_otro": {
+      "label": "LAC03 ¿Por qué no amamantó a (NOMBRE)?",
+      "type": "categorical",
+      "ensanut_param": "lac03P",
+      "source_column": "lac03P",
+      "values": {
+        "1": "La fórmula es mejor",
+        "2": "Cree que amamantar es demasiado inconveniente",
+        "3": "No le gustó",
+        "4": "No tuvo leche",
+        "5": "Quiso ponerse a dieta o quiso perder peso",
+        "6": "Quiso regresar a su dieta habitual",
+        "7": "Quiso fumar igual o más de lo que debería si amamantaba",
+        "8": "Tenía muchas cosas que hacer",
+        "9": "Tenía planeado regresar a la escuela",
+        "10": "Alguien más lo amamantó",
+        "11": "Quiso conservar su figura",
+        "12": "Porque el papá de su hijo no quiso",
+        "13": "Porque la abuela de su hijo no quiso",
+        "14": "Quiso usar anticonceptivos",
+        "15": "Por trabajar",
+        "16": "Otro (especifica)",
+        "99": "No sabe/No responde"
+      }
+    },
+    "no_nosabe": {
+      "label": "LAC03 ¿Por qué no amamantó a (NOMBRE)?",
+      "type": "categorical",
+      "ensanut_param": "lac03Q",
+      "source_column": "lac03Q",
+      "values": {
+        "1": "La fórmula es mejor",
+        "2": "Cree que amamantar es demasiado inconveniente",
+        "3": "No le gustó",
+        "4": "No tuvo leche",
+        "5": "Quiso ponerse a dieta o quiso perder peso",
+        "6": "Quiso regresar a su dieta habitual",
+        "7": "Quiso fumar igual o más de lo que debería si amamantaba",
+        "8": "Tenía muchas cosas que hacer",
+        "9": "Tenía planeado regresar a la escuela",
+        "10": "Alguien más lo amamantó",
+        "11": "Quiso conservar su figura",
+        "12": "Porque el papá de su hijo no quiso",
+        "13": "Porque la abuela de su hijo no quiso",
+        "14": "Quiso usar anticonceptivos",
+        "15": "Por trabajar",
+        "16": "Otro (especifica)",
+        "99": "No sabe/No responde"
+      }
+    },
+    "despnacio_pechoHrs": {
+      "label": "LAC04H ¿Cuánto tiempo después de que nació (NOMBRE) empezó a darle el pecho? HORAS",
+      "type": "categorical",
+      "ensanut_param": "lac04h",
+      "source_column": "lac04h"
+    },
+    "despnacio_pechoDias": {
+      "label": "LAC04D ¿Cuánto tiempo después de que nació (NOMBRE) empezó a darle el pecho? DÍAS",
+      "type": "categorical",
+      "ensanut_param": "lac04d",
+      "source_column": "lac04d"
+    },
+    "despnacio_otro": {
+      "label": "LAC05B En los primeros tres días después del nacimiento de (NOMBRE), ¿le dio algo de beber, aparte de su pecho? ¿Cuales?",
+      "type": "categorical",
+      "ensanut_param": "lac05bL",
+      "source_column": "lac05bL",
+      "values": {
+        "3": "Agua simple/sola",
+        "4": "Agua con azúcar, con glucosa, con miel o piloncillo",
+        "5": "Suero casero (agua con sal y azúcar)",
+        "6": "Té u otra infusión",
+        "7": "Miel sola",
+        "8": "Aguamiel",
+        "9": "Aceite",
+        "10": "Leche (que no fuera de pecho ni fórmula)",
+        "11": "Fórmula",
+        "12": "Jugo de fruta",
+        "13": "Sales de rehidratación oral",
+        "14": "Otra (especifica)"
+      }
+    },
+    "despnacio_agua": {
+      "label": "LAC05B En los primeros tres días después del nacimiento de (NOMBRE), ¿le dio algo de beber, aparte de su pecho? ¿Cuales?",
+      "type": "categorical",
+      "ensanut_param": "lac05bA",
+      "source_column": "lac05bA",
+      "values": {
+        "3": "Agua simple/sola",
+        "4": "Agua con azúcar, con glucosa, con miel o piloncillo",
+        "5": "Suero casero (agua con sal y azúcar)",
+        "6": "Té u otra infusión",
+        "7": "Miel sola",
+        "8": "Aguamiel",
+        "9": "Aceite",
+        "10": "Leche (que no fuera de pecho ni fórmula)",
+        "11": "Fórmula",
+        "12": "Jugo de fruta",
+        "13": "Sales de rehidratación oral",
+        "14": "Otra (especifica)"
+      }
+    },
+    "despnacio_glucosa": {
+      "label": "LAC05B En los primeros tres días después del nacimiento de (NOMBRE), ¿le dio algo de beber, aparte de su pecho? ¿Cuales?",
+      "type": "categorical",
+      "ensanut_param": "lac05bB",
+      "source_column": "lac05bB",
+      "values": {
+        "3": "Agua simple/sola",
+        "4": "Agua con azúcar, con glucosa, con miel o piloncillo",
+        "5": "Suero casero (agua con sal y azúcar)",
+        "6": "Té u otra infusión",
+        "7": "Miel sola",
+        "8": "Aguamiel",
+        "9": "Aceite",
+        "10": "Leche (que no fuera de pecho ni fórmula)",
+        "11": "Fórmula",
+        "12": "Jugo de fruta",
+        "13": "Sales de rehidratación oral",
+        "14": "Otra (especifica)"
+      }
+    },
+    "despnacio_suero": {
+      "label": "LAC05B En los primeros tres días después del nacimiento de (NOMBRE), ¿le dio algo de beber, aparte de su pecho? ¿Cuales?",
+      "type": "categorical",
+      "ensanut_param": "lac05bC",
+      "source_column": "lac05bC",
+      "values": {
+        "3": "Agua simple/sola",
+        "4": "Agua con azúcar, con glucosa, con miel o piloncillo",
+        "5": "Suero casero (agua con sal y azúcar)",
+        "6": "Té u otra infusión",
+        "7": "Miel sola",
+        "8": "Aguamiel",
+        "9": "Aceite",
+        "10": "Leche (que no fuera de pecho ni fórmula)",
+        "11": "Fórmula",
+        "12": "Jugo de fruta",
+        "13": "Sales de rehidratación oral",
+        "14": "Otra (especifica)"
+      }
+    },
+    "despnacio_te": {
+      "label": "LAC05B En los primeros tres días después del nacimiento de (NOMBRE), ¿le dio algo de beber, aparte de su pecho? ¿Cuales?",
+      "type": "categorical",
+      "ensanut_param": "lac05bD",
+      "source_column": "lac05bD",
+      "values": {
+        "3": "Agua simple/sola",
+        "4": "Agua con azúcar, con glucosa, con miel o piloncillo",
+        "5": "Suero casero (agua con sal y azúcar)",
+        "6": "Té u otra infusión",
+        "7": "Miel sola",
+        "8": "Aguamiel",
+        "9": "Aceite",
+        "10": "Leche (que no fuera de pecho ni fórmula)",
+        "11": "Fórmula",
+        "12": "Jugo de fruta",
+        "13": "Sales de rehidratación oral",
+        "14": "Otra (especifica)"
+      }
+    },
+    "despnacio_miel": {
+      "label": "LAC05B En los primeros tres días después del nacimiento de (NOMBRE), ¿le dio algo de beber, aparte de su pecho? ¿Cuales?",
+      "type": "categorical",
+      "ensanut_param": "lac05bE1",
+      "source_column": "lac05bE1",
+      "values": {
+        "3": "Agua simple/sola",
+        "4": "Agua con azúcar, con glucosa, con miel o piloncillo",
+        "5": "Suero casero (agua con sal y azúcar)",
+        "6": "Té u otra infusión",
+        "7": "Miel sola",
+        "8": "Aguamiel",
+        "9": "Aceite",
+        "10": "Leche (que no fuera de pecho ni fórmula)",
+        "11": "Fórmula",
+        "12": "Jugo de fruta",
+        "13": "Sales de rehidratación oral",
+        "14": "Otra (especifica)"
+      }
+    },
+    "despnacio_aguamiel": {
+      "label": "LAC05B En los primeros tres días después del nacimiento de (NOMBRE), ¿le dio algo de beber, aparte de su pecho? ¿Cuales?",
+      "type": "categorical",
+      "ensanut_param": "lac05bF",
+      "source_column": "lac05bF",
+      "values": {
+        "3": "Agua simple/sola",
+        "4": "Agua con azúcar, con glucosa, con miel o piloncillo",
+        "5": "Suero casero (agua con sal y azúcar)",
+        "6": "Té u otra infusión",
+        "7": "Miel sola",
+        "8": "Aguamiel",
+        "9": "Aceite",
+        "10": "Leche (que no fuera de pecho ni fórmula)",
+        "11": "Fórmula",
+        "12": "Jugo de fruta",
+        "13": "Sales de rehidratación oral",
+        "14": "Otra (especifica)"
+      }
+    },
+    "despnacio_aceite": {
+      "label": "LAC05B En los primeros tres días después del nacimiento de (NOMBRE), ¿le dio algo de beber, aparte de su pecho? ¿Cuales?",
+      "type": "categorical",
+      "ensanut_param": "lac05bG",
+      "source_column": "lac05bG",
+      "values": {
+        "3": "Agua simple/sola",
+        "4": "Agua con azúcar, con glucosa, con miel o piloncillo",
+        "5": "Suero casero (agua con sal y azúcar)",
+        "6": "Té u otra infusión",
+        "7": "Miel sola",
+        "8": "Aguamiel",
+        "9": "Aceite",
+        "10": "Leche (que no fuera de pecho ni fórmula)",
+        "11": "Fórmula",
+        "12": "Jugo de fruta",
+        "13": "Sales de rehidratación oral",
+        "14": "Otra (especifica)"
+      }
+    },
+    "despnacio_leche": {
+      "label": "LAC05B En los primeros tres días después del nacimiento de (NOMBRE), ¿le dio algo de beber, aparte de su pecho? ¿Cuales?",
+      "type": "categorical",
+      "ensanut_param": "lac05bH",
+      "source_column": "lac05bH",
+      "values": {
+        "3": "Agua simple/sola",
+        "4": "Agua con azúcar, con glucosa, con miel o piloncillo",
+        "5": "Suero casero (agua con sal y azúcar)",
+        "6": "Té u otra infusión",
+        "7": "Miel sola",
+        "8": "Aguamiel",
+        "9": "Aceite",
+        "10": "Leche (que no fuera de pecho ni fórmula)",
+        "11": "Fórmula",
+        "12": "Jugo de fruta",
+        "13": "Sales de rehidratación oral",
+        "14": "Otra (especifica)"
+      }
+    },
+    "despnacio_formula": {
+      "label": "LAC05B En los primeros tres días después del nacimiento de (NOMBRE), ¿le dio algo de beber, aparte de su pecho? ¿Cuales?",
+      "type": "categorical",
+      "ensanut_param": "lac05bI",
+      "source_column": "lac05bI",
+      "values": {
+        "3": "Agua simple/sola",
+        "4": "Agua con azúcar, con glucosa, con miel o piloncillo",
+        "5": "Suero casero (agua con sal y azúcar)",
+        "6": "Té u otra infusión",
+        "7": "Miel sola",
+        "8": "Aguamiel",
+        "9": "Aceite",
+        "10": "Leche (que no fuera de pecho ni fórmula)",
+        "11": "Fórmula",
+        "12": "Jugo de fruta",
+        "13": "Sales de rehidratación oral",
+        "14": "Otra (especifica)"
+      }
+    },
+    "despnacio_jugo": {
+      "label": "LAC05B En los primeros tres días después del nacimiento de (NOMBRE), ¿le dio algo de beber, aparte de su pecho? ¿Cuales?",
+      "type": "categorical",
+      "ensanut_param": "lac05bJ",
+      "source_column": "lac05bJ",
+      "values": {
+        "3": "Agua simple/sola",
+        "4": "Agua con azúcar, con glucosa, con miel o piloncillo",
+        "5": "Suero casero (agua con sal y azúcar)",
+        "6": "Té u otra infusión",
+        "7": "Miel sola",
+        "8": "Aguamiel",
+        "9": "Aceite",
+        "10": "Leche (que no fuera de pecho ni fórmula)",
+        "11": "Fórmula",
+        "12": "Jugo de fruta",
+        "13": "Sales de rehidratación oral",
+        "14": "Otra (especifica)"
+      }
+    },
+    "despnacio_saleshidra": {
+      "label": "LAC05B En los primeros tres días después del nacimiento de (NOMBRE), ¿le dio algo de beber, aparte de su pecho? ¿Cuales?",
+      "type": "categorical",
+      "ensanut_param": "lac05bK",
+      "source_column": "lac05bK",
+      "values": {
+        "3": "Agua simple/sola",
+        "4": "Agua con azúcar, con glucosa, con miel o piloncillo",
+        "5": "Suero casero (agua con sal y azúcar)",
+        "6": "Té u otra infusión",
+        "7": "Miel sola",
+        "8": "Aguamiel",
+        "9": "Aceite",
+        "10": "Leche (que no fuera de pecho ni fórmula)",
+        "11": "Fórmula",
+        "12": "Jugo de fruta",
+        "13": "Sales de rehidratación oral",
+        "14": "Otra (especifica)"
+      }
+    },
+    "aun_amamanta": {
+      "label": "LAC06 ¿Aún le da pecho a (NOMBRE)?",
+      "type": "categorical",
+      "ensanut_param": "lac06",
+      "source_column": "lac06",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "ayer_amamanto": {
+      "label": "LAC07 ¿Ayer le dio pecho a (NOMBRE) durante el día o la noche?",
+      "type": "categorical",
+      "ensanut_param": "lac07",
+      "source_column": "lac07",
+      "values": {
+        "1": "Sí",
+        "2": "No",
+        "9": "No sabe/No responde"
+      }
+    },
+    "amamanta_libre": {
+      "label": "LAC08 ¿Le da pecho a su bebé cada vez que lo pide?, es decir, ¿a libre demanda?",
+      "type": "categorical",
+      "ensanut_param": "lac08",
+      "source_column": "lac08",
+      "values": {
+        "1": "Sí",
+        "2": "No",
+        "9": "No sabe/No recuerda"
+      }
+    },
+    "amamanta_biberon": {
+      "label": "LAC09 ¿Le da leche de su pecho en biberón (mamila)?",
+      "type": "categorical",
+      "ensanut_param": "lac09",
+      "source_column": "lac09",
+      "values": {
+        "1": "Sí",
+        "2": "No",
+        "9": "No sabe/No recuerda"
+      }
+    },
+    "amamanto_dias": {
+      "label": "LAC10D ¿Cuántos meses amamanto a (NOMBRE)? DÍAS",
+      "type": "categorical",
+      "ensanut_param": "lac10d",
+      "source_column": "lac10d"
+    },
+    "amamanto_meses": {
+      "label": "LAC10M ¿Cuántos meses amamanto a (NOMBRE)? MESES",
+      "type": "categorical",
+      "ensanut_param": "lac10m",
+      "source_column": "lac10m"
+    },
+    "clinica_regalo": {
+      "label": "LAC11A Cuando nació (NOMBRE), ¿en el hospital o clínica le obsequiaron alguna cosa relacionada con la alimentación de (NOMBRE)?",
+      "type": "categorical",
+      "ensanut_param": "lac11a",
+      "source_column": "lac11a",
+      "values": {
+        "1": "Sí",
+        "2": "No",
+        "9": "No sabe/No recuerda"
+      }
+    },
+    "clinica_formula": {
+      "label": "LAC11B Cuando nació (NOMBRE), ¿Cuáles?",
+      "type": "categorical",
+      "ensanut_param": "lac11bA",
+      "source_column": "lac11bA",
+      "values": {
+        "1": "Fórmula infantil",
+        "2": "Biberones",
+        "3": "Chupones",
+        "4": "Pezonera u otro utensilio que le ayudaran a amamantar",
+        "9": "No sabe/No recuerda"
+      }
+    },
+    "clinica_biberones": {
+      "label": "LAC11B Cuando nació (NOMBRE), ¿Cuáles?",
+      "type": "categorical",
+      "ensanut_param": "lac11bB",
+      "source_column": "lac11bB",
+      "values": {
+        "1": "Fórmula infantil",
+        "2": "Biberones",
+        "3": "Chupones",
+        "4": "Pezonera u otro utensilio que le ayudaran a amamantar",
+        "9": "No sabe/No recuerda"
+      }
+    },
+    "clinica_chupones": {
+      "label": "LAC11B Cuando nació (NOMBRE), ¿Cuáles?",
+      "type": "categorical",
+      "ensanut_param": "lac11bC",
+      "source_column": "lac11bC",
+      "values": {
+        "1": "Fórmula infantil",
+        "2": "Biberones",
+        "3": "Chupones",
+        "4": "Pezonera u otro utensilio que le ayudaran a amamantar",
+        "9": "No sabe/No recuerda"
+      }
+    },
+    "clinica_pezoneras": {
+      "label": "LAC11B Cuando nació (NOMBRE), ¿Cuáles?",
+      "type": "categorical",
+      "ensanut_param": "lac11bD",
+      "source_column": "lac11bD",
+      "values": {
+        "1": "Fórmula infantil",
+        "2": "Biberones",
+        "3": "Chupones",
+        "4": "Pezonera u otro utensilio que le ayudaran a amamantar",
+        "9": "No sabe/No recuerda"
+      }
+    },
+    "clinica_nosabe": {
+      "label": "LAC11B Cuando nació (NOMBRE), ¿Cuáles?",
+      "type": "categorical",
+      "ensanut_param": "lac11bE",
+      "source_column": "lac11bE",
+      "values": {
+        "1": "Fórmula infantil",
+        "2": "Biberones",
+        "3": "Chupones",
+        "4": "Pezonera u otro utensilio que le ayudaran a amamantar",
+        "9": "No sabe/No recuerda"
+      }
+    },
+    "alimento_formula": {
+      "label": "LAC12 ¿Alguna vez alimentó a (NOMBRE) con fórmula infantil?",
+      "type": "categorical",
+      "ensanut_param": "lac12",
+      "source_column": "lac12",
+      "values": {
+        "1": "Sí",
+        "2": "No",
+        "9": "No sabe/No recuerda"
+      }
+    },
+    "formula_sinleche": {
+      "label": "LAC13 ¿Por qué decidió alimentar a (NOMBRE) con fórmula infantil?",
+      "type": "categorical",
+      "ensanut_param": "lac13A",
+      "source_column": "lac13A",
+      "values": {
+        "1": "Se quedó sin leche",
+        "2": "Se enfermó y no puedo amamantar",
+        "3": "Decidió alimentarlo solo con fórmula",
+        "4": "Decidió amamantarlo y también darle fórmula",
+        "5": "Eligió la fórmula con la que alimentaron a su hijo en el hos",
+        "6": "Escuchó que la fórmula es mejor para su hijo",
+        "7": "Vio anunciada la fórmula y quiso probarla",
+        "8": "Su hijo tenía un problema de salud y encontró una fórmula qu",
+        "9": "Eligió la misma fórmula con la que alimentó a su hijo(a) may",
+        "10": "El doctor u otro profesional de la salud le recomendó la fór",
+        "11": "Porque se la recomendaron amigos o familiares",
+        "12": "Usa la fórmula que le dan en el programa (Nombre del program",
+        "13": "Otro (especifica)",
+        "99": "No sabe/No responde"
+      }
+    },
+    "formula_enfermo": {
+      "label": "LAC13 ¿Por qué decidió alimentar a (NOMBRE) con fórmula infantil?",
+      "type": "categorical",
+      "ensanut_param": "lac13B",
+      "source_column": "lac13B",
+      "values": {
+        "1": "Se quedó sin leche",
+        "2": "Se enfermó y no puedo amamantar",
+        "3": "Decidió alimentarlo solo con fórmula",
+        "4": "Decidió amamantarlo y también darle fórmula",
+        "5": "Eligió la fórmula con la que alimentaron a su hijo en el hos",
+        "6": "Escuchó que la fórmula es mejor para su hijo",
+        "7": "Vio anunciada la fórmula y quiso probarla",
+        "8": "Su hijo tenía un problema de salud y encontró una fórmula qu",
+        "9": "Eligió la misma fórmula con la que alimentó a su hijo(a) may",
+        "10": "El doctor u otro profesional de la salud le recomendó la fór",
+        "11": "Porque se la recomendaron amigos o familiares",
+        "12": "Usa la fórmula que le dan en el programa (Nombre del program",
+        "13": "Otro (especifica)",
+        "99": "No sabe/No responde"
+      }
+    },
+    "formula_decision": {
+      "label": "LAC13 ¿Por qué decidió alimentar a (NOMBRE) con fórmula infantil?",
+      "type": "categorical",
+      "ensanut_param": "lac13C",
+      "source_column": "lac13C",
+      "values": {
+        "1": "Se quedó sin leche",
+        "2": "Se enfermó y no puedo amamantar",
+        "3": "Decidió alimentarlo solo con fórmula",
+        "4": "Decidió amamantarlo y también darle fórmula",
+        "5": "Eligió la fórmula con la que alimentaron a su hijo en el hos",
+        "6": "Escuchó que la fórmula es mejor para su hijo",
+        "7": "Vio anunciada la fórmula y quiso probarla",
+        "8": "Su hijo tenía un problema de salud y encontró una fórmula qu",
+        "9": "Eligió la misma fórmula con la que alimentó a su hijo(a) may",
+        "10": "El doctor u otro profesional de la salud le recomendó la fór",
+        "11": "Porque se la recomendaron amigos o familiares",
+        "12": "Usa la fórmula que le dan en el programa (Nombre del program",
+        "13": "Otro (especifica)",
+        "99": "No sabe/No responde"
+      }
+    },
+    "formula_ambas": {
+      "label": "LAC13 ¿Por qué decidió alimentar a (NOMBRE) con fórmula infantil?",
+      "type": "categorical",
+      "ensanut_param": "lac13D",
+      "source_column": "lac13D",
+      "values": {
+        "1": "Se quedó sin leche",
+        "2": "Se enfermó y no puedo amamantar",
+        "3": "Decidió alimentarlo solo con fórmula",
+        "4": "Decidió amamantarlo y también darle fórmula",
+        "5": "Eligió la fórmula con la que alimentaron a su hijo en el hos",
+        "6": "Escuchó que la fórmula es mejor para su hijo",
+        "7": "Vio anunciada la fórmula y quiso probarla",
+        "8": "Su hijo tenía un problema de salud y encontró una fórmula qu",
+        "9": "Eligió la misma fórmula con la que alimentó a su hijo(a) may",
+        "10": "El doctor u otro profesional de la salud le recomendó la fór",
+        "11": "Porque se la recomendaron amigos o familiares",
+        "12": "Usa la fórmula que le dan en el programa (Nombre del program",
+        "13": "Otro (especifica)",
+        "99": "No sabe/No responde"
+      }
+    },
+    "formula_mismahospital": {
+      "label": "LAC13 ¿Por qué decidió alimentar a (NOMBRE) con fórmula infantil?",
+      "type": "categorical",
+      "ensanut_param": "lac13E1",
+      "source_column": "lac13E1",
+      "values": {
+        "1": "Se quedó sin leche",
+        "2": "Se enfermó y no puedo amamantar",
+        "3": "Decidió alimentarlo solo con fórmula",
+        "4": "Decidió amamantarlo y también darle fórmula",
+        "5": "Eligió la fórmula con la que alimentaron a su hijo en el hos",
+        "6": "Escuchó que la fórmula es mejor para su hijo",
+        "7": "Vio anunciada la fórmula y quiso probarla",
+        "8": "Su hijo tenía un problema de salud y encontró una fórmula qu",
+        "9": "Eligió la misma fórmula con la que alimentó a su hijo(a) may",
+        "10": "El doctor u otro profesional de la salud le recomendó la fór",
+        "11": "Porque se la recomendaron amigos o familiares",
+        "12": "Usa la fórmula que le dan en el programa (Nombre del program",
+        "13": "Otro (especifica)",
+        "99": "No sabe/No responde"
+      }
+    },
+    "formula_esmejor": {
+      "label": "LAC13 ¿Por qué decidió alimentar a (NOMBRE) con fórmula infantil?",
+      "type": "categorical",
+      "ensanut_param": "lac13F",
+      "source_column": "lac13F",
+      "values": {
+        "1": "Se quedó sin leche",
+        "2": "Se enfermó y no puedo amamantar",
+        "3": "Decidió alimentarlo solo con fórmula",
+        "4": "Decidió amamantarlo y también darle fórmula",
+        "5": "Eligió la fórmula con la que alimentaron a su hijo en el hos",
+        "6": "Escuchó que la fórmula es mejor para su hijo",
+        "7": "Vio anunciada la fórmula y quiso probarla",
+        "8": "Su hijo tenía un problema de salud y encontró una fórmula qu",
+        "9": "Eligió la misma fórmula con la que alimentó a su hijo(a) may",
+        "10": "El doctor u otro profesional de la salud le recomendó la fór",
+        "11": "Porque se la recomendaron amigos o familiares",
+        "12": "Usa la fórmula que le dan en el programa (Nombre del program",
+        "13": "Otro (especifica)",
+        "99": "No sabe/No responde"
+      }
+    },
+    "formula_prueba": {
+      "label": "LAC13 ¿Por qué decidió alimentar a (NOMBRE) con fórmula infantil?",
+      "type": "categorical",
+      "ensanut_param": "lac13G",
+      "source_column": "lac13G",
+      "values": {
+        "1": "Se quedó sin leche",
+        "2": "Se enfermó y no puedo amamantar",
+        "3": "Decidió alimentarlo solo con fórmula",
+        "4": "Decidió amamantarlo y también darle fórmula",
+        "5": "Eligió la fórmula con la que alimentaron a su hijo en el hos",
+        "6": "Escuchó que la fórmula es mejor para su hijo",
+        "7": "Vio anunciada la fórmula y quiso probarla",
+        "8": "Su hijo tenía un problema de salud y encontró una fórmula qu",
+        "9": "Eligió la misma fórmula con la que alimentó a su hijo(a) may",
+        "10": "El doctor u otro profesional de la salud le recomendó la fór",
+        "11": "Porque se la recomendaron amigos o familiares",
+        "12": "Usa la fórmula que le dan en el programa (Nombre del program",
+        "13": "Otro (especifica)",
+        "99": "No sabe/No responde"
+      }
+    },
+    "formula_salud": {
+      "label": "LAC13 ¿Por qué decidió alimentar a (NOMBRE) con fórmula infantil?",
+      "type": "categorical",
+      "ensanut_param": "lac13H",
+      "source_column": "lac13H",
+      "values": {
+        "1": "Se quedó sin leche",
+        "2": "Se enfermó y no puedo amamantar",
+        "3": "Decidió alimentarlo solo con fórmula",
+        "4": "Decidió amamantarlo y también darle fórmula",
+        "5": "Eligió la fórmula con la que alimentaron a su hijo en el hos",
+        "6": "Escuchó que la fórmula es mejor para su hijo",
+        "7": "Vio anunciada la fórmula y quiso probarla",
+        "8": "Su hijo tenía un problema de salud y encontró una fórmula qu",
+        "9": "Eligió la misma fórmula con la que alimentó a su hijo(a) may",
+        "10": "El doctor u otro profesional de la salud le recomendó la fór",
+        "11": "Porque se la recomendaron amigos o familiares",
+        "12": "Usa la fórmula que le dan en el programa (Nombre del program",
+        "13": "Otro (especifica)",
+        "99": "No sabe/No responde"
+      }
+    },
+    "formula_hijomayor": {
+      "label": "LAC13 ¿Por qué decidió alimentar a (NOMBRE) con fórmula infantil?",
+      "type": "categorical",
+      "ensanut_param": "lac13I",
+      "source_column": "lac13I",
+      "values": {
+        "1": "Se quedó sin leche",
+        "2": "Se enfermó y no puedo amamantar",
+        "3": "Decidió alimentarlo solo con fórmula",
+        "4": "Decidió amamantarlo y también darle fórmula",
+        "5": "Eligió la fórmula con la que alimentaron a su hijo en el hos",
+        "6": "Escuchó que la fórmula es mejor para su hijo",
+        "7": "Vio anunciada la fórmula y quiso probarla",
+        "8": "Su hijo tenía un problema de salud y encontró una fórmula qu",
+        "9": "Eligió la misma fórmula con la que alimentó a su hijo(a) may",
+        "10": "El doctor u otro profesional de la salud le recomendó la fór",
+        "11": "Porque se la recomendaron amigos o familiares",
+        "12": "Usa la fórmula que le dan en el programa (Nombre del program",
+        "13": "Otro (especifica)",
+        "99": "No sabe/No responde"
+      }
+    },
+    "formula_doctor": {
+      "label": "LAC13 ¿Por qué decidió alimentar a (NOMBRE) con fórmula infantil?",
+      "type": "categorical",
+      "ensanut_param": "lac13J",
+      "source_column": "lac13J",
+      "values": {
+        "1": "Se quedó sin leche",
+        "2": "Se enfermó y no puedo amamantar",
+        "3": "Decidió alimentarlo solo con fórmula",
+        "4": "Decidió amamantarlo y también darle fórmula",
+        "5": "Eligió la fórmula con la que alimentaron a su hijo en el hos",
+        "6": "Escuchó que la fórmula es mejor para su hijo",
+        "7": "Vio anunciada la fórmula y quiso probarla",
+        "8": "Su hijo tenía un problema de salud y encontró una fórmula qu",
+        "9": "Eligió la misma fórmula con la que alimentó a su hijo(a) may",
+        "10": "El doctor u otro profesional de la salud le recomendó la fór",
+        "11": "Porque se la recomendaron amigos o familiares",
+        "12": "Usa la fórmula que le dan en el programa (Nombre del program",
+        "13": "Otro (especifica)",
+        "99": "No sabe/No responde"
+      }
+    },
+    "formula_amigosfam": {
+      "label": "LAC13 ¿Por qué decidió alimentar a (NOMBRE) con fórmula infantil?",
+      "type": "categorical",
+      "ensanut_param": "lac13K",
+      "source_column": "lac13K",
+      "values": {
+        "1": "Se quedó sin leche",
+        "2": "Se enfermó y no puedo amamantar",
+        "3": "Decidió alimentarlo solo con fórmula",
+        "4": "Decidió amamantarlo y también darle fórmula",
+        "5": "Eligió la fórmula con la que alimentaron a su hijo en el hos",
+        "6": "Escuchó que la fórmula es mejor para su hijo",
+        "7": "Vio anunciada la fórmula y quiso probarla",
+        "8": "Su hijo tenía un problema de salud y encontró una fórmula qu",
+        "9": "Eligió la misma fórmula con la que alimentó a su hijo(a) may",
+        "10": "El doctor u otro profesional de la salud le recomendó la fór",
+        "11": "Porque se la recomendaron amigos o familiares",
+        "12": "Usa la fórmula que le dan en el programa (Nombre del program",
+        "13": "Otro (especifica)",
+        "99": "No sabe/No responde"
+      }
+    },
+    "formula_regalo": {
+      "label": "LAC13 ¿Por qué decidió alimentar a (NOMBRE) con fórmula infantil?",
+      "type": "categorical",
+      "ensanut_param": "lac13L",
+      "source_column": "lac13L",
+      "values": {
+        "1": "Se quedó sin leche",
+        "2": "Se enfermó y no puedo amamantar",
+        "3": "Decidió alimentarlo solo con fórmula",
+        "4": "Decidió amamantarlo y también darle fórmula",
+        "5": "Eligió la fórmula con la que alimentaron a su hijo en el hos",
+        "6": "Escuchó que la fórmula es mejor para su hijo",
+        "7": "Vio anunciada la fórmula y quiso probarla",
+        "8": "Su hijo tenía un problema de salud y encontró una fórmula qu",
+        "9": "Eligió la misma fórmula con la que alimentó a su hijo(a) may",
+        "10": "El doctor u otro profesional de la salud le recomendó la fór",
+        "11": "Porque se la recomendaron amigos o familiares",
+        "12": "Usa la fórmula que le dan en el programa (Nombre del program",
+        "13": "Otro (especifica)",
+        "99": "No sabe/No responde"
+      }
+    },
+    "formula_otros": {
+      "label": "LAC13 ¿Por qué decidió alimentar a (NOMBRE) con fórmula infantil?",
+      "type": "categorical",
+      "ensanut_param": "lac13M",
+      "source_column": "lac13M",
+      "values": {
+        "1": "Se quedó sin leche",
+        "2": "Se enfermó y no puedo amamantar",
+        "3": "Decidió alimentarlo solo con fórmula",
+        "4": "Decidió amamantarlo y también darle fórmula",
+        "5": "Eligió la fórmula con la que alimentaron a su hijo en el hos",
+        "6": "Escuchó que la fórmula es mejor para su hijo",
+        "7": "Vio anunciada la fórmula y quiso probarla",
+        "8": "Su hijo tenía un problema de salud y encontró una fórmula qu",
+        "9": "Eligió la misma fórmula con la que alimentó a su hijo(a) may",
+        "10": "El doctor u otro profesional de la salud le recomendó la fór",
+        "11": "Porque se la recomendaron amigos o familiares",
+        "12": "Usa la fórmula que le dan en el programa (Nombre del program",
+        "13": "Otro (especifica)",
+        "99": "No sabe/No responde"
+      }
+    },
+    "formula_nosabe": {
+      "label": "LAC13 ¿Por qué decidió alimentar a (NOMBRE) con fórmula infantil?",
+      "type": "categorical",
+      "ensanut_param": "lac13N",
+      "source_column": "lac13N",
+      "values": {
+        "1": "Se quedó sin leche",
+        "2": "Se enfermó y no puedo amamantar",
+        "3": "Decidió alimentarlo solo con fórmula",
+        "4": "Decidió amamantarlo y también darle fórmula",
+        "5": "Eligió la fórmula con la que alimentaron a su hijo en el hos",
+        "6": "Escuchó que la fórmula es mejor para su hijo",
+        "7": "Vio anunciada la fórmula y quiso probarla",
+        "8": "Su hijo tenía un problema de salud y encontró una fórmula qu",
+        "9": "Eligió la misma fórmula con la que alimentó a su hijo(a) may",
+        "10": "El doctor u otro profesional de la salud le recomendó la fór",
+        "11": "Porque se la recomendaron amigos o familiares",
+        "12": "Usa la fórmula que le dan en el programa (Nombre del program",
+        "13": "Otro (especifica)",
+        "99": "No sabe/No responde"
+      }
+    },
+    "ayer_agua": {
+      "label": "LAC14B ¿En cualquier momento de ayer o de anoche le dio a (NOMBRE)... Agua simple sin endulzar?",
+      "type": "categorical",
+      "ensanut_param": "lac14b",
+      "source_column": "lac14b",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "ayer_suerojarabes": {
+      "label": "LAC15B ¿En cualquier momento de ayer o de anoche le dio a (NOMBRE)...  Suero de rehidratación oral o gotas medicinales: 1. Suero Oral, 2. Gotas, jarabes medicinales (vitaminas, minerales, medicinas)",
+      "type": "categorical",
+      "ensanut_param": "lac15b",
+      "source_column": "lac15b",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "ayer__formula": {
+      "label": "LAC16B1 ¿En cualquier momento de ayer o de anoche le dio a (NOMBRE) Fórmula infantil?",
+      "type": "categorical",
+      "ensanut_param": "lac16b1",
+      "source_column": "lac16b1",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "ayer__lechepolvo": {
+      "label": "LAC16B2 ¿En cualquier momento de ayer o de anoche le dio a (NOMBRE) Leche en polvo?",
+      "type": "categorical",
+      "ensanut_param": "lac16b2",
+      "source_column": "lac16b2",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "ayer_otraleche": {
+      "label": "LAC16B3 ¿En cualquier momento de ayer o de anoche le dio a (NOMBRE)… Otra leche?",
+      "type": "categorical",
+      "ensanut_param": "lac16b3",
+      "source_column": "lac16b3",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "ayer_liconsa": {
+      "label": "LAC17B ¿En cualquier momento de ayer o de anoche le dio a (NOMBRE) Leche liconsa (1. Leche LICONSA en polvo, 2. Leche LICONSA liquida)",
+      "type": "categorical",
+      "ensanut_param": "lac17b",
+      "source_column": "lac17b",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "ayer_liquidos": {
+      "label": "LAC18BA ¿En cualquier momento de ayer o de anoche le dio a (NOMBRE) Líquidos no nutritivos A (1. Agua endulzada, 2.Té endulzado, 3. Café con agua endulzado, 4. Aguamiel (sin fermentar))",
+      "type": "categorical",
+      "ensanut_param": "lac18ba",
+      "source_column": "lac18ba",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "ayer_liqendul": {
+      "label": "LAC18BB ¿En cualquier momento de ayer o de anoche le dio a (NOMBRE) Líquidos no nutritivos B (5. Refresco, 6. Jugo de frutas, 7. Yogurt bebible)",
+      "type": "categorical",
+      "ensanut_param": "lac18bb",
+      "source_column": "lac18bb",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "ayer_atoles": {
+      "label": "LAC19B ¿En cualquier momento de ayer o de anoche le dio a (NOMBRE) Líquidos nutritivos (1. Atole con agua, 2. Atole con leche, 3. Otro cereal (como avena, tapioca, etc) con agua o con leche)",
+      "type": "categorical",
+      "ensanut_param": "lac19b",
+      "source_column": "lac19b",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "ayer_sopas": {
+      "label": "LAC20B ¿En cualquier momento de ayer o de anoche le dio a (NOMBRE) Cereales y leguminosas (1. Sopa de pasta, 2. Arroz, 3. Tortillas, 4. Cereales industrializados para bebés en caja...)",
+      "type": "categorical",
+      "ensanut_param": "lac20b",
+      "source_column": "lac20b",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "ayer_frutverd": {
+      "label": "LAC21B ¿En cualquier momento de ayer o de anoche le dio a (NOMBRE) Frutas y verduras (1. Frutas, 2. Verduras)",
+      "type": "categorical",
+      "ensanut_param": "lac21b",
+      "source_column": "lac21b",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "ayer_respuerco": {
+      "label": "LAC22B ¿En cualquier momento de ayer o de anoche le dio a (NOMBRE) Carnes rojas (enteras, picaditas o en puré) (1. Carne de res, cerdo, 2. Corazón, hígado, menudencias)",
+      "type": "categorical",
+      "ensanut_param": "lac22b",
+      "source_column": "lac22b",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "ayer_pollopescado": {
+      "label": "LAC23B ¿En cualquier momento de ayer o de anoche le dio a (NOMBRE) Carnes (enteras, picaditas o en puré) (1. Carne de pollo, 2. Pescado (fresco o en lata). 3. Pancita)",
+      "type": "categorical",
+      "ensanut_param": "lac23b",
+      "source_column": "lac23b",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "ayer_embutidos": {
+      "label": "LAC24B ¿En cualquier momento de ayer o de anoche le dio a (NOMBRE) Carnes (enteras, picaditas o en puré) (1. Jamón o salchichas, 2. Otros embutidos)",
+      "type": "categorical",
+      "ensanut_param": "lac24b",
+      "source_column": "lac24b",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "ayer_huevo": {
+      "label": "LAC25B ¿En cualquier momento de ayer o de anoche le dio a (NOMBRE) Huevo (1. Entero, 2. Solo la yema)",
+      "type": "categorical",
+      "ensanut_param": "lac25b",
+      "source_column": "lac25b",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "ayer_lacteos": {
+      "label": "LAC26B ¿En cualquier momento de ayer o de anoche le dio a (NOMBRE) Lácteos (1. Queso (cualquiera), 2. Yakult o similares, 3. Yogur, 4. Tipo danoninos)",
+      "type": "categorical",
+      "ensanut_param": "lac26b",
+      "source_column": "lac26b",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "ayer_nutrisano": {
+      "label": "LAC27B ¿En cualquier momento de ayer o de anoche le dio a (NOMBRE) NUTRISANO (1. La papilla del programa PROSPERA, 2. Los polvitos (micronutrimentos en polvo) de PROSPERA, 3. Bebida Láctea Nutrisano)",
+      "type": "categorical",
+      "ensanut_param": "lac27b",
+      "source_column": "lac27b",
+      "values": {
+        "1": "Sí",
+        "2": "No"
+      }
+    },
+    "ayer_fritgalletas": {
+      "label": "LAC28B ¿En cualquier momento de ayer o de anoche le dio a (NOMBRE) Miscelaneos (1. Frituras, 2. Galletas, 3. Sopas instantaneas)",
+      "type": "categorical",
+      "ensanut_param": "lac28bA",
+      "source_column": "lac28bA",
+      "values": {
+        "1": "Frituras",
+        "2": "Galletas, dulces o pastelitos",
+        "3": "Sopas instantáneas",
+        "4": "Ninguno"
+      }
+    },
+    "ayer_alimbiberon": {
+      "label": "LAC29B ¿En el día de ayer o anoche, (NOMBRE) tomó algún alimento en biberón como: jugos, cereales, té o infusiones u otros (SIN CONTAR LECHE MATERNA)",
+      "type": "categorical",
+      "ensanut_param": "lac29b",
+      "source_column": "lac29b",
+      "values": {
+        "1": "Sí",
+        "2": "No",
+        "9": "No sabe/No responde"
+      }
+    },
+    "ayer_alimpapilla": {
+      "label": "LAC30 En el día de ayer, ¿cuántas veces le dio a (NOMBRE) algún alimento o preparación en forma de papilla, pedacitos/machacado o entero, sin contar probaditas? (No considerar líquidos). APOYO",
+      "type": "categorical",
+      "ensanut_param": "lac30a",
+      "source_column": "lac30a"
+    },
+    "estatura": {
+      "label": "LAC31 ¿Cuál es su estatura (talla)?",
       "type": "continuous",
-      "ensanut_param": null
-    },
-    "lac02": {
-      "label": "lac02",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac03A": {
-      "label": "lac03A",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac03B": {
-      "label": "lac03B",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac03C": {
-      "label": "lac03C",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac03D": {
-      "label": "lac03D",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac03E1": {
-      "label": "lac03E1",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac03F": {
-      "label": "lac03F",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac03G": {
-      "label": "lac03G",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac03H": {
-      "label": "lac03H",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac03I": {
-      "label": "lac03I",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac03J": {
-      "label": "lac03J",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac03K": {
-      "label": "lac03K",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac03L": {
-      "label": "lac03L",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac03M": {
-      "label": "lac03M",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac03N": {
-      "label": "lac03N",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac03O": {
-      "label": "lac03O",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac03P": {
-      "label": "lac03P",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac03Q": {
-      "label": "lac03Q",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac04h": {
-      "label": "lac04h",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac04d": {
-      "label": "lac04d",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac05bL": {
-      "label": "lac05bL",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac05bA": {
-      "label": "lac05bA",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac05bB": {
-      "label": "lac05bB",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac05bC": {
-      "label": "lac05bC",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac05bD": {
-      "label": "lac05bD",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac05bE1": {
-      "label": "lac05bE1",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac05bF": {
-      "label": "lac05bF",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac05bG": {
-      "label": "lac05bG",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac05bH": {
-      "label": "lac05bH",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac05bI": {
-      "label": "lac05bI",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac05bJ": {
-      "label": "lac05bJ",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac05bK": {
-      "label": "lac05bK",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac06": {
-      "label": "lac06",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac07": {
-      "label": "lac07",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac08": {
-      "label": "lac08",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac09": {
-      "label": "lac09",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac10d": {
-      "label": "lac10d",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac10m": {
-      "label": "lac10m",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac11a": {
-      "label": "lac11a",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac11bA": {
-      "label": "lac11bA",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac11bB": {
-      "label": "lac11bB",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac11bC": {
-      "label": "lac11bC",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac11bD": {
-      "label": "lac11bD",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac11bE": {
-      "label": "lac11bE",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac12": {
-      "label": "lac12",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac13A": {
-      "label": "lac13A",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac13B": {
-      "label": "lac13B",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac13C": {
-      "label": "lac13C",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac13D": {
-      "label": "lac13D",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac13E1": {
-      "label": "lac13E1",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac13F": {
-      "label": "lac13F",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac13G": {
-      "label": "lac13G",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac13H": {
-      "label": "lac13H",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac13I": {
-      "label": "lac13I",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac13J": {
-      "label": "lac13J",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac13K": {
-      "label": "lac13K",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac13L": {
-      "label": "lac13L",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac13M": {
-      "label": "lac13M",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac13N": {
-      "label": "lac13N",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac14b": {
-      "label": "lac14b",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac15b": {
-      "label": "lac15b",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac16b1": {
-      "label": "lac16b1",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac16b2": {
-      "label": "lac16b2",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac16b3": {
-      "label": "lac16b3",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac17b": {
-      "label": "lac17b",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac18ba": {
-      "label": "lac18ba",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac18bb": {
-      "label": "lac18bb",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac19b": {
-      "label": "lac19b",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac20b": {
-      "label": "lac20b",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac21b": {
-      "label": "lac21b",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac22b": {
-      "label": "lac22b",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac23b": {
-      "label": "lac23b",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac24b": {
-      "label": "lac24b",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac25b": {
-      "label": "lac25b",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac26b": {
-      "label": "lac26b",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac27b": {
-      "label": "lac27b",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac28bA": {
-      "label": "lac28bA",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac29b": {
-      "label": "lac29b",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac30a": {
-      "label": "lac30a",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac31": {
-      "label": "lac31",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac32": {
-      "label": "lac32",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac33": {
-      "label": "lac33",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "lac34": {
-      "label": "lac34",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "h0303": {
-      "label": "h0303",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "meses": {
-      "label": "meses",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "h0302": {
-      "label": "h0302",
-      "type": "categorical",
-      "ensanut_param": null
-    },
-    "entidad": {
-      "label": "entidad",
+      "ensanut_param": "lac31",
+      "source_column": "lac31"
+    },
+    "peso_prenatal": {
+      "label": "LAC32 ¿Cuál era su peso antes de que se embarazara de (NOMBRE)?",
       "type": "continuous",
-      "ensanut_param": null
+      "ensanut_param": "lac32",
+      "source_column": "lac32"
     },
-    "region": {
-      "label": "region",
+    "peso_embarazo": {
+      "label": "LAC33 ¿Cuánto peso ganó en el embarazo de (NOMBRE)?",
+      "type": "continuous",
+      "ensanut_param": "lac33",
+      "source_column": "lac33"
+    },
+    "peso_actual": {
+      "label": "LAC34 ¿Cuál es su peso actual?",
+      "type": "continuous",
+      "ensanut_param": "lac34",
+      "source_column": "lac34"
+    },
+    "Edad": {
+      "label": "Edad en años cumplidos",
+      "type": "continuous",
+      "ensanut_param": "h0303",
+      "source_column": "h0303"
+    },
+    "Edad_meses": {
+      "label": "MESES",
+      "type": "continuous",
+      "ensanut_param": "meses",
+      "source_column": "meses"
+    },
+    "Sexo": {
+      "label": "Sexo",
       "type": "categorical",
-      "ensanut_param": null
+      "ensanut_param": "h0302",
+      "source_column": "h0302",
+      "values": {
+        "1": "Hombre",
+        "2": "Mujer"
+      }
+    },
+    "Entidad": {
+      "label": "Entidad federativa",
+      "type": "categorical",
+      "ensanut_param": "entidad",
+      "source_column": "entidad",
+      "values": {
+        "1": "Aguascalientes",
+        "2": "Baja California",
+        "3": "Baja California Sur",
+        "4": "Campeche",
+        "5": "Chiapas",
+        "6": "Chihuahua",
+        "7": "Ciudad de México",
+        "8": "Coahuila",
+        "9": "Colima",
+        "10": "Durango",
+        "11": "Guanajuato",
+        "12": "Guerrero",
+        "13": "Hidalgo",
+        "14": "Jalisco",
+        "15": "Estado de México",
+        "16": "Michoacán",
+        "17": "Morelos",
+        "18": "Nayarit",
+        "19": "Nuevo León",
+        "20": "Oaxaca",
+        "21": "Puebla",
+        "22": "Querétaro",
+        "23": "Quintana Roo",
+        "24": "San Luis Potosí",
+        "25": "Sinaloa",
+        "26": "Sonora",
+        "27": "Tabasco",
+        "28": "Tamaulipas",
+        "29": "Tlaxcala",
+        "30": "Veracruz",
+        "31": "Yucatán",
+        "32": "Zacatecas"
+      }
+    },
+    "Region": {
+      "label": "Región ENSANUT",
+      "type": "categorical",
+      "ensanut_param": "region",
+      "source_column": "region",
+      "values": {
+        "1": "Norte",
+        "2": "Centro",
+        "3": "Ciudad de México",
+        "4": "Sur"
+      }
     }
   }
 }

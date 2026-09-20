@@ -6,7 +6,7 @@
   "rows": 4821,
   "columns": {
     "Edad": {
-      "label": "Sexo",
+      "label": "Edad en años cumplidos",
       "type": "continuous",
       "ensanut_param": "h0302"
     },

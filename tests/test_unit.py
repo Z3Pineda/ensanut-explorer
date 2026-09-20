@@ -101,3 +101,18 @@ def test_build_meta_skips_nota_columns():
 )
 def test_clean_label(raw, expected):
     assert prepare_data.clean_label(raw, "col_name") == expected
+
+
+def test_apply_column_renames_case_insensitive():
+    df = pd.DataFrame({"lac02": [1, 2], "LAC03A": [0, 1]})
+    mapping = {"lac02": "amamantar", "lac03a": "no_Formula"}
+    out, prov = prepare_data.apply_column_renames(df, mapping)
+    assert list(out.columns) == ["amamantar", "no_Formula"]
+    assert prov == {"amamantar": "lac02", "no_Formula": "LAC03A"}
+
+
+def test_apply_column_renames_skips_identity():
+    df = pd.DataFrame({"amamantar": [1, 2]})
+    out, prov = prepare_data.apply_column_renames(df, {"amamantar": "amamantar"})
+    assert list(out.columns) == ["amamantar"]
+    assert prov == {}

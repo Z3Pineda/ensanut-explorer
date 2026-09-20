@@ -257,8 +257,87 @@ def parse_description_json(path: Path) -> tuple[dict[str, dict], dict[str, dict]
     return by_short, by_param
 
 
+def build_column_rename_map(
+    desc_csv_path: Path,
+    json_path: Path | None,
+    columns: list[str],
+) -> dict[str, str]:
+    """Map raw ENSANUT parameter names to Nombre corto (case-insensitive keys)."""
+    mapping: dict[str, str] = {}
+
+    if desc_csv_path.exists():
+        for enc in ("utf-8-sig", "utf-8", "latin-1", "cp1252"):
+            try:
+                df = pd.read_csv(desc_csv_path, encoding=enc)
+                break
+            except UnicodeDecodeError:
+                continue
+        else:
+            df = None
+        if df is not None and not df.empty:
+            cols = list(df.columns)
+            name_col = _pick_csv_column(
+                cols, "nombre corto   (adulto)", "nombre corto  (adulto)", "nombre corto"
+            )
+            param_col = _pick_csv_column(
+                cols, "parámetro ensanut (adulto)", "parámetro ensanut"
+            )
+            if name_col and param_col:
+                for _, row in df.iterrows():
+                    param = str(row.get(param_col, "")).strip()
+                    short = str(row.get(name_col, "")).strip()
+                    if param and short and param != "nan" and short != "nan":
+                        mapping[param.lower()] = short
+
+    if json_path and json_path.exists():
+        with open(json_path, encoding="utf-8") as f:
+            raw = json.load(f)
+        col_lower = {c.lower(): c for c in columns}
+        for param, info in raw.items():
+            if not isinstance(info, dict):
+                continue
+            short = info.get("Nombre_corto") or info.get("nombre_corto")
+            if not short:
+                continue
+            key = str(param).lower()
+            if key in mapping:
+                continue
+            if key in col_lower:
+                mapping[key] = str(short)
+
+    return mapping
+
+
+def apply_column_renames(
+    df: pd.DataFrame,
+    rename_map: dict[str, str],
+) -> tuple[pd.DataFrame, dict[str, str]]:
+    """Rename columns using official short names; return provenance {new: original}."""
+    if not rename_map:
+        return df, {}
+
+    used_targets: set[str] = set()
+    rename: dict[str, str] = {}
+    provenance: dict[str, str] = {}
+
+    for col in df.columns:
+        target = rename_map.get(str(col).lower())
+        if not target or target == col:
+            continue
+        if target in used_targets:
+            continue
+        rename[col] = target
+        provenance[target] = col
+        used_targets.add(target)
+
+    if rename:
+        df = df.rename(columns=rename)
+    return df, provenance
+
+
 def find_description_json(source_dir: str, year: int) -> Path | None:
     bases = (
+        ZENODO / source_dir,
         ROOT / source_dir,
         ZENODO_JSON / source_dir,
         ROOT / "ZENODO_RELEASE" / source_dir,
@@ -279,9 +358,11 @@ def merge_desc_meta(
     json_short: dict[str, dict],
     json_param: dict[str, dict],
     df_columns: list[str],
+    provenance: dict[str, str] | None = None,
 ) -> dict[str, dict]:
     """JSON (catálogo INSP) tiene prioridad sobre description.csv."""
     merged: dict[str, dict] = {}
+    provenance = provenance or {}
     for col in df_columns:
         entry: dict = dict(csv_meta.get(col, {}))
         js = None
@@ -290,6 +371,9 @@ def merge_desc_meta(
         if not js:
             js = json_short.get(col)
         param = entry.get("ensanut_param")
+        source_col = provenance.get(col)
+        if not js and source_col:
+            js = json_param.get(str(source_col).lower())
         if not js and param:
             js = json_param.get(str(param).lower())
         if js:
@@ -322,11 +406,33 @@ def merge_desc_meta(
     return merged
 
 
-def infer_column_types(df: pd.DataFrame, module_cfg: dict) -> dict[str, str]:
+def get_year_variables(module_cfg: dict, year: int) -> tuple[list[str], list[str]]:
+    """Variables declared for a module/year (falls back to module union)."""
+    by_year = module_cfg.get("variables_by_year", {}).get(str(year))
+    if by_year:
+        return (
+            list(by_year.get("categorical") or []),
+            list(by_year.get("continuous") or []),
+        )
+    variables = module_cfg.get("variables", {})
+    return (
+        list(variables.get("categorical") or []),
+        list(variables.get("continuous") or []),
+    )
+
+
+def infer_column_types(df: pd.DataFrame, module_cfg: dict, year: int | None = None) -> dict[str, str]:
     declared = {}
-    for t in ("continuous", "categorical"):
-        for c in module_cfg.get("variables", {}).get(t, []):
-            declared[c] = t
+    categorical, continuous = get_year_variables(module_cfg, year) if year else ([], [])
+    if not categorical and not continuous:
+        for t in ("continuous", "categorical"):
+            for c in module_cfg.get("variables", {}).get(t, []):
+                declared[c] = t
+    else:
+        for c in categorical:
+            declared[c] = "categorical"
+        for c in continuous:
+            declared[c] = "continuous"
     for col in df.columns:
         if col in declared:
             continue
@@ -343,18 +449,23 @@ def build_meta(
     module_cfg: dict,
     year: int,
     desc_meta: dict[str, dict],
+    provenance: dict[str, str] | None = None,
 ) -> dict:
-    types = infer_column_types(df, module_cfg)
+    provenance = provenance or {}
+    types = infer_column_types(df, module_cfg, year)
     columns: dict[str, dict] = {}
     for col in df.columns:
         if col == "ID" or SKIP_COLUMNS.match(col):
             continue
         info = desc_meta.get(col, {})
+        ensanut_param = info.get("ensanut_param") or provenance.get(col)
         entry = {
             "label": clean_label(info.get("label"), col),
             "type": types.get(col, "unknown"),
-            "ensanut_param": info.get("ensanut_param"),
+            "ensanut_param": ensanut_param,
         }
+        if col in provenance:
+            entry["source_column"] = provenance[col]
         if info.get("values"):
             entry["values"] = info["values"]
         if entry["type"] == "categorical" and "values" not in entry and col in STANDARD_VALUES:
@@ -456,6 +567,34 @@ def build_summary(df: pd.DataFrame, meta: dict, group_cols: list[str]) -> dict:
     return summary
 
 
+def build_variables_by_year(catalog: dict) -> dict:
+    """Scan generated meta.json files and attach per-year variable lists to catalog."""
+    updated = json.loads(json.dumps(catalog))
+    for mid in updated.get("mvp_modules", []):
+        cfg = updated["modules"][mid]
+        by_year: dict[str, dict[str, list[str]]] = {}
+        for year in cfg["years"]:
+            meta_path = OUT / mid / str(year) / "meta.json"
+            if not meta_path.exists():
+                continue
+            with open(meta_path, encoding="utf-8") as f:
+                meta = json.load(f)
+            categorical: list[str] = []
+            continuous: list[str] = []
+            for col, info in meta.get("columns", {}).items():
+                if info.get("type") == "categorical":
+                    categorical.append(col)
+                elif info.get("type") == "continuous":
+                    continuous.append(col)
+            by_year[str(year)] = {
+                "categorical": sorted(categorical),
+                "continuous": sorted(continuous),
+            }
+        if by_year:
+            cfg["variables_by_year"] = by_year
+    return updated
+
+
 def build_manifest(catalog: dict) -> dict:
     modules = {}
     for mid, cfg in catalog["modules"].items():
@@ -494,11 +633,15 @@ def process_module_year(module_id: str, year: int, copy_csv: bool = True) -> Non
     dest.mkdir(parents=True, exist_ok=True)
 
     df = normalize_dataframe(pd.read_csv(csv_src, encoding="utf-8", low_memory=False))
-    csv_meta = parse_description_csv(src_dir / "description.csv")
     json_path = find_description_json(cfg["source_dir"], year)
+    rename_map = build_column_rename_map(src_dir / "description.csv", json_path, list(df.columns))
+    df, provenance = apply_column_renames(df, rename_map)
+    csv_meta = parse_description_csv(src_dir / "description.csv")
     json_short, json_param = parse_description_json(json_path) if json_path else ({}, {})
-    desc_meta = merge_desc_meta(csv_meta, json_short, json_param, list(df.columns))
-    meta = build_meta(df, cfg, year, desc_meta)
+    desc_meta = merge_desc_meta(
+        csv_meta, json_short, json_param, list(df.columns), provenance
+    )
+    meta = build_meta(df, cfg, year, desc_meta, provenance)
     group_cols = [c for c in catalog["demographic_columns"] if c in df.columns]
 
     with open(dest / "meta.json", "w", encoding="utf-8") as f:
@@ -513,7 +656,7 @@ def process_module_year(module_id: str, year: int, copy_csv: bool = True) -> Non
         shutil.copy2(texto_src, dest / "texto.txt")
 
     if copy_csv:
-        shutil.copy2(csv_src, dest / "data.csv")
+        df.to_csv(dest / "data.csv", index=False, encoding="utf-8")
 
     print(f"OK  {module_id}/{year}  rows={len(df)}  -> {dest}")
 
@@ -537,13 +680,18 @@ def main() -> None:
     else:
         parser.error("Usa --mvp o --module X --year Y")
 
+    catalog = build_variables_by_year(catalog)
+    catalog["version"] = "1.0.1"
+    with open(CATALOG_PATH, "w", encoding="utf-8") as f:
+        json.dump(catalog, f, ensure_ascii=False, indent=2)
+
     manifest = build_manifest(catalog)
     OUT.mkdir(parents=True, exist_ok=True)
     with open(OUT / "manifest.json", "w", encoding="utf-8") as f:
         json.dump(manifest, f, ensure_ascii=False, indent=2)
-    # Copiar catálogo al folder servido por GitHub Pages
     shutil.copy2(CATALOG_PATH, SITE / "docs" / "catalog.json")
     print(f"Manifest -> {OUT / 'manifest.json'}")
+    print(f"Catalog  -> {CATALOG_PATH} (variables_by_year updated)")
 
 
 if __name__ == "__main__":

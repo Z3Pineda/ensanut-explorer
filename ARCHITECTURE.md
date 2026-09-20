@@ -1,331 +1,199 @@
-# Arquitectura ENSANUT Explorer (GitHub Pages)
+# Architecture — ENSANUT Explorer v1.0.1
 
-Sitio estático tipo **Our World in Data** para explorar los datos procesados de ENSANUT.
-Sin backend en producción: HTML + JavaScript en GitHub Pages, datos en el mismo repo.
-
----
-
-## 1. Objetivo del MVP
-
-| Fase | Alcance | Entregable |
-|------|---------|------------|
-| **MVP** | Salud + Antropometría, años 2018–2023 | Explorador con filtros, 3 tipos de gráfica, ficha de variable |
-| **v1.1** | Bio + Actividad física | Mismos componentes, nuevo catálogo |
-| **v1.2** | Lactancia + Alimentos | Variables específicas (porciones, grupos alimenticios) |
-| **v2** | Asistente FAQ (opcional) | Búsqueda sobre metadatos, sin LLM |
+Static research software for exploring processed subsets of the Encuesta Nacional de Salud y Nutrición (ENSANUT, Mexico, 2018–2023). Designed for **reproducibility**, **low operational cost**, and **visual analytics** without a production analytics backend.
 
 ---
 
-## 2. Principios de diseño
+## 1. Static-first data flow
 
-1. **Estático primero** — GitHub Pages no ejecuta Python; todo análisis pesado se precomputa.
-2. **Metadatos delgados** — No servir el JSON crudo del INSP (~10k líneas); generar `meta.json` por dataset (~50–200 variables).
-3. **CSV en repo, agregados para gráficas** — Descarga completa disponible; visualización usa `summary.json` precomputado.
-4. **Un solo manifiesto** — `catalog.json` describe módulos, años, rutas y columnas analizables.
-5. **Reutilizar fuentes existentes** — Datos de `ZENODO/`, metadatos de `ZENODO_JSON/` o `description.csv`.
+```
+ENSANUT processed CSV (ZENODO/)
+        │
+        ▼
+ prepare_data.py  ──►  data.csv      (per module/year, optional in repo)
+        │               meta.json     (column labels, types, value maps, traceability)
+        │               summary.json  (precomputed prevalence & distributions)
+        │               texto.txt     (module intro, Spanish)
+        ▼
+ manifest.json + catalog.json  (index + module/year variable availability)
+        │
+        ▼
+ GitHub Pages  (docs/)
+        │
+        ▼
+ Browser  ──►  Plotly charts + Mexico GeoJSON choropleth
+```
+
+### Design constraints (explicit)
+
+| Property | Choice |
+|----------|--------|
+| Statistical processing | **Offline** in Python (`prepare_data.py`) |
+| Browser role | Loads **precomputed aggregates** only |
+| Production backend | **None** |
+| Online database | **None** |
+| Runtime cost | Static hosting (GitHub Pages) |
+| Reproducibility | Versioned CSV + pipeline + pytest |
+
+The browser **does not** recompute survey statistics. It selects blocks from `summary.json` and renders them with Plotly.
 
 ---
 
-## 3. Estructura del repositorio
+## 2. Repository layout
 
 ```
 ensanut-site/
-├── ARCHITECTURE.md          ← este documento
-├── README.md
-├── catalog.json             ← registro central de datasets (fuente de verdad)
+├── catalog.json              # Source of truth: modules, years, variables, variables_by_year
+├── ARCHITECTURE.md
+├── LICENSE / LICENSE-DATA.md
+├── pytest.ini
 ├── scripts/
-│   ├── prepare_data.py      ← copia CSV + genera meta.json + summary.json
+│   ├── prepare_data.py       # ETL pipeline
 │   └── requirements.txt
-├── docs/                    ← raíz de GitHub Pages (/docs en Settings)
-│   ├── index.html           ← landing + tarjetas por módulo
-│   ├── explore.html         ← explorador principal (SPA ligera)
-│   ├── about.html           ← metodología, fuente INSP, licencia
-│   ├── assets/
-│   │   ├── css/
-│   │   │   └── main.css
-│   │   └── js/
-│   │       ├── app.js           ← orquestador
-│   │       ├── catalog.js       ← carga catalog.json
-│   │       ├── data-loader.js   ← fetch meta + summary + csv bajo demanda
-│   │       ├── metadata-panel.js← ficha lateral de variable
-│   │       ├── filters.js       ← año, sexo, región, entidad
-│   │       ├── charts.js        ← Plotly: barras, líneas, histograma
-│   │       └── utils.js         ← mapas de códigos, formateo
-│   └── data/                ← generado por prepare_data.py (no editar a mano)
-│       ├── manifest.json        ← índice liviano para el frontend
-│       └── {modulo}/{año}/
-│           ├── meta.json        ← definición de columnas + etiquetas de valores
-│           ├── summary.json     ← agregados precomputados
-│           ├── texto.txt
-│           └── data.csv         ← opcional en MVP; link de descarga siempre
-└── .github/
-    └── workflows/
-        └── deploy.yml       ← opcional: validar + publicar Pages
+├── tests/                    # Unit, integrity, reproduction, lactancia, availability
+├── .github/workflows/
+│   ├── pages.yml             # Deploy docs/ to GitHub Pages
+│   └── tests.yml             # pytest on push/PR
+└── docs/                     # GitHub Pages root
+    ├── index.html / explore.html / about.html
+    ├── catalog.json          # Copy of root catalog (served to browser)
+    ├── assets/js/            # app, data-loader, charts, maps, utils, site-base
+    └── data/
+        ├── manifest.json
+        └── {module}/{year}/
+            ├── meta.json
+            ├── summary.json
+            ├── data.csv
+            └── texto.txt
 ```
 
-### Fuentes upstream (fuera del repo del sitio)
+Parent project (`PROY_ENSANUT/`) holds raw sources: `ZENODO/`, `ZENODO_JSON/`, `ZENODO_RELEASE/`, Zenodo zip builder.
 
-```
-PROY_ENSANUT/
-├── ZENODO/                  → CSV procesados (columnas renombradas)
-├── ZENODO_JSON/             → description.json (catálogo completo INSP)
-└── ensanut-site/            → este proyecto
+---
+
+## 3. Modules and datasets (v1.0.1)
+
+| Module | ID | Years | Datasets |
+|--------|-----|-------|----------|
+| Salud | `salud` | 2018, 2021–2023 | 4 |
+| Antropometría | `antropometria` | 2018–2023 | 5 |
+| Biomarcadores | `bio` | 2018, 2020, 2023 | 3 |
+| Actividad física | `actfis` | 2018, 2022–2023 | 3 |
+| Lactancia | `lactancia` | 2018–2023 | 4 |
+| Nutrición | `alimentos` | 2018–2023 | 5 |
+
+**Total: 6 modules · 24 module×year datasets**
+
+Year coverage follows official ENSANUT release availability, not a uniform panel.
+
+---
+
+## 4. Pipeline (`prepare_data.py`)
+
+### Inputs
+
+- `ZENODO/{source_dir}/{year}/{data_file}` — processed analytic CSV
+- `description.csv` / `description.json` — INSP variable catalogs
+- `catalog.json` — module configuration
+
+### Key steps
+
+1. **Normalize dataframe** — drop `Unnamed:*`, rename `estrato` → `Estrato`
+2. **Column renaming** — map raw ENSANUT parameter names to `Nombre corto` using `description.csv` and `description.json` (e.g. `lac02` → `amamantar`); store `source_column` in `meta.json` for traceability
+3. **Merge metadata** — JSON catalog overrides CSV; hardcoded maps for Sexo, Entidad, Region, bio/alimentos labels
+4. **Infer types** — catalog declaration, else numeric heuristic (≤15 unique → categorical)
+5. **Build summary** — prevalence (categorical) and distribution (continuous) with demographic splits; suppress groups with **n < 30**
+6. **Update catalog** — write `variables_by_year` from generated `meta.json` files
+7. **Write manifest** — index of available paths for the frontend
+
+### Commands
+
+```bash
+pip install -r scripts/requirements.txt
+python scripts/prepare_data.py --module salud --year 2018
+python scripts/prepare_data.py --mvp    # all MVP modules + manifest + catalog sync
 ```
 
 ---
 
-## 4. Flujo de datos
+## 5. Frontend
 
-```
-┌─────────────────┐     prepare_data.py      ┌──────────────────────┐
-│ ZENODO/*.csv    │ ────────────────────────►│ docs/data/.../       │
-│ description.csv │                            │   data.csv           │
-│ description.json│ ──► meta.json (slim) ────►│   meta.json          │
-│ texto.txt       │                            │   texto.txt          │
-└─────────────────┘     agregaciones pandas  │   summary.json       │
-                                             └──────────┬───────────┘
-                                                        │
-                                                        ▼
-                                             ┌──────────────────────┐
-                                             │  GitHub Pages (CDN)  │
-                                             │  explore.html + JS   │
-                                             └──────────────────────┘
-```
+| File | Role |
+|------|------|
+| `app.js` | State: module, year, variable, split; filters variables via `variables_by_year` ∩ `meta.columns` |
+| `data-loader.js` | Fetch `catalog.json`, `meta.json`, `summary.json` |
+| `charts.js` | Plotly: bars, grouped bars, histogram |
+| `maps.js` | Choropleth by `Entidad` (32 states) |
+| `site-base.js` | Base URL for GitHub Pages vs local server |
 
-### Contenido de cada artefacto
-
-**`catalog.json`** (raíz, versionado)
-- Lista de módulos con id, título, descripción, icono, color
-- Por módulo: años disponibles, archivo CSV, columnas demográficas fijas
-- Columnas “analizables” agrupadas: `continuous`, `categorical`, `binary`
-
-**`meta.json`** (por módulo/año, ~5–50 KB)
-```json
-{
-  "module": "salud",
-  "year": 2018,
-  "source": "ENSANUT 2018 - CS_ADULTOS",
-  "rows": 43070,
-  "columns": {
-    "Sexo": {
-      "label": "Sexo",
-      "type": "categorical",
-      "values": {"1": "Hombre", "2": "Mujer"}
-    },
-    "DM_Diabetes": {
-      "label": "Diabetes diagnosticada",
-      "type": "categorical",
-      "values": {"1": "Sí", "2": "No", "3": "No sabe"}
-    },
-    "Peso": {
-      "label": "Peso habitual (kg)",
-      "type": "continuous",
-      "unit": "kg"
-    }
-  }
-}
-```
-
-**`summary.json`** (por módulo/año, precomputado)
-```json
-{
-  "generated_at": "2026-09-20",
-  "by_year": { "2018": { "n": 43070 } },
-  "prevalence": {
-    "DM_Diabetes": {
-      "overall": {"1": 0.12, "2": 0.85, "3": 0.03},
-      "by_Sexo": {"1": {"1": 0.13}, "2": {"1": 0.11}},
-      "by_Region": { ... }
-    }
-  },
-  "distribution": {
-    "Peso": {"mean": 72.4, "median": 71.0, "p25": 62, "p75": 82, "bins": [...]}
-  }
-}
-```
-
-**`manifest.json`** (en `docs/data/`, generado)
-- Copia reducida de `catalog.json` + checksums + tamaños de archivo para el loader.
+UI language: **Spanish**. Variable labels follow ENSANUT/INSP catalogs.
 
 ---
 
-## 5. Pantallas (UX)
+## 6. Catalog and variable availability
 
-### 5.1 Landing (`index.html`)
+- `catalog.json` → `modules.{id}.variables` — union of variables across years (documentation)
+- `catalog.json` → `modules.{id}.variables_by_year.{year}` — **actual** categorical/continuous columns for that year (generated by pipeline)
 
-```
-┌────────────────────────────────────────────────────────────┐
-│  ENSANUT Explorer                    [Acerca de] [GitHub]  │
-├────────────────────────────────────────────────────────────┤
-│  Subconjuntos procesados de la Encuesta Nacional de        │
-│  Salud y Nutrición (México), 2018–2023                     │
-│                                                            │
-│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐      │
-│  │  Salud   │ │ Antropo- │ │   Bio    │ │  Act.Fís │      │
-│  │  ● MVP   │ │  metría  │ │  v1.1    │ │  v1.1    │      │
-│  └──────────┘ └──────────┘ └──────────┘ └──────────┘      │
-│  ┌──────────┐ ┌──────────┐                                 │
-│  │Lactancia │ │ Alimentos│                                 │
-│  │  v1.2    │ │  v1.2    │                                 │
-│  └──────────┘ └──────────┘                                 │
-└────────────────────────────────────────────────────────────┘
+The explorer dropdown uses **`variables_by_year` first**, then intersects with `meta.columns`, so variables absent in a given year are not offered.
+
+---
+
+## 7. Testing
+
+```bash
+python -m pytest tests/ -v
+python tests/benchmark.py
 ```
 
-### 5.2 Explorador (`explore.html?module=salud&year=2018&var=DM_Diabetes`)
+| Suite | Purpose |
+|-------|---------|
+| `test_unit.py` | Parsing, aggregation helpers, column renaming |
+| `test_integrity.py` | Committed data: row counts, aggregates vs CSV, manifest |
+| `test_reproduction.py` | Re-run pipeline vs committed `meta.json` / `summary.json` |
+| `test_lactancia.py` | 2021–2023 normalization and `source_column` traceability |
+| `test_availability.py` | `variables_by_year` consistency |
 
-```
-┌──────────────┬─────────────────────────────────────────────┐
-│ FILTROS      │  Diabetes diagnosticada · ENSANUT 2018      │
-│              │  ─────────────────────────────────────────  │
-│ Módulo       │  [Gráfica principal: barras por región]     │
-│ Año          │                                             │
-│ Variable ▼   │  Desagregar por: [Sexo ▼] [Región ▼]       │
-│              │                                             │
-│ Sexo         │  ┌─────────────────────────────────────┐   │
-│ Región       │  │  Serie temporal 2018–2023 (si aplica)│   │
-│ Entidad      │  └─────────────────────────────────────┘   │
-├──────────────┤                                             │
-│ FICHA VAR    │  [Descargar CSV] [Ver metadatos INSP]     │
-│ Pregunta     │                                             │
-│ Valores      │                                             │
-│ Fuente       │                                             │
-└──────────────┴─────────────────────────────────────────────┘
-```
-
-### Tipos de gráfica (por tipo de variable)
-
-| Tipo columna | Gráfica default | Desagregación |
-|--------------|-----------------|---------------|
-| `binary` / `categorical` | Barras (% prevalencia) | Sexo, Región, Entidad |
-| `continuous` | Histograma + media | Por grupo categórico |
-| Serie multi-año | Línea temporal | Nacional / por región |
+CI: `.github/workflows/tests.yml` runs pytest on push/PR to `main`.
 
 ---
 
-## 6. Stack técnico
+## 8. CI/CD
 
-| Capa | Tecnología | Motivo |
-|------|------------|--------|
-| Hosting | GitHub Pages (`/docs`) | Gratis, HTTPS, CDN |
-| UI | HTML semántico + CSS custom | Sin build obligatorio en MVP |
-| Gráficas | [Plotly.js](https://plotly.com/javascript/) CDN | Interactivo, mapas, barras, líneas |
-| CSV parse (descarga) | [PapaParse](https://www.papaparse.com/) CDN | Solo si el usuario descarga/analiza local |
-| Preproceso | Python 3 + pandas | Script local / CI, no en producción |
-| CI (opcional) | GitHub Actions | Regenerar `data/` al cambiar fuentes |
+| Workflow | Trigger | Action |
+|----------|---------|--------|
+| `pages.yml` | push `main` | Deploy `docs/` to GitHub Pages |
+| `tests.yml` | push/PR `main` | `pytest tests/ -v` |
 
-**No usar en MVP:** React build, FastAPI, LLM, base de datos.
+Deploy and test jobs are **separate**; a test failure does not block Pages deploy unless you merge broken code.
 
 ---
 
-## 7. Mapeo módulos → archivos fuente
+## 9. Zenodo and licensing
 
-| module id | Carpeta ZENODO | CSV | Años | description |
-|-----------|----------------|-----|------|-------------|
-| `salud` | `ENSANUT_SALUD` | `CS_ADULTOS.csv` | 2018,2021,2022,2023 | csv + json |
-| `antropometria` | `ENSANUT_ANTROPOMETRIA` | `CN_ANTROPOMETRIA.csv` | 2018–2023 | csv + json |
-| `bio` | `ENSANUT_BIO` | `CS_ADULTOS.csv` | 2018,2020,2023 | csv + json |
-| `actfis` | `ENSANUT_ACTFIS` | `CS_ADULTOS.csv` (+ otros) | 2018,2022,2023 | csv parcial |
-| `lactancia` | `ENSANUT_LACTANCIA` | `Lactancia.csv` | 2018–2023 | csv |
-| `alimentos` | `ENSANUT_ALIMENTOS` | `Nutricion.csv` | 2018–2023 | csv ("No aplica") |
+| Layer | License |
+|-------|---------|
+| Explorer code | MIT |
+| Processed data | CC BY 4.0 |
+| Original ENSANUT microdata | INSP terms — https://ensanut.insp.mx/ |
 
-Columnas demográficas comunes (filtros globales):
-`Sexo`, `Edad`, `Entidad`, `Region`, `Estrato` (cuando existan).
+**Concept DOI:** https://doi.org/10.5281/zenodo.14460946
+
+Unified package: `PROY_ENSANUT/ENSANUT_ZENODO_v1.zip` built by `scripts/build_zenodo_release.py`. Upload guide: `ZENODO_RELEASE/ZENODO_UPLOAD.md`.
 
 ---
 
-## 8. Reglas de agregación (prepare_data.py)
+## 10. Known limitations (v1.0.1)
 
-Para variables categóricas/binarias:
-- Excluir missing, `888`, `999`, `222.2` según meta
-- Prevalencia = count / total válido
-- Mínimo celda: n ≥ 30 para mostrar (ocultar o agrupar si no)
-
-Para continuas:
-- Percentiles, media, mediana, n
-- Histograma con 20 bins robustos
-
-Para series temporales:
-- Misma variable across años → un bloque en `summary.json` multi-año
+- Processed subsets; not a substitute for official INSP microdata
+- Variable schemas differ by year (especially **actfis** 2018 vs 2022–2023)
+- **Lactancia 2018** has many more questionnaire items than 2021–2023 waves
+- **Alimentos** `description.json` is generated where no official INSP JSON exists
+- Large `summary.json` files when grouping by continuous `Edad`
+- No multi-year time-series view in the explorer (removed in v1.0.0)
 
 ---
 
-## 9. GitHub Pages — configuración
+## 11. Scope (non-goals)
 
-1. Repo: `github.com/{usuario}/ensanut-explorer`
-2. Settings → Pages → Source: **Deploy from branch `main`, folder `/docs`**
-3. URL: `https://{usuario}.github.io/ensanut-explorer/`
-4. Rutas relativas en JS: `const BASE = import.meta.url` o `const DATA_BASE = './data/'`
-
-### Límite de tamaño repo
-
-- GitHub recomienda < 1 GB; archivos > 100 MB bloquean push
-- CSV más grande ~43k filas × ~30 cols ≈ 5–15 MB → OK
-- Total estimado data/: ~150–300 MB (7 módulos × 6 años) → considerar **Git LFS** o publicar solo agregados + enlace a Zenodo para CSV completos
-
-**Estrategia recomendada:**
-- En GitHub: `meta.json` + `summary.json` + `texto.txt` (liviano)
-- CSV completos: release de GitHub o enlace a Zenodo
-- MVP: incluir CSV solo de Salud + Antropometría
-
----
-
-## 10. Roadmap de implementación
-
-### Semana 1 — Fundamentos
-- [x] Arquitectura + `catalog.json`
-- [ ] `prepare_data.py` para salud 2018
-- [ ] `explore.html` con una gráfica de prevalencia
-- [ ] Publicar en GitHub Pages
-
-### Semana 2 — MVP Salud + Antropometría
-- [ ] Todos los años 2018–2023 de ambos módulos
-- [ ] Filtros Sexo / Región
-- [ ] Panel de metadatos
-- [ ] Descarga CSV
-
-### Semana 3 — Pulido
-- [ ] Serie temporal multi-año
-- [ ] `about.html` con citación INSP
-- [ ] GitHub Action que corre `prepare_data.py`
-
-### v1.1+
-- [ ] Bio, Actividad física
-- [ ] Mapa coroplético por entidad (Plotly geoJSON México)
-- [ ] Buscador de variables (FAQ estático, sin LLM)
-
----
-
-## 11. Fase 2 opcional — “Asistente” sin LLM
-
-No ChatGPT; un **buscador de variables** indexado en build time:
-
-```
-scripts/build_search_index.py → docs/data/search-index.json
-```
-
-Frontend: input que filtra `{ module, column, label, question }`.
-Respuestas template: definición + años disponibles + link al explorador.
-
-Costo: cero. Riesgo de alucinación: cero.
-
----
-
-## 12. Citación y licencia (about.html)
-
-- Fuente primaria: [ensanut.insp.mx](https://ensanut.insp.mx/)
-- Este sitio: subconjunto procesado con columnas renombradas
-- Incluir DOI de Zenodo cuando publiques el dataset
-- Aviso: no reemplaza microdatos oficiales del INSP
-
----
-
-## 13. Decisiones cerradas
-
-| Decisión | Elección |
-|----------|----------|
-| Hosting | GitHub Pages `/docs` |
-| Backend prod | Ninguno |
-| Formato metadatos runtime | `meta.json` delgado |
-| Gráficas runtime | `summary.json` precomputado |
-| Catálogo completo INSP | Solo en descarga / referencia, no en browser |
-| MVP módulos | Salud + Antropometría |
+This is **research software / health informatics / visual analytics**, not an epidemiological analysis platform. The pipeline does not add new statistical models, inference, or survey weights beyond precomputed descriptive aggregates.

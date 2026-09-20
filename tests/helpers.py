@@ -55,10 +55,17 @@ def recompute_overall_distribution(df: pd.DataFrame, col: str) -> dict:
     }
 
 
-def pick_check_columns(catalog: dict, module_id: str) -> tuple[str | None, str | None]:
-    variables = catalog["modules"][module_id].get("variables", {})
-    categorical = variables.get("categorical") or []
-    continuous = variables.get("continuous") or []
+def pick_check_columns(
+    catalog: dict, module_id: str, year: int | None = None
+) -> tuple[str | None, str | None]:
+    if year is not None:
+        categorical, continuous = prepare_data.get_year_variables(
+            catalog["modules"][module_id], year
+        )
+    else:
+        variables = catalog["modules"][module_id].get("variables", {})
+        categorical = variables.get("categorical") or []
+        continuous = variables.get("continuous") or []
     cat = next((c for c in categorical if c not in ("Entidad", "Region", "Estrato", "ESTRATO")), None)
     cont = next((c for c in continuous if c != "Edad"), continuous[0] if continuous else None)
     return cat, cont

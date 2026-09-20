@@ -61,7 +61,7 @@
       "ensanut_param": null
     },
     "Edad": {
-      "label": "Edad del Seleccionado",
+      "label": "Edad en años cumplidos",
       "type": "continuous",
       "ensanut_param": "edad"
     },

@@ -59,7 +59,7 @@
       }
     },
     "Edad": {
-      "label": "Edad",
+      "label": "Edad en años cumplidos",
       "type": "continuous",
       "ensanut_param": "h0303"
     },

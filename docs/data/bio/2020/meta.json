@@ -6,7 +6,7 @@
   "rows": 2373,
   "columns": {
     "Edad": {
-      "label": "EDAD DE LA PERSONA A LA QUE SE LE TOMÁ LA MUESTRA",
+      "label": "Edad en años cumplidos",
       "type": "continuous",
       "ensanut_param": "Edad"
     },

@@ -46,7 +46,7 @@ def test_pipeline_reproduces_summary(module_id, year, catalog, dataset_dir):
     assert new_summary["n_rows"] == old_summary["n_rows"]
     assert set(new_meta["columns"]) == set(old_meta["columns"])
 
-    cat_col, cont_col = pick_check_columns(catalog, module_id)
+    cat_col, cont_col = pick_check_columns(catalog, module_id, year)
 
     if cat_col and cat_col in old_summary["prevalence"]:
         compare_prevalence(

@@ -53,15 +53,13 @@ def test_meta_summary_row_counts(module_id, year):
 
 
 def test_catalog_variables_present(module_id, year, catalog):
-    """Declared variables that exist in the CSV must appear in meta.json."""
-    meta, _, df = load_bundle(module_id, year)
-    if df is None:
-        pytest.skip("data.csv not present")
-    declared = set(catalog["modules"][module_id]["variables"].get("categorical", []))
-    declared.update(catalog["modules"][module_id]["variables"].get("continuous", []))
-    available = set(df.columns)
-    expected = declared & available
-    missing = sorted(expected - set(meta["columns"].keys()))
+    """variables_by_year entries must exist in meta.json."""
+    meta, _, _ = load_bundle(module_id, year)
+    by_year = catalog["modules"][module_id].get("variables_by_year", {}).get(str(year))
+    if not by_year:
+        pytest.skip("variables_by_year not built yet")
+    declared = set(by_year.get("categorical", []) + by_year.get("continuous", []))
+    missing = sorted(declared - set(meta["columns"].keys()))
     assert not missing, f"{module_id}/{year} missing catalog vars: {missing}"
 
 
@@ -69,7 +67,7 @@ def test_prevalence_proportions_sum_to_one(module_id, year, catalog):
     _, summary, df = load_bundle(module_id, year)
     if df is None:
         pytest.skip("data.csv not present")
-    cat_col, _ = pick_check_columns(catalog, module_id)
+    cat_col, _ = pick_check_columns(catalog, module_id, year)
     if not cat_col or cat_col not in summary["prevalence"]:
         pytest.skip("no categorical check column")
     overall = summary["prevalence"][cat_col]["overall"]
