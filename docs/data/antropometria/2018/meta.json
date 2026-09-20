@@ -6,20 +6,27 @@
   "rows": 33818,
   "columns": {
     "Embarazada": {
-      "label": "Embarazada",
+      "label": "¿Usted",
       "type": "categorical",
       "ensanut_param": "P6",
       "values": {
-        "1": "está embarazada?"
+        "1": "está embarazada?",
+        "2": "está dando pecho?",
+        "3": "está embarazada y está dando pecho?",
+        "4": "Ninguna de la anteriores",
+        "9": "No sabe"
       }
     },
     "Edad": {
       "label": "Edad",
       "type": "continuous",
-      "ensanut_param": "EDAD"
+      "ensanut_param": "EDAD",
+      "values": {
+        "0": "Menores de un año"
+      }
     },
     "Sexo": {
-      "label": "Sexo",
+      "label": "(NOMBRE) es hombre/es mujer.",
       "type": "categorical",
       "ensanut_param": "SEXO",
       "values": {
@@ -28,7 +35,7 @@
       }
     },
     "Entidad": {
-      "label": "Entidad",
+      "label": "Clave de Entidad Federativa",
       "type": "categorical",
       "ensanut_param": "ENT",
       "values": {
@@ -64,7 +71,7 @@
       }
     },
     "Region": {
-      "label": "Region",
+      "label": "Región",
       "type": "categorical",
       "ensanut_param": "REGION",
       "values": {
@@ -75,39 +82,57 @@
       }
     },
     "Estrato": {
-      "label": "Estrato",
+      "label": "Estrato sociodemográfico",
       "type": "categorical",
-      "ensanut_param": null
+      "ensanut_param": "ESTRATO"
     },
     "Peso": {
-      "label": "Peso",
+      "label": "Ahora voy a pesar a (NOMBRE). Kilos/Gramos",
       "type": "continuous",
-      "ensanut_param": "PESO1_1"
+      "ensanut_param": "PESO1_1",
+      "values": {
+        "222.222": "No se pesó"
+      }
     },
     "Talla": {
-      "label": "Talla",
+      "label": "Ahora voy a medir la estatura de (NOMBRE).  Primera medición Centímetros/Milímetros",
       "type": "continuous",
-      "ensanut_param": "TALLA4_1"
+      "ensanut_param": "TALLA4_1",
+      "values": {
+        "222.2": "No se midió"
+      }
     },
     "Cintura": {
-      "label": "Cintura",
+      "label": "Ahora voy a medir la cintura de (NOMBRE). Centímetros Primera medición",
       "type": "continuous",
-      "ensanut_param": "CIRCUNFERENCIA8_1"
+      "ensanut_param": "CIRCUNFERENCIA8_1",
+      "values": {
+        "222.2": "No se midió"
+      }
     },
     "Talla_mas60": {
-      "label": "Talla mas60",
+      "label": "Ahora voy a medir la estatura de (NOMBRE) Primera medición Centímetros",
       "type": "continuous",
-      "ensanut_param": "TALLA15_1"
+      "ensanut_param": "TALLA15_1",
+      "values": {
+        "222.2": "No se midió"
+      }
     },
     "TA_sistole": {
-      "label": "TA sistole",
+      "label": "Ahora voy a tomar la tensión arterial de (NOMBRE).Primera medición Sístole",
       "type": "continuous",
-      "ensanut_param": "P27_1_1"
+      "ensanut_param": "P27_1_1",
+      "values": {
+        "222.2": "No se midió"
+      }
     },
     "TA_diastole": {
-      "label": "TA diastole",
+      "label": "Ahora voy a tomar la tensión arterial de (NOMBRE). Segunda medición Sístole",
       "type": "continuous",
-      "ensanut_param": "P27_2_1"
+      "ensanut_param": "P27_2_1",
+      "values": {
+        "222.2": "No se midió"
+      }
     }
   }
 }

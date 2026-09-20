@@ -114,8 +114,9 @@ async function render() {
   const dist = summary.distribution?.[state.variable];
   const block = prev ?? dist ?? {};
 
+  const shortName = state.variable.replace(/_/g, " ");
   document.getElementById("chart-title").textContent =
-    metaCol?.label ?? state.variable;
+    metaCol?.label && metaCol.label !== shortName ? metaCol.label : shortName;
   document.getElementById("chart-subtitle").textContent =
     `${state.catalog.modules[state.module].title} · ENSANUT ${state.year} · n=${meta.rows.toLocaleString("es-MX")}`;
 

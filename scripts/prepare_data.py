@@ -35,6 +35,17 @@ OUT = SITE / "docs" / "data"
 MISSING_CODES = {888, 888.0, 999, 999.0, 8888, 8888.0, 222.2, 222.222}
 MIN_CELL_N = 30
 
+# Etiquetas estándar ENSANUT (respaldo si el JSON no las trae)
+STANDARD_VALUES: dict[str, dict[str, str]] = {
+    "Sexo": {"1": "Hombre", "2": "Mujer"},
+    "Region": {
+        "1": "Norte",
+        "2": "Centro",
+        "3": "Ciudad de México",
+        "4": "Sur",
+    },
+}
+
 
 def load_catalog() -> dict:
     with open(CATALOG_PATH, encoding="utf-8") as f:
@@ -77,6 +88,82 @@ def parse_description_csv(path: Path) -> dict[str, dict]:
     return meta
 
 
+def normalize_code(val) -> str:
+    s = str(val).strip()
+    if re.fullmatch(r"\d+\.0+", s):
+        return s.split(".")[0]
+    return s
+
+
+def parse_description_json(path: Path) -> dict[str, dict]:
+    """Catálogo completo INSP keyed by Nombre corto (columna CSV)."""
+    if not path.exists():
+        return {}
+    with open(path, encoding="utf-8") as f:
+        raw = json.load(f)
+
+    meta: dict[str, dict] = {}
+    for param, info in raw.items():
+        if not isinstance(info, dict):
+            continue
+        short = info.get("Nombre_corto") or info.get("nombre_corto")
+        if not short:
+            continue
+        values: dict[str, str] = {}
+        for v in info.get("Valores") or []:
+            code = normalize_code(v.get("Valor_numerico", ""))
+            label = str(v.get("Etiqueta", "")).strip()
+            if code and label:
+                values[code] = label
+        meta[str(short)] = {
+            "label": str(info.get("Etiqueta", short)).strip(),
+            "ensanut_param": param,
+            "values": values,
+        }
+    return meta
+
+
+def find_description_json(source_dir: str, year: int) -> Path | None:
+    for base in (ROOT / source_dir, ZENODO_JSON / source_dir):
+        path = base / str(year) / "description.json"
+        if path.exists():
+            return path
+    return None
+
+
+def merge_desc_meta(
+    csv_meta: dict[str, dict],
+    json_meta: dict[str, dict],
+    df_columns: list[str],
+) -> dict[str, dict]:
+    """JSON (catálogo INSP) tiene prioridad sobre description.csv."""
+    by_param = {
+        str(v["ensanut_param"]).lower(): v
+        for v in json_meta.values()
+        if v.get("ensanut_param")
+    }
+
+    merged: dict[str, dict] = {}
+    for col in df_columns:
+        entry: dict = dict(csv_meta.get(col, {}))
+        js = json_meta.get(col)
+        if not js:
+            param = entry.get("ensanut_param")
+            if param:
+                js = by_param.get(str(param).lower())
+        if js:
+            entry["label"] = js.get("label") or entry.get("label") or col.replace("_", " ")
+            entry["ensanut_param"] = js.get("ensanut_param") or entry.get("ensanut_param")
+            if js.get("values"):
+                entry["values"] = js["values"]
+        if col in STANDARD_VALUES:
+            entry.setdefault("values", {}).update(STANDARD_VALUES[col])
+        if entry.get("values"):
+            entry["type"] = "categorical"
+        merged[col] = entry
+    return merged
+
+
 def infer_column_types(df: pd.DataFrame, module_cfg: dict) -> dict[str, str]:
     declared = {}
     for t in ("continuous", "categorical"):
@@ -104,13 +191,16 @@ def build_meta(
     for col in df.columns:
         if col == "ID":
             continue
+        info = desc_meta.get(col, {})
         entry = {
-            "label": desc_meta.get(col, {}).get("label", col.replace("_", " ")),
+            "label": info.get("label", col.replace("_", " ")),
             "type": types.get(col, "unknown"),
-            "ensanut_param": desc_meta.get(col, {}).get("ensanut_param"),
+            "ensanut_param": info.get("ensanut_param"),
         }
-        if entry["type"] == "categorical" and col in desc_meta and desc_meta[col].get("values"):
-            entry["values"] = desc_meta[col]["values"]
+        if info.get("values"):
+            entry["values"] = info["values"]
+        if entry["type"] == "categorical" and "values" not in entry and col in STANDARD_VALUES:
+            entry["values"] = STANDARD_VALUES[col]
         columns[col] = entry
     return {
         "module": module_cfg["id"],
@@ -244,7 +334,10 @@ def process_module_year(module_id: str, year: int, copy_csv: bool = True) -> Non
     dest.mkdir(parents=True, exist_ok=True)
 
     df = pd.read_csv(csv_src, encoding="utf-8", low_memory=False)
-    desc_meta = parse_description_csv(src_dir / "description.csv")
+    csv_meta = parse_description_csv(src_dir / "description.csv")
+    json_path = find_description_json(cfg["source_dir"], year)
+    json_meta = parse_description_json(json_path) if json_path else {}
+    desc_meta = merge_desc_meta(csv_meta, json_meta, list(df.columns))
     meta = build_meta(df, cfg, year, desc_meta)
     group_cols = [c for c in catalog["demographic_columns"] if c in df.columns]
 

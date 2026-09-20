@@ -8,97 +8,125 @@
     "Edad": {
       "label": "Edad",
       "type": "continuous",
-      "ensanut_param": null
+      "ensanut_param": "EDAD"
     },
     "Sexo": {
-      "label": "Sexo",
+      "label": "(NOMBRE) es hombre/es mujer",
       "type": "categorical",
       "ensanut_param": "SEXO",
       "values": {
-        "1": "Hombre"
+        "1": "Hombre",
+        "2": "Mujer"
       }
     },
     "Entidad": {
-      "label": "Entidad",
+      "label": "Clave de Entidad Federativa",
       "type": "categorical",
-      "ensanut_param": null
+      "ensanut_param": "ENT"
     },
     "Region": {
-      "label": "Region",
+      "label": "Región",
       "type": "categorical",
       "ensanut_param": "REGION",
       "values": {
-        "1": "Norte"
+        "1": "Norte",
+        "2": "Centro",
+        "3": "Ciudad de México",
+        "4": "Sur"
       }
     },
     "Estrato": {
-      "label": "Estrato",
+      "label": "Estrato sociodemográfico",
       "type": "categorical",
-      "ensanut_param": null
+      "ensanut_param": "ESTRATO"
     },
     "Peso": {
-      "label": "Peso",
+      "label": "¿Cuál es su peso habitual sin ropa y zapatos?",
       "type": "continuous",
-      "ensanut_param": "P1_5"
+      "ensanut_param": "P1_5",
+      "values": {
+        "999": "No sabe"
+      }
     },
     "De_Agobio": {
-      "label": "De Agobio",
+      "label": "Durante la última semana...¿sentía como si no pudiera quitarse de encima la tristeza?",
       "type": "categorical",
       "ensanut_param": "P2_1_1",
       "values": {
-        "1": "Rara vez o nunca (menos de un dí­a)"
+        "1": "Rara vez o nunca (menos de un día)",
+        "2": "Pocas veces o alguna vez (1-2 días)",
+        "3": "Un número de veces considerable (3-4 días)",
+        "4": "Todo el tiempo o la mayoría del tiempo (5-7 días)"
       }
     },
     "De_Concentracion": {
-      "label": "De Concentracion",
+      "label": "Durante la última semana... ¿le costaba concentrarse en lo que estaba haciendo?",
       "type": "categorical",
       "ensanut_param": "P2_1_2",
       "values": {
-        "1": "Rara vez o nunca (menos de un dí­a)"
+        "1": "Rara vez o nunca (menos de un día)",
+        "2": "Pocas veces o alguna vez (1-2 días)",
+        "3": "Un número de veces considerable (3-4 días)",
+        "4": "Todo el tiempo o la mayoría del tiempo (5-7 días)"
       }
     },
     "De_Depresion": {
-      "label": "De Depresion",
+      "label": "Durante la última semana...¿se sintió deprimido(a)?",
       "type": "categorical",
       "ensanut_param": "P2_1_3",
       "values": {
-        "1": "Rara vez o nunca (menos de un dí­a)"
+        "1": "Rara vez o nunca (menos de un día)",
+        "2": "Pocas veces o alguna vez (1-2 días)",
+        "3": "Un número de veces considerable (3-4 días)",
+        "4": "Todo el tiempo o la mayoría del tiempo (5-7 días)"
       }
     },
     "De_Esfuerzo": {
-      "label": "De Esfuerzo",
+      "label": "Durante la última semana... ¿le parecía que todo lo que hacía era un esfuerzo?",
       "type": "categorical",
       "ensanut_param": "P2_1_4",
       "values": {
-        "1": "Rara vez o nunca (menos de un dí­a)"
+        "1": "Rara vez o nunca (menos de un día)",
+        "2": "Pocas veces o alguna vez (1-2 días)",
+        "3": "Un número de veces considerable (3-4 días)",
+        "4": "Todo el tiempo o la mayoría del tiempo (5-7 días)"
       }
     },
     "De_Dormir": {
-      "label": "De Dormir",
+      "label": "Durante la última semana...¿no durmió bien?",
       "type": "categorical",
       "ensanut_param": "P2_1_5",
       "values": {
-        "1": "Rara vez o nunca (menos de un dí­a)"
+        "1": "Rara vez o nunca (menos de un día)",
+        "2": "Pocas veces o alguna vez (1-2 días)",
+        "3": "Un número de veces considerable (3-4 días)",
+        "4": "Todo el tiempo o la mayoría del tiempo (5-7 días)"
       }
     },
     "De_Disfrutar": {
-      "label": "De Disfrutar",
+      "label": "Durante la última semana... ¿disfrutó de la vida?",
       "type": "categorical",
       "ensanut_param": "P2_1_6",
       "values": {
-        "1": "Rara vez o nunca (menos de un dí­a)"
+        "1": "Rara vez o nunca (menos de un día)",
+        "2": "Pocas veces o alguna vez (1-2 días)",
+        "3": "Un número de veces considerable (3-4 días)",
+        "4": "Todo el tiempo o la mayoría del tiempo (5-7 días)"
       }
     },
     "De_Tristeza": {
-      "label": "De Tristeza",
+      "label": "Durante la última semana...¿se sintió triste?",
       "type": "categorical",
       "ensanut_param": "P2_1_7",
       "values": {
-        "1": "Rara vez o nunca (menos de un dí­a)"
+        "1": "Rara vez o nunca (menos de un día)",
+        "2": "Pocas veces o alguna vez (1-2 días)",
+        "3": "Un número de veces considerable (3-4 días)",
+        "4": "Todo el tiempo o la mayoría del tiempo (5-7 días)"
       }
     },
     "De_Fatiga": {
-      "label": "De Fatiga",
+      "label": "¿Usted no puede caminar más de seis minutos sin sentir fatiga?",
       "type": "categorical",
       "ensanut_param": "P2_2",
       "values": {
@@ -107,24 +135,28 @@
       }
     },
     "DM_Diabetes": {
-      "label": "DM Diabetes",
+      "label": "¿Algún médico le ha dicho que tiene diabetes (o alta el azúcar en la sangre)?",
       "type": "categorical",
       "ensanut_param": "P3_1",
       "values": {
         "1": "Sí",
-        "2": "No"
+        "2": "Sí, durante el embarazo (solo mujeres, diabetes gestacional)",
+        "3": "No"
       }
     },
     "DM_Insulina": {
-      "label": "DM Insulina",
+      "label": "¿Actualmente toma pastillas o le aplican insulina para controlar su azúcar?",
       "type": "categorical",
       "ensanut_param": "P3_8",
       "values": {
-        "1": "Sí"
+        "1": "Sí, solo insulina",
+        "2": "Sí, solo pastillas",
+        "3": "Sí, ambas",
+        "4": "Ninguno"
       }
     },
     "HT_Hipertension": {
-      "label": "HT Hipertension",
+      "label": "¿Algún médico le ha dicho que tiene la presión alta?",
       "type": "categorical",
       "ensanut_param": "P4_1",
       "values": {
@@ -133,7 +165,7 @@
       }
     },
     "HT_Medicamento": {
-      "label": "HT Medicamento",
+      "label": "¿Actualmente toma alguna medicina (pastillas) para controlar su presión alta?",
       "type": "categorical",
       "ensanut_param": "P4_4",
       "values": {
@@ -142,7 +174,7 @@
       }
     },
     "CVC_infarto": {
-      "label": "CVC infarto",
+      "label": "¿Le ha dicho el médico que usted tiene (o tuvo) ... un infarto o ataque al corazón?",
       "type": "categorical",
       "ensanut_param": "P5_2_1",
       "values": {
@@ -151,7 +183,7 @@
       }
     },
     "CVC_angina": {
-      "label": "CVC angina",
+      "label": "¿Le ha dicho el médico que usted tiene (o tuvo) ... angina de pecho (dolor o molestia en el pecho, que desaparece regularmente de forma espontánea con el reposo o con medicinas)?",
       "type": "categorical",
       "ensanut_param": "P5_2_2",
       "values": {
@@ -160,7 +192,7 @@
       }
     },
     "CVC_insufcardiaca": {
-      "label": "CVC insufcardiaca",
+      "label": "¿Le ha dicho el médico que usted tiene (o tuvo) ... insuficiencia cardiaca (debilitamiento de la capacidad de bombeo del corazón, que provoca edema en pies, tobillos y piernas, cansancio y falta de aire)?",
       "type": "categorical",
       "ensanut_param": "P5_2_3",
       "values": {
@@ -169,7 +201,7 @@
       }
     },
     "Infeccion_viasurinarias": {
-      "label": "Infeccion viasurinarias",
+      "label": "¿Alguna vez un médico le ha dicho que padece de alguna enfermedad del riñón, como… infección de vías urinarias en más de una ocasión?",
       "type": "categorical",
       "ensanut_param": "P6_1_1",
       "values": {
@@ -178,7 +210,7 @@
       }
     },
     "CC_Colesterol": {
-      "label": "CC Colesterol",
+      "label": "¿Algún médico le ha dicho que tiene el colesterol alto?",
       "type": "categorical",
       "ensanut_param": "P6_4",
       "values": {
@@ -187,15 +219,16 @@
       }
     },
     "CC_medicamento": {
-      "label": "CC medicamento",
+      "label": "Mencione las acciones que actualmente toma para el control del colesterol. Medicamento",
       "type": "categorical",
       "ensanut_param": "P6_5_1",
       "values": {
-        "": "No se declaró como opción afirmativa"
+        "0": "No se declaró como opción afirmativa",
+        "1": "Sí"
       }
     },
     "TR_rigliceridos": {
-      "label": "TR rigliceridos",
+      "label": "¿Algún médico le ha dicho que tiene los triglicéridos altos?",
       "type": "categorical",
       "ensanut_param": "P6_6",
       "values": {
@@ -204,7 +237,7 @@
       }
     },
     "TR_medicamento": {
-      "label": "TR medicamento",
+      "label": "Familiar - Padre",
       "type": "categorical",
       "ensanut_param": "P7_1",
       "values": {
@@ -212,20 +245,24 @@
       }
     },
     "FR_Fumar": {
-      "label": "FR Fumar",
+      "label": "Actualmente ¿fuma tabaco...",
       "type": "categorical",
       "ensanut_param": "P13_2",
       "values": {
-        "1": "todos los días?"
+        "1": "todos los días?",
+        "2": "algunos días?",
+        "3": "no fuma actualmente?",
+        "8": "No responde"
       }
     },
     "FR_Tomar": {
-      "label": "FR Tomar",
+      "label": "¿Actualmente toma?",
       "type": "categorical",
       "ensanut_param": "P13_11",
       "values": {
         "1": "Sí",
-        "2": "No"
+        "2": "No",
+        "3": "Nunca ha tomado"
       }
     }
   }

@@ -1,4 +1,4 @@
-import { labelForValue, pct } from "./utils.js";
+import { labelForValue, sortCodes } from "./utils.js";
 
 export function renderChart(containerId, variable, metaCol, summaryBlock, splitBy, meta) {
   const el = document.getElementById(containerId);
@@ -18,7 +18,7 @@ export function renderChart(containerId, variable, metaCol, summaryBlock, splitB
 }
 
 function renderSimpleBars(el, variable, overall, metaCol) {
-  const codes = Object.keys(overall);
+  const codes = sortCodes(Object.keys(overall));
   const labels = codes.map((c) => labelForValue(metaCol, c));
   const values = codes.map((c) => overall[c] * 100);
 
@@ -33,9 +33,9 @@ function renderSimpleBars(el, variable, overall, metaCol) {
       marker: { color: "#2563eb" },
     }],
     {
-      margin: { t: 24, r: 16, b: 80, l: 48 },
+      margin: { t: 24, r: 16, b: 120, l: 48 },
       yaxis: { title: "Prevalencia (%)", rangemode: "tozero" },
-      xaxis: { title: variable },
+      xaxis: { title: metaCol?.label || variable, tickangle: -25 },
     },
     { responsive: true, displayModeBar: false }
   );
@@ -43,15 +43,17 @@ function renderSimpleBars(el, variable, overall, metaCol) {
 
 function renderGroupedBars(el, variable, byGroup, splitCol, meta) {
   const splitMeta = meta.columns[splitCol];
-  const groups = Object.keys(byGroup);
+  const varMeta = meta.columns[variable];
+  const groups = sortCodes(Object.keys(byGroup));
   const allCodes = new Set();
   groups.forEach((g) => Object.keys(byGroup[g]).forEach((c) => allCodes.add(c)));
-  const codes = [...allCodes];
+  const codes = sortCodes([...allCodes]);
+  const xLabels = codes.map((c) => labelForValue(varMeta, c));
 
-  const traces = groups.map((g, i) => ({
+  const traces = groups.map((g) => ({
     type: "bar",
     name: labelForValue(splitMeta, g),
-    x: codes.map((c) => labelForValue(meta.columns[variable], c)),
+    x: xLabels,
     y: codes.map((c) => (byGroup[g][c] ?? 0) * 100),
   }));
 
@@ -60,9 +62,10 @@ function renderGroupedBars(el, variable, byGroup, splitCol, meta) {
     traces,
     {
       barmode: "group",
-      margin: { t: 24, r: 16, b: 80, l: 48 },
+      margin: { t: 24, r: 16, b: 120, l: 48 },
       yaxis: { title: "Prevalencia (%)", rangemode: "tozero" },
-      legend: { title: { text: splitCol } },
+      xaxis: { title: varMeta?.label || variable, tickangle: -25 },
+      legend: { title: { text: splitMeta?.label || splitCol } },
     },
     { responsive: true, displayModeBar: false }
   );

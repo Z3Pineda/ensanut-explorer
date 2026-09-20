@@ -8,7 +8,7 @@
     "Entidad": {
       "label": "Entidad",
       "type": "categorical",
-      "ensanut_param": "ENT",
+      "ensanut_param": "entidad",
       "values": {
         "1": "Durango",
         "2": "Oaxaca",
@@ -44,21 +44,23 @@
     "Municipio": {
       "label": "Municipio",
       "type": "continuous",
-      "ensanut_param": null
+      "ensanut_param": "municipio"
     },
     "Region": {
       "label": "Region",
       "type": "categorical",
-      "ensanut_param": "region_cv",
+      "ensanut_param": "x_region",
       "values": {
-        "1": "Pacifico-Norte",
-        "2": "Frontera",
-        "3": "Pacífico-Centro",
-        "4": "Centro-Norte",
-        "6": "Cd. Mexico",
-        "7": "Edo Mexico",
-        "8": "Pacífico-Sur",
-        "9": "Península"
+        "1": "Norte",
+        "2": "Centro",
+        "3": "Ciudad de México",
+        "4": "Sur",
+        "5": "Resto Centro Norte",
+        "6": "Centro",
+        "7": "Cd. México",
+        "8": "Edo. México",
+        "9": "Pacífico Sur",
+        "10": "Península"
       }
     },
     "Sexo": {
@@ -73,55 +75,92 @@
     "Edad": {
       "label": "Edad",
       "type": "continuous",
-      "ensanut_param": "h0303"
+      "ensanut_param": "h0303",
+      "values": {
+        "": "Menores de un año"
+      }
     },
     "Embarazada": {
-      "label": "Embarazada",
+      "label": "6. USTED ESTÁ...",
       "type": "categorical",
       "ensanut_param": "an06",
       "values": {
-        "1": "Está embarazada?"
+        "1": "Está embarazada?",
+        "2": "Está dando pecho?",
+        "3": "Está embarazada y dando pecho?",
+        "4": "Ninguna de las anteriores",
+        "9": "No sabe"
       }
     },
     "Estrato": {
-      "label": "Estrato",
+      "label": "Estrato urbanidad/ruralidad",
       "type": "categorical",
-      "ensanut_param": null
+      "ensanut_param": "estrato",
+      "values": {
+        "1": "Rural  ( <2500 Hab )",
+        "2": "Urbano ( 2500-99,999 Hab)",
+        "3": "Metropolitano (100mil y + Hab)"
+      }
     },
     "Peso": {
-      "label": "Peso",
+      "label": "1. AHORA VOY A PESAR A (NOMBRE) (PRIMERA MEDICIÓN)",
       "type": "continuous",
-      "ensanut_param": "an01_1"
+      "ensanut_param": "an01_1",
+      "values": {
+        "22": "No se pesó",
+        "222": "No se pesó"
+      }
     },
     "Talla": {
-      "label": "Talla",
+      "label": "4. AHORA VOY A MEDIR LA ESTATURA DE (NOMBRE) (PRIMERA MEDICIÓN)",
       "type": "continuous",
-      "ensanut_param": "an04_1"
+      "ensanut_param": "an04_1",
+      "values": {
+        "2": "No se midió",
+        "222": "No se midió"
+      }
     },
     "Cintura": {
-      "label": "Cintura",
+      "label": "8. AHORA VOY A MEDIR LA CINTURA DE (NOMBRE) (PRIMERA MEDICIÓN)",
       "type": "continuous",
-      "ensanut_param": "an08_1"
+      "ensanut_param": "an08_1",
+      "values": {
+        "222.2": "No se midió"
+      }
     },
     "Peso_mas60": {
-      "label": "Peso mas60",
+      "label": "12. AHORA VOY A PESAR A (NOMBRE) (PRIMERA MEDICIÓN)",
       "type": "continuous",
-      "ensanut_param": "an12_1"
+      "ensanut_param": "an12_1",
+      "values": {
+        "22": "No se pesó",
+        "222": "No se pesó"
+      }
     },
     "Talla_mas60": {
-      "label": "Talla mas60",
+      "label": "15. AHORA VOY A MEDIR LA ESTATURA DE (NOMBRE) (PRIMERA MEDICIÓN)",
       "type": "continuous",
-      "ensanut_param": "an15_1"
+      "ensanut_param": "an15_1",
+      "values": {
+        "2": "No se midió",
+        "222": "No se midió"
+      }
     },
     "TA_sistole": {
       "label": "TA sistole",
       "type": "continuous",
-      "ensanut_param": "an27_01_1"
+      "ensanut_param": "an27_01_1",
+      "values": {
+        "222.2": "No se midió"
+      }
     },
     "TA_diastole": {
       "label": "TA diastole",
       "type": "continuous",
-      "ensanut_param": "an27_02_1"
+      "ensanut_param": "an27_02_1",
+      "values": {
+        "222.2": "No se midió"
+      }
     }
   }
 }
