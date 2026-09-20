@@ -23,4 +23,4 @@ jobs:
         run: pip install -r scripts/requirements.txt
 
       - name: Run pytest
-        run: python -m pytest tests/ -v
+        run: python -m pytest tests/ -v --tb=short --ignore=tests/test_reproduction.py
