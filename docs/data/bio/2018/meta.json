@@ -20,7 +20,7 @@
       }
     },
     "Entidad": {
-      "label": "Entidad",
+      "label": "Entidad federativa",
       "type": "categorical",
       "ensanut_param": "ENT",
       "values": {
@@ -28,45 +28,6 @@
         "2": "Baja California",
         "3": "Baja California Sur",
         "4": "Campeche",
-        "5": "Coahuila De Zaragoza",
-        "6": "Colima",
-        "7": "Chiapas",
-        "8": "Chihuahua",
-        "9": "Ciudad De Mexico",
-        "10": "Durango",
-        "11": "Guanajuato",
-        "12": "Guerrero",
-        "13": "Hidalgo",
-        "14": "Jalisco",
-        "15": "Mexico",
-        "16": "Michoacan De Ocampo",
-        "17": "Morelos",
-        "18": "Nayarit",
-        "19": "Nuevo Leon",
-        "20": "Oaxaca",
-        "21": "Puebla",
-        "22": "Queretaro",
-        "23": "Quintana Roo",
-        "24": "San Luis Potosi",
-        "25": "Sinaloa",
-        "26": "Sonora",
-        "27": "Tabasco",
-        "28": "Tamaulipas",
-        "29": "Tlaxcala",
-        "30": "Veracruz De Ignacio De La Llave",
-        "31": "Yucatan",
-        "32": "Zacatecas"
-      }
-    },
-    "Region": {
-      "label": "Región",
-      "type": "categorical",
-      "ensanut_param": "REGION",
-      "values": {
-        "1": "Norte",
-        "2": "Centro",
-        "3": "Ciudad de México",
-        "4": "Sur",
         "5": "Chiapas",
         "6": "Chihuahua",
         "7": "Ciudad de México",
@@ -97,53 +58,64 @@
         "32": "Zacatecas"
       }
     },
+    "Region": {
+      "label": "Región ENSANUT",
+      "type": "categorical",
+      "ensanut_param": "REGION",
+      "values": {
+        "1": "Norte",
+        "2": "Centro",
+        "3": "Ciudad de México",
+        "4": "Sur"
+      }
+    },
     "Estrato": {
       "label": "Estrato",
       "type": "categorical",
       "ensanut_param": "ESTRATO"
     },
     "Glucosa": {
-      "label": "Valor glucosa",
+      "label": "Glucosa en suero",
       "type": "continuous",
       "ensanut_param": "VALOR_GLU_SUERO"
     },
     "HB1AC": {
-      "label": "Valor hemoglobona glucosilada",
+      "label": "Hemoglobina glucosilada (HbA1c)",
       "type": "continuous",
       "ensanut_param": "VALOR_HB1AC"
     },
     "Albumina": {
-      "label": "<ninguno>",
+      "label": "Albumina sérica",
       "type": "continuous",
       "ensanut_param": "VALOR_ALBUM"
     },
     "C_HDL": {
-      "label": "<ninguno>",
+      "label": "Colesterol HDL",
       "type": "continuous",
       "ensanut_param": "VALOR_COL_HDL"
     },
     "C_LDL": {
-      "label": "<ninguno>",
+      "label": "Colesterol LDL",
       "type": "continuous",
       "ensanut_param": "VALOR_COL_LDL"
     },
     "Colesterol": {
-      "label": "<ninguno>",
+      "label": "Colesterol total",
       "type": "continuous",
       "ensanut_param": "VALOR_COLEST"
     },
     "Creatinina": {
-      "label": "<ninguno>",
+      "label": "Creatinina sérica",
       "type": "continuous",
       "ensanut_param": "VALOR_CREAT"
     },
     "Insulina": {
-      "label": "<ninguno>",
+      "label": "Insulina",
       "type": "continuous",
       "ensanut_param": "VALOR_INSULINA"
     },
     "Trigliceridos": {
-      "label": "<ninguno>",
+      "label": "Triglicéridos",
       "type": "continuous",
       "ensanut_param": "VALOR_TRIG"
     }

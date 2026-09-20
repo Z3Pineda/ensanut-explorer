@@ -4,6 +4,7 @@ const DEFAULT_LINKS = {
   salud: "explore.html?module=salud&year=2018&var=DM_Diabetes",
   antropometria: "explore.html?module=antropometria&year=2018&var=Peso",
   bio: "explore.html?module=bio&year=2018&var=Glucosa",
+  actfis: "explore.html?module=actfis&year=2022&var=AF_pandalla_diasem_hr",
   lactancia: "explore.html?module=lactancia&year=2018&var=amamantar",
 };
 

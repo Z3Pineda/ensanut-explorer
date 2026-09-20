@@ -6,7 +6,7 @@
   "rows": 15926,
   "columns": {
     "Entidad": {
-      "label": "Entidad",
+      "label": "Entidad federativa",
       "type": "categorical",
       "ensanut_param": "entidad",
       "values": {
@@ -50,42 +50,14 @@
       "ensanut_param": "municipio"
     },
     "Region": {
-      "label": "Region",
+      "label": "Región ENSANUT",
       "type": "categorical",
       "ensanut_param": "x_region",
       "values": {
-        "1": "Pacifico-Norte",
-        "2": "Frontera",
-        "3": "Pacífico-Centro",
-        "4": "Guanajuato",
-        "5": "Resto Centro Norte",
-        "6": "Centro",
-        "7": "Cd. México",
-        "8": "Edo. México",
-        "9": "Pacífico Sur",
-        "10": "Península",
-        "11": "Guanajuato",
-        "12": "Guerrero",
-        "13": "Hidalgo",
-        "14": "Jalisco",
-        "15": "Estado de México",
-        "16": "Michoacán",
-        "17": "Morelos",
-        "18": "Nayarit",
-        "19": "Nuevo León",
-        "20": "Oaxaca",
-        "21": "Puebla",
-        "22": "Querétaro",
-        "23": "Quintana Roo",
-        "24": "San Luis Potosí",
-        "25": "Sinaloa",
-        "26": "Sonora",
-        "27": "Tabasco",
-        "28": "Tamaulipas",
-        "29": "Tlaxcala",
-        "30": "Veracruz",
-        "31": "Yucatán",
-        "32": "Zacatecas"
+        "1": "Norte",
+        "2": "Centro",
+        "3": "Ciudad de México",
+        "4": "Sur"
       }
     },
     "Sexo": {

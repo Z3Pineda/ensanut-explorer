@@ -6,7 +6,7 @@
   "rows": 6772,
   "columns": {
     "Entidad": {
-      "label": "Entidad",
+      "label": "Entidad federativa",
       "type": "categorical",
       "ensanut_param": "entidad",
       "values": {
@@ -45,46 +45,18 @@
       }
     },
     "Region": {
-      "label": "Region sugerida para el analisis",
+      "label": "Región ENSANUT",
       "type": "categorical",
       "ensanut_param": "x_region",
       "values": {
         "1": "Norte",
         "2": "Centro",
-        "3": "Sur",
-        "4": "Sur",
-        "11": "Guanajuato",
-        "25": "Sinaloa",
-        "5": "Chiapas",
-        "6": "Chihuahua",
-        "7": "Ciudad de México",
-        "8": "Coahuila",
-        "9": "Colima",
-        "10": "Durango",
-        "12": "Guerrero",
-        "13": "Hidalgo",
-        "14": "Jalisco",
-        "15": "Estado de México",
-        "16": "Michoacán",
-        "17": "Morelos",
-        "18": "Nayarit",
-        "19": "Nuevo León",
-        "20": "Oaxaca",
-        "21": "Puebla",
-        "22": "Querétaro",
-        "23": "Quintana Roo",
-        "24": "San Luis Potosí",
-        "26": "Sonora",
-        "27": "Tabasco",
-        "28": "Tamaulipas",
-        "29": "Tlaxcala",
-        "30": "Veracruz",
-        "31": "Yucatán",
-        "32": "Zacatecas"
+        "3": "Ciudad de México",
+        "4": "Sur"
       }
     },
-    "estrato": {
-      "label": "estrato",
+    "Estrato": {
+      "label": "Estrato",
       "type": "categorical",
       "ensanut_param": null
     },
@@ -94,7 +66,7 @@
       "ensanut_param": "edad"
     },
     "Sexo": {
-      "label": "Sexo del Seleccionado",
+      "label": "Sexo",
       "type": "categorical",
       "ensanut_param": "sexo",
       "values": {

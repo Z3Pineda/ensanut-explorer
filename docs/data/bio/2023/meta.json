@@ -11,7 +11,7 @@
       "ensanut_param": "h0302"
     },
     "Sexo": {
-      "label": "Edad",
+      "label": "Sexo",
       "type": "categorical",
       "ensanut_param": "h0303",
       "values": {
@@ -35,47 +35,47 @@
       }
     },
     "Glucosa": {
-      "label": "Glucosa mg/dl",
+      "label": "Glucosa en suero",
       "type": "continuous",
       "ensanut_param": "GLU_SUERO"
     },
     "HB1AC": {
-      "label": "Hemoglobina glucosilada. %",
+      "label": "Hemoglobina glucosilada (HbA1c)",
       "type": "continuous",
       "ensanut_param": "HB1AC"
     },
     "Albumina": {
-      "label": "Albúmina g/dl",
+      "label": "Albumina sérica",
       "type": "continuous",
       "ensanut_param": "ALBU"
     },
     "C_HDL": {
-      "label": "Colesterol HDL mg/dl",
+      "label": "Colesterol HDL",
       "type": "continuous",
       "ensanut_param": "COL_HDL"
     },
     "C_LDL": {
-      "label": "Colesterol LDL mg/dl",
+      "label": "Colesterol LDL",
       "type": "continuous",
       "ensanut_param": "COL_LDL"
     },
     "Colesterol": {
-      "label": "Colesterol total mg/dl",
+      "label": "Colesterol total",
       "type": "continuous",
       "ensanut_param": "COLEST"
     },
     "Creatinina": {
-      "label": "Creatinina mg/dl",
+      "label": "Creatinina sérica",
       "type": "continuous",
       "ensanut_param": "CREAT"
     },
     "Insulina": {
-      "label": "Insulina microUI/ml",
+      "label": "Insulina",
       "type": "continuous",
       "ensanut_param": "INSULINA"
     },
     "Trigliceridos": {
-      "label": "Triglicéridos mg/dl",
+      "label": "Triglicéridos",
       "type": "continuous",
       "ensanut_param": "TRIG"
     },

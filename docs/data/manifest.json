@@ -92,6 +92,30 @@
         }
       }
     },
+    "actfis": {
+      "title": "Actividad física",
+      "status": "mvp",
+      "years": {
+        "2018": {
+          "meta": "data/actfis/2018/meta.json",
+          "summary": "data/actfis/2018/summary.json",
+          "texto": "data/actfis/2018/texto.txt",
+          "data": "data/actfis/2018/data.csv"
+        },
+        "2022": {
+          "meta": "data/actfis/2022/meta.json",
+          "summary": "data/actfis/2022/summary.json",
+          "texto": "data/actfis/2022/texto.txt",
+          "data": "data/actfis/2022/data.csv"
+        },
+        "2023": {
+          "meta": "data/actfis/2023/meta.json",
+          "summary": "data/actfis/2023/summary.json",
+          "texto": "data/actfis/2023/texto.txt",
+          "data": "data/actfis/2023/data.csv"
+        }
+      }
+    },
     "lactancia": {
       "title": "Lactancia materna",
       "status": "mvp",

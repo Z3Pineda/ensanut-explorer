@@ -11,16 +11,16 @@
       "ensanut_param": "Edad"
     },
     "Sexo": {
-      "label": "SEXO DE LA PERSONA A LA QUE SE LE TOMÁ LA MUESTRA",
+      "label": "Sexo",
       "type": "categorical",
       "ensanut_param": "Sexo",
       "values": {
-        "1": "HOMBRE",
-        "2": "MUJER"
+        "1": "Hombre",
+        "2": "Mujer"
       }
     },
     "Entidad": {
-      "label": "Entidad",
+      "label": "Entidad federativa",
       "type": "categorical",
       "ensanut_param": "ENTIDAD",
       "values": {
@@ -59,7 +59,7 @@
       }
     },
     "Glucosa": {
-      "label": "Resultado  Glucosa (mg/dl)",
+      "label": "Glucosa en suero",
       "type": "continuous",
       "ensanut_param": "valor.GLU_SUERO"
     },
@@ -69,37 +69,37 @@
       "ensanut_param": null
     },
     "Albumina": {
-      "label": "Resultado  Albúmina (g/dL)",
+      "label": "Albumina sérica",
       "type": "continuous",
       "ensanut_param": "valor.ALBUM"
     },
     "C_HDL": {
-      "label": "Resultado  Colesterol HDL (mg/dl)",
+      "label": "Colesterol HDL",
       "type": "continuous",
       "ensanut_param": "valor.COL_HDL"
     },
     "C_LDL": {
-      "label": "Resultado  Colesterol LDL (mg/dl)",
+      "label": "Colesterol LDL",
       "type": "continuous",
       "ensanut_param": "valor.COL_LDL"
     },
     "Colesterol": {
-      "label": "Resultado  Colesterol total (mg/dl)",
+      "label": "Colesterol total",
       "type": "continuous",
       "ensanut_param": "valor.COLEST"
     },
     "Creatinina": {
-      "label": "Resultado  Creatinina (mg/dl)",
+      "label": "Creatinina sérica",
       "type": "continuous",
       "ensanut_param": "valor.CREAT"
     },
     "Insulina": {
-      "label": "Resultado  Insulina (MicroUI/ml)",
+      "label": "Insulina",
       "type": "continuous",
       "ensanut_param": "valor.INSULINA"
     },
     "Trigliceridos": {
-      "label": "Resultado  Triglicéridos (mg/dl)",
+      "label": "Triglicéridos",
       "type": "continuous",
       "ensanut_param": "valor.TRIG"
     },

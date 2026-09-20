@@ -82,10 +82,57 @@ ENTIDAD_VALUES: dict[str, str] = {
     "32": "Zacatecas",
 }
 
+# Etiquetas biomarcadores (description.csv sin texto descriptivo)
+BIO_LABELS: dict[str, str] = {
+    "Glucosa": "Glucosa en suero",
+    "HB1AC": "Hemoglobina glucosilada (HbA1c)",
+    "Albumina": "Albumina sérica",
+    "C_HDL": "Colesterol HDL",
+    "C_LDL": "Colesterol LDL",
+    "Colesterol": "Colesterol total",
+    "Creatinina": "Creatinina sérica",
+    "Insulina": "Insulina",
+    "Trigliceridos": "Triglicéridos",
+}
+
+# Parámetro JSON correcto cuando description.csv / Nombre_corto INSP asigna mal
+COLUMN_JSON_PARAM: dict[str, str] = {
+    "TR_medicamento": "p6_7_1",
+}
+
+# Columnas internas del cuestionario (notas de flujo); no analizar en el sitio
+SKIP_COLUMNS = re.compile(r"^nota\d+$", re.I)
+
+
+def clean_label(raw: str | None, fallback: str) -> str:
+    label = str(raw or "").strip()
+    if label.lower() in ("", "nan", "<ninguno>", "ninguno", "none"):
+        return fallback.replace("_", " ")
+    if label in ('"', " ", "''"):
+        return fallback.replace("_", " ")
+    return label
+
+
+def normalize_dataframe(df: pd.DataFrame) -> pd.DataFrame:
+    rename: dict[str, str] = {}
+    if "estrato" in df.columns and "Estrato" not in df.columns:
+        rename["estrato"] = "Estrato"
+    if rename:
+        df = df.rename(columns=rename)
+    return df
+
 
 def load_catalog() -> dict:
     with open(CATALOG_PATH, encoding="utf-8") as f:
         return json.load(f)
+
+
+def _pick_csv_column(columns: list[str], *needles: str) -> str | None:
+    for needle in needles:
+        for col in columns:
+            if needle.lower() in col.lower():
+                return col
+    return None
 
 
 def parse_description_csv(path: Path) -> dict[str, dict]:
@@ -100,18 +147,29 @@ def parse_description_csv(path: Path) -> dict[str, dict]:
             continue
     else:
         return {}
-    if df.empty or "Nombre corto" not in df.columns:
+    if df.empty:
         return {}
+
+    cols = list(df.columns)
+    name_col = _pick_csv_column(cols, "nombre corto   (adulto)", "nombre corto  (adulto)", "nombre corto")
+    desc_col = _pick_csv_column(cols, "descripción   (adulto)", "descripción  (adulto)", "descripción")
+    param_col = _pick_csv_column(cols, "parámetro ensanut (adulto)", "parámetro ensanut")
+    if not name_col:
+        return {}
+
     meta: dict[str, dict] = {}
     for _, row in df.iterrows():
-        col = str(row.get("Nombre corto", "")).strip()
+        col = str(row.get(name_col, "")).strip()
         if not col or col == "nan":
             continue
-        desc = str(row.get("Descripción", "")).strip()
-        param = str(row.get("Parámetro ENSANUT", "")).strip()
+        desc = str(row.get(desc_col, "")).strip() if desc_col else ""
+        param = str(row.get(param_col, "")).strip() if param_col else ""
         values = parse_value_map(desc)
+        if col == "Entidad" and values:
+            values = dict(ENTIDAD_VALUES)
+        label = BIO_LABELS.get(col, col.replace("_", " "))
         meta[col] = {
-            "label": col.replace("_", " "),
+            "label": label,
             "ensanut_param": param if param != "nan" else None,
             "type": "categorical" if values else "unknown",
             "values": values,
@@ -152,7 +210,7 @@ def _entry_from_json(param: str, info: dict) -> dict:
             values[code] = label
     short = info.get("Nombre_corto") or info.get("nombre_corto") or param
     return {
-        "label": str(info.get("Etiqueta", short)).strip(),
+        "label": clean_label(info.get("Etiqueta"), str(short)),
         "ensanut_param": param,
         "values": values,
     }
@@ -196,33 +254,35 @@ def merge_desc_meta(
     merged: dict[str, dict] = {}
     for col in df_columns:
         entry: dict = dict(csv_meta.get(col, {}))
-        js = json_short.get(col)
+        js = None
+        if col in COLUMN_JSON_PARAM:
+            js = json_param.get(COLUMN_JSON_PARAM[col])
+        if not js:
+            js = json_short.get(col)
         param = entry.get("ensanut_param")
         if not js and param:
             js = json_param.get(str(param).lower())
         if js:
-            entry["label"] = js.get("label") or entry.get("label") or col.replace("_", " ")
+            entry["label"] = clean_label(
+                js.get("label") or entry.get("label"),
+                col,
+            )
             entry["ensanut_param"] = js.get("ensanut_param") or param
             if js.get("values"):
                 entry["values"] = dict(js["values"])
 
+        if col in BIO_LABELS:
+            entry["label"] = BIO_LABELS[col]
+
         if col == "Entidad":
-            entry["values"] = {**ENTIDAD_VALUES, **entry.get("values", {})}
-            entry["label"] = entry.get("label") or "Entidad federativa"
+            entry["values"] = dict(ENTIDAD_VALUES)
+            entry["label"] = "Entidad federativa"
         elif col == "Region":
-            region = dict(STANDARD_VALUES["Region"])
-            for k, v in entry.get("values", {}).items():
-                if k:
-                    region[normalize_code(k)] = v
-            # ENSANUT 2023+: Region puede usar códigos de entidad (x_region)
-            for code, name in ENTIDAD_VALUES.items():
-                region.setdefault(code, name)
-            entry["values"] = region
-            entry["label"] = entry.get("label") or "Región"
+            entry["values"] = dict(STANDARD_VALUES["Region"])
+            entry["label"] = "Región ENSANUT"
         elif col in STANDARD_VALUES:
-            base = dict(STANDARD_VALUES[col])
-            base.update(entry.get("values", {}))
-            entry["values"] = base
+            entry["values"] = dict(STANDARD_VALUES[col])
+            entry["label"] = "Sexo" if col == "Sexo" else col
 
         if entry.get("values"):
             entry["type"] = "categorical"
@@ -255,11 +315,11 @@ def build_meta(
     types = infer_column_types(df, module_cfg)
     columns: dict[str, dict] = {}
     for col in df.columns:
-        if col == "ID":
+        if col == "ID" or SKIP_COLUMNS.match(col):
             continue
         info = desc_meta.get(col, {})
         entry = {
-            "label": info.get("label", col.replace("_", " ")),
+            "label": clean_label(info.get("label"), col),
             "type": types.get(col, "unknown"),
             "ensanut_param": info.get("ensanut_param"),
         }
@@ -399,7 +459,7 @@ def process_module_year(module_id: str, year: int, copy_csv: bool = True) -> Non
     dest = OUT / module_id / str(year)
     dest.mkdir(parents=True, exist_ok=True)
 
-    df = pd.read_csv(csv_src, encoding="utf-8", low_memory=False)
+    df = normalize_dataframe(pd.read_csv(csv_src, encoding="utf-8", low_memory=False))
     csv_meta = parse_description_csv(src_dir / "description.csv")
     json_path = find_description_json(cfg["source_dir"], year)
     json_short, json_param = parse_description_json(json_path) if json_path else ({}, {})

@@ -59,18 +59,30 @@ function refreshYearSelect() {
 
 function refreshVariableSelect() {
   const cfg = state.catalog.modules[state.module];
+  const metaCols = state.dataset?.meta?.columns ?? {};
   const sel = document.getElementById("sel-variable");
   sel.innerHTML = "";
-  const vars = [
+  const catalogVars = [
     ...(cfg.variables?.categorical ?? []),
     ...(cfg.variables?.continuous ?? []),
   ];
+  let vars = catalogVars;
+  if (Object.keys(metaCols).length) {
+    vars = catalogVars.filter((v) => v in metaCols);
+    if (!vars.length) {
+      vars = Object.keys(metaCols).filter((c) => c !== "ID" && !/^nota\d+$/i.test(c));
+    }
+  }
   vars.forEach((v) => {
     const opt = document.createElement("option");
+    const label = metaCols[v]?.label;
     opt.value = v;
-    opt.textContent = v;
+    opt.textContent =
+      label && label.length <= 72 && label !== v ? `${v} — ${label}` : v;
+    opt.title = label || v;
     sel.appendChild(opt);
   });
+  if (!vars.length) return;
   if (!vars.includes(state.variable)) state.variable = vars[0];
   sel.value = state.variable;
 }
@@ -135,7 +147,6 @@ function bindEvents() {
 }
 
 async function refresh() {
-  refreshVariableSelect();
   try {
     state.dataset = await loadDataset(state.module, state.year);
   } catch (err) {
@@ -143,6 +154,7 @@ async function refresh() {
       `<p style="padding:1rem;color:#b91c1c">${err.message}</p>`;
     return;
   }
+  refreshVariableSelect();
   document.getElementById("btn-download").href = state.dataset.csvUrl;
   updateViewFields();
   refreshMapCodeSelect();

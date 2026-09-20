@@ -1,0 +1,335 @@
+{
+  "module": "actfis",
+  "year": 2022,
+  "source": "ENSANUT 2022 — CS_ADULTOS.csv",
+  "population": "Adultos (CS_ADULTOS)",
+  "rows": 8240,
+  "columns": {
+    "Entidad": {
+      "label": "Entidad federativa",
+      "type": "categorical",
+      "ensanut_param": "entidad",
+      "values": {
+        "1": "Aguascalientes",
+        "2": "Baja California",
+        "3": "Baja California Sur",
+        "4": "Campeche",
+        "5": "Chiapas",
+        "6": "Chihuahua",
+        "7": "Ciudad de México",
+        "8": "Coahuila",
+        "9": "Colima",
+        "10": "Durango",
+        "11": "Guanajuato",
+        "12": "Guerrero",
+        "13": "Hidalgo",
+        "14": "Jalisco",
+        "15": "Estado de México",
+        "16": "Michoacán",
+        "17": "Morelos",
+        "18": "Nayarit",
+        "19": "Nuevo León",
+        "20": "Oaxaca",
+        "21": "Puebla",
+        "22": "Querétaro",
+        "23": "Quintana Roo",
+        "24": "San Luis Potosí",
+        "25": "Sinaloa",
+        "26": "Sonora",
+        "27": "Tabasco",
+        "28": "Tamaulipas",
+        "29": "Tlaxcala",
+        "30": "Veracruz",
+        "31": "Yucatán",
+        "32": "Zacatecas"
+      }
+    },
+    "Region": {
+      "label": "Región ENSANUT",
+      "type": "categorical",
+      "ensanut_param": "region",
+      "values": {
+        "1": "Norte",
+        "2": "Centro",
+        "3": "Ciudad de México",
+        "4": "Sur"
+      }
+    },
+    "Estrato": {
+      "label": "Estrato",
+      "type": "categorical",
+      "ensanut_param": null
+    },
+    "Sexo": {
+      "label": "Sexo",
+      "type": "categorical",
+      "ensanut_param": "h0302",
+      "values": {
+        "1": "Hombre",
+        "2": "Mujer"
+      }
+    },
+    "Edad": {
+      "label": "Edad",
+      "type": "continuous",
+      "ensanut_param": "h0303"
+    },
+    "Hr_duerme_dia": {
+      "label": "FA0400 Cuántas HORAS en promedio duerme en un día?",
+      "type": "continuous",
+      "ensanut_param": "fa0400",
+      "values": {
+        "1": "<=5 horas",
+        "2": "6 horas",
+        "3": "7 horas",
+        "4": "8 horas",
+        "5": ">=9 horas",
+        "88": "No responde",
+        "99": "No sabe"
+      }
+    },
+    "AF_vigorosa_dias": {
+      "label": "FA0401 4.1 Durante los últimos 7 días, ¿Cuántos DÍAS realizó usted alguna actividad que requiera de un esfuerzo físico vigoroso?",
+      "type": "categorical",
+      "ensanut_param": "fa0401"
+    },
+    "AF_vigorosa_1dhr": {
+      "label": "FA0402AH Generalmente ¿Cuánto TIEMPO en total le tomó realizar actividad(es) física(s) vigorosa(s) en UNO de esos días? HORAS",
+      "type": "categorical",
+      "ensanut_param": "fa0402ah",
+      "values": {
+        "88": "<ninguno>",
+        "99": "<ninguno>"
+      }
+    },
+    "AF_vigorosa_1dmin": {
+      "label": "FA0402AM Generalmente ¿Cuánto TIEMPO en total le tomó realizar actividad(es) física(s) vigorosa(s) en UNO de esos días? MINUTOS",
+      "type": "continuous",
+      "ensanut_param": "fa0402am"
+    },
+    "AF_vigorosa_7dhr": {
+      "label": "FA0402BH Cuánto TIEMPO dedicó usted en los últimos 7 días a hacer actividad(es) física(s) vigorosa(s)? HORAS",
+      "type": "categorical",
+      "ensanut_param": "fa0402bh"
+    },
+    "AF_vigorosa_7dmin": {
+      "label": "FA0402BM Cuánto TIEMPO dedicó usted en los últimos 7 días a hacer actividad(es) física(s) vigorosa(s)? MINUTOS",
+      "type": "categorical",
+      "ensanut_param": "fa0402bm"
+    },
+    "AF_moderada_dias": {
+      "label": "FA0403 Durante los últimos 7 días, ¿Cuántos DÍAS realizó usted alguna actividad física moderada?",
+      "type": "categorical",
+      "ensanut_param": "fa0403"
+    },
+    "AF_moderada_1dhr": {
+      "label": "FA0404AH Generalmente ¿Cuánto TIEMPO en total le tomó realizar actividad(es) física(s) moderada(s) en UNO de esos días? HORAS",
+      "type": "continuous",
+      "ensanut_param": "fa0404ah",
+      "values": {
+        "88": "<ninguno>",
+        "99": "<ninguno>"
+      }
+    },
+    "AF_moderada_1dhmin": {
+      "label": "FA0404AM Generalmente ¿Cuánto TIEMPO en total le tomó realizar actividad(es) física(s) moderada(s) en UNO de esos días? MINUTOS",
+      "type": "continuous",
+      "ensanut_param": "fa0404am"
+    },
+    "AF_moderada_7dhr": {
+      "label": "FA0404BH ¿Cuánto TIEMPO dedicó usted en los últimos 7 días a hacer actividad(es) física(s) moderada(s)? HORAS",
+      "type": "categorical",
+      "ensanut_param": "fa0404bh",
+      "values": {
+        "88": "<ninguno>",
+        "99": "<ninguno>"
+      }
+    },
+    "AF_moderada_7dmin": {
+      "label": "FA0404BM ¿Cuánto TIEMPO dedicó usted en los últimos 7 días a hacer actividad(es) física(s) moderada(s)? MINUTOS",
+      "type": "categorical",
+      "ensanut_param": "fa0404bm"
+    },
+    "AF_caminar_dias": {
+      "label": "FA0405 Durante los últimos 7 días, ¿Cuántos DÍAS usted caminó por lo menos 10 minutos continuos?",
+      "type": "categorical",
+      "ensanut_param": "fa0405"
+    },
+    "AF_caminar_1dhr": {
+      "label": "FA0406AH Generalmente ¿Cuánto TIEMPO caminó usted en UNO de esos días? HORAS",
+      "type": "continuous",
+      "ensanut_param": "fa0406ah",
+      "values": {
+        "88": "<ninguno>",
+        "99": "<ninguno>"
+      }
+    },
+    "AF_caminar_1dhmin": {
+      "label": "FA0406AM Generalmente ¿Cuánto TIEMPO caminó usted en UNO de esos días? MINUTOS",
+      "type": "continuous",
+      "ensanut_param": "fa0406am"
+    },
+    "AF_caminar_7dhr": {
+      "label": "FA0406BH ¿Cuál es la cantidad total de TIEMPO que usted caminó en los últimos 7 días? HORAS",
+      "type": "categorical",
+      "ensanut_param": "fa0406bh",
+      "values": {
+        "88": "<ninguno>",
+        "99": "<ninguno>"
+      }
+    },
+    "AF_caminar_7dmin": {
+      "label": "FA0406BM ¿Cuál es la cantidad total de TIEMPO que usted caminó en los últimos 7 días? MINUTOS",
+      "type": "categorical",
+      "ensanut_param": "fa0406bm"
+    },
+    "AF_sentado_1dhr": {
+      "label": "FA0407H Durante los últimos 7 días, ¿Cuánto TIEMPO en total estuvo sentado(a) en UNO de esos días de la semana? HORAS",
+      "type": "categorical",
+      "ensanut_param": "fa0407h",
+      "values": {
+        "88": "<ninguno>",
+        "99": "<ninguno>"
+      }
+    },
+    "AF_sentado_1dmin": {
+      "label": "FA0407M Durante los últimos 7 días, ¿Cuánto TIEMPO en total estuvo sentado(a) en UNO de esos días de la semana? MINUTOS",
+      "type": "continuous",
+      "ensanut_param": "fa0407m"
+    },
+    "AF_sentado_mierhr": {
+      "label": "FA0407AH ¿Cuál es la cantidad total de TIEMPO que usted pasó sentado(a) el miércoles pasado? HORAS",
+      "type": "categorical",
+      "ensanut_param": "fa0407ah",
+      "values": {
+        "88": "<ninguno>",
+        "99": "<ninguno>"
+      }
+    },
+    "AF_sentado_miermin": {
+      "label": "FA0407AM ¿Cuál es la cantidad total de TIEMPO que usted pasó sentado(a) el miércoles pasado? MINUTOS",
+      "type": "categorical",
+      "ensanut_param": "fa0407am"
+    },
+    "transporte_motor_dias": {
+      "label": "FA0408 Durante los últimos 7 días, ¿Cuántos DÍAS se desplazó en un vehículo de motor como tren, autobús, automóvil, tranvía, metro o colectivo?",
+      "type": "categorical",
+      "ensanut_param": "fa0408"
+    },
+    "transporte_motor_hr": {
+      "label": "FA0409H ¿Cuál es la cantidad total de TIEMPO que usted pasó viajando en tren, autobús, automóvil, tranvía, metro o colectivo en UNO de esos días de la semana? HORAS",
+      "type": "continuous",
+      "ensanut_param": "fa0409h",
+      "values": {
+        "88": "<ninguno>",
+        "99": "<ninguno>"
+      }
+    },
+    "transporte_motor_min": {
+      "label": "FA0409M ¿Cuál es la cantidad total de TIEMPO que usted pasó viajando en tren, autobús, automóvil, tranvía, metro o colectivo en UNO de esos días de la semana? MINUTOS",
+      "type": "continuous",
+      "ensanut_param": "fa0409m"
+    },
+    "AF_pandalla_diasem_hr": {
+      "label": "FA0410 En un día entre semana, ¿Cuántas horas de lunes a viernes pasa frente a una pantalla, viendo televisión (incluyendo películas o DVD). Incluya tiempo de la mañana, tarde y noche.",
+      "type": "categorical",
+      "ensanut_param": "fa0410",
+      "values": {
+        "1": "Menos de una hora",
+        "2": "1-2 horas",
+        "3": "3-4 horas",
+        "4": "5-6 horas",
+        "5": "7-8 horas",
+        "6": "9 ó más horas",
+        "88": "No responde",
+        "99": "No sabe"
+      }
+    },
+    "AF_pandalla_diafind_hr": {
+      "label": "FA0411 En un día de fin de semana, ¿Cuántas horas pasa frente a una pantalla, viendo televisión (incluyendo ver películas o DVD). Incluye tiempo de la mañana, tarde y noche.",
+      "type": "categorical",
+      "ensanut_param": "fa0411",
+      "values": {
+        "1": "Menos de una hora",
+        "2": "1-2 horas",
+        "3": "3-4 horas",
+        "4": "5-6 horas",
+        "5": "7-8 horas",
+        "6": "9 ó más horas",
+        "88": "No responde",
+        "99": "No sabe"
+      }
+    },
+    "AF_vidjuegos_diasem_hr": {
+      "label": "FA0412 En un día entre semana, ¿Cuántas horas de lunes a viernes pasa frente a una pantalla, jugando videojuegos (Atari, Sega, Nintendo, GameBoy, Play-station, Wii, X-box u otros juegos de video y/o computadora, tableta electrónica o teléfono). IncluyF50�",
+      "type": "categorical",
+      "ensanut_param": "fa0412",
+      "values": {
+        "1": "Menos de una hora",
+        "2": "1-2 horas",
+        "3": "3-4 horas",
+        "4": "5-6 horas",
+        "5": "7-8 horas",
+        "6": "9 ó más horas",
+        "88": "No responde",
+        "99": "No sabe"
+      }
+    },
+    "AF_vidjuegos_diafind_hr": {
+      "label": "FA0413 En un día de fin de semana, ¿Cuántas horas pasa frente a una pantalla, jugando videojuegos (Atari, Sega, Nintendo, GameBoy, Play-station, Wii, X-box u otros juegos de video y/o computadora, tableta electrónica o teléfono). Incluya tiempo de la F50�F",
+      "type": "categorical",
+      "ensanut_param": "fa0413",
+      "values": {
+        "1": "Menos de una hora",
+        "2": "1-2 horas",
+        "3": "3-4 horas",
+        "4": "5-6 horas",
+        "5": "7-8 horas",
+        "6": "9 ó más horas",
+        "88": "No responde",
+        "99": "No sabe"
+      }
+    },
+    "AF_internet_1dsemana": {
+      "label": "FA0414 En un día entre semana, ¿Cuántas horas de lunes a viernes pasa frente a una computadora, tableta electrónica o teléfono, ya sea chateando, navegando en internet, enviando mails o trabajando (sin contar jugar en la computadora, tableta electrónF50",
+      "type": "categorical",
+      "ensanut_param": "fa0414",
+      "values": {
+        "1": "Menos de una hora",
+        "2": "1-2 horas",
+        "3": "3-4 horas",
+        "4": "5-6 horas",
+        "5": "7-8 horas",
+        "6": "9 ó más horas",
+        "88": "No responde",
+        "99": "No sabe"
+      }
+    },
+    "AF_internet_1dfinsem": {
+      "label": "FA0415 En un día de fin de semana, ¿Cuántas horas pasa frente a una computadora, tableta electrónica o teléfono, ya sea chateando, navegando en internet, enviando mails o trabajando (sin contar jugar en la computadora, tableta electrónica o teléfonoF50�F",
+      "type": "categorical",
+      "ensanut_param": "fa0415",
+      "values": {
+        "1": "Menos de una hora",
+        "2": "1-2 horas",
+        "3": "3-4 horas",
+        "4": "5-6 horas",
+        "5": "7-8 horas",
+        "6": "9 ó más horas",
+        "88": "No responde",
+        "99": "No sabe"
+      }
+    },
+    "AF_constante_3meses": {
+      "label": "FA0416 Considera que la actividad física que realizó la semana pasada es más, menos, o mas o menos la misma, comparado con la actividad física que realizó los últimos tres meses?",
+      "type": "categorical",
+      "ensanut_param": "fa0416",
+      "values": {
+        "1": "Menos",
+        "2": "Mas o menos",
+        "88": "No responde",
+        "99": "No sabe"
+      }
+    }
+  }
+}
